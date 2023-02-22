@@ -27,7 +27,7 @@
 #DemoToolInfoSlider .expandpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolInfoSlider .notconfiguredpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolInfoSlider .filtereventsbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
-#DemoToolInfoSlider .qatoolbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; background-image: url("https://raw.githubusercontent.com/sitecore-jbe/CdpPersonalizeTamperMonkey/main/images/demotool-qa-icon-grey.png"); background-position-x: 50%; background-position-y: center; background-size:cover; background-repeat: no-repeat;}
+#DemoToolInfoSlider .qatoolbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; background-image: url("https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/Production/Images/demotool-qa-icon-grey.png"); background-position-x: 50%; background-position-y: center; background-size:cover; background-repeat: no-repeat;}
 
 /* Info Slider Accordion */
 #DemoToolInfoSlider .AccordionContent { line-height:normal; font-size: 12px; font-weight: normal; background-color: white; height: 500px; width: 400px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; }
@@ -54,7 +54,7 @@
 #DemoToolInfoSlider .propertylabel { display: inline; font-weight: 700; text-transform: capitalize;}
 #DemoToolInfoSlider .propertyvalue { display: inline; font-weight: 400;}
 #DemoToolInfoSlider .propertyvaluesuffix { display: inline; font-weight: 400;}
-#DemoToolInfoSlider .propertyvaluesuffix.qatoolbutton { width: 12px; height: 12px; margin: 0 0 -2px 5px; background-color: transparent; padding: 0; background-image: url("https://raw.githubusercontent.com/sitecore-jbe/CdpPersonalizeTamperMonkey/main/images/demotool-qa-icon-black.png"); display:inline-block;  float:none; }
+#DemoToolInfoSlider .propertyvaluesuffix.qatoolbutton { width: 12px; height: 12px; margin: 0 0 -2px 5px; background-color: transparent; padding: 0; background-image: url("https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/Production/Images/demotool-qa-icon-black.png"); display:inline-block;  float:none; }
 
 #DemoToolInfoSlider .propertylength { display: inline; }
 #DemoToolInfoSlider .collapsablecontainercaret { display: inline; margin-left:5px;}
