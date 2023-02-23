@@ -2122,7 +2122,7 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
 
 
 // Load necessary CSS & JavaScript Libraries asynchronously
-(function () {
+function LoadScriptAndInitializeDemoTool() {
     LoadJavascriptAsync(SITECORECDP_JS_LIB_SRC).then(() => {
         if (SEND_VIEW_EVENT) {
             // If send view event on every page load
@@ -2141,4 +2141,4 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
     LoadStyleSheetAsync(DEMOTOOL_CSS, true);
 
     InitializeInfoSlider();
-})();
+}
