@@ -148,7 +148,7 @@ function TimeOfTheDay(hour) {
 }
 
 // Define the Boxever settings
-unsafeWindow._boxever_settings = {
+_boxever_settings = {
     client_key: SITECORECDP_CLIENT_KEY, // Replace with your client key
     target: SITECORECDP_STREAM_API_TARGET, // Replace with your API target endpoint specific to your data center region
     cookie_domain: SITECORECDP_COOKIE_DOMAIN, // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
