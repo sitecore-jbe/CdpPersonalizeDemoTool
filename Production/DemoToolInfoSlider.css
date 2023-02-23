@@ -20,10 +20,10 @@
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeader { overflow: hidden; font-family: 'Montserrat', sans-serif; font-size: 15px;}
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderLeft { float:left; margin-top: 20px; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderLeftImage { width: 35px; margin: 10px; }
-#DemoToolInfoSlider .personalizeLogo { height: 30px; }
-#DemoToolInfoSlider .cdpLogo { height: 30px; }
+#DemoToolInfoSlider .personalizeLogo { height: 30px; width:auto;}
+#DemoToolInfoSlider .cdpLogo { height: 30px; width:auto;}
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderRight{ float:left; }
-#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderRightTopTitle { }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderRightTopTitle { display:inline-block;}
 #DemoToolInfoSlider h3.demoToolInfoSliderBodyHeaderRightTopTitle { font-size: 26px; margin-bottom: 5px; font-family: 'Montserrat', sans-serif !important;}
 
 #DemoToolInfoSlider .expandpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
