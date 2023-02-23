@@ -1,5 +1,4 @@
-﻿(function () {
-    "use strict";
+﻿    "use strict";
 
     //Demo specific Sitecore CDP settings
     const SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
@@ -217,28 +216,6 @@
     function LoadJavascriptAsync(src, addDateTimeQueryString = false) {
         return LoadResourceAsync(ResourceType.Javascript, src, addDateTimeQueryString);
     }
-
-    // Load necessary CSS & JavaScript Libraries asynchronously
-    (function () {
-        LoadJavascriptAsync(SITECORECDP_JS_LIB_SRC).then(() => {
-            if (SEND_VIEW_EVENT) {
-                // If send view event on every page load
-                SendViewEventToSitecoreCdp();
-            }
-        });
-
-        LoadJavascriptAsync(MOMENT_JS).then(() => {
-            LoadJavascriptAsync(MOMENT_TIMEZONE_JS);
-        });
-
-        LoadJavascriptAsync(POPPER_JS);
-        LoadJavascriptAsync(PLURALIZE_JS);
-
-        LoadStyleSheetAsync(FONT_AWESOME_CSS);
-        LoadStyleSheetAsync(DEMOTOOL_CSS, true);
-
-        InitializeInfoSlider();
-    })();
     //END ADDING JSS & CSS LIBRARIES
 
 
@@ -2141,5 +2118,27 @@
         }
 
         return showObject;
-    }
+}
+
+
+// Load necessary CSS & JavaScript Libraries asynchronously
+(function () {
+    LoadJavascriptAsync(SITECORECDP_JS_LIB_SRC).then(() => {
+        if (SEND_VIEW_EVENT) {
+            // If send view event on every page load
+            SendViewEventToSitecoreCdp();
+        }
+    });
+
+    LoadJavascriptAsync(MOMENT_JS).then(() => {
+        LoadJavascriptAsync(MOMENT_TIMEZONE_JS);
+    });
+
+    LoadJavascriptAsync(POPPER_JS);
+    LoadJavascriptAsync(PLURALIZE_JS);
+
+    LoadStyleSheetAsync(FONT_AWESOME_CSS);
+    LoadStyleSheetAsync(DEMOTOOL_CSS, true);
+
+    InitializeInfoSlider();
 })();
