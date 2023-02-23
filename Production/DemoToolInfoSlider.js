@@ -1,15 +1,4 @@
-﻿/* globals jQuery, demoTooljQuery, Boxever, _boxeverq*/
-// ==UserScript==
-// @name 00 Sportingkampenhout.be
-// @namespace http://tampermonkey.net/
-// @version 2.0
-// @description Generic Load Sitecore CDP Tampermonkey scripts
-// @author Johan Becue
-// @match https://www.sportingkampenhout.be/*
-// @match https://sportingkampenhout.be/*
-// ==/UserScript==
-
-(function () {
+﻿(function () {
     "use strict";
 
     //Demo specific Sitecore CDP settings
@@ -119,10 +108,6 @@
     const NOTCONFIGUREDPROPERTIESDISABLED_TEXT = "Hide not configured properties.";
 
     const OPENQATOOLQUESTION_TEXT = "Are you sure you want to open the QA Tool. The page will reload."
-
-    //Script settings
-    const ENABLE_KEYBOARD_SHORTCUTS = true;
-    const SEND_VIEW_EVENT = true;
 
     //Logging settings
     const CONSOLE_LOG_PREFIX = "Sitecore: ";
