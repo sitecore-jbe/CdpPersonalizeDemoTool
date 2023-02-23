@@ -86,4 +86,4 @@
 #DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 10000; opacity: 1; background-color: white; min-width:450px; }
 #DemoToolInfoSlider .tooltip[data-show] { display: block;}
 
-#DemoToolInfoSlider .geoipflag { max-height: 10px;}
+#DemoToolInfoSlider .geoipflag { max-height: 10px; width:auto;}
