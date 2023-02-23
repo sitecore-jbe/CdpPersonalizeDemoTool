@@ -1751,28 +1751,6 @@
     }
 
 
-    function SendViewEventToSitecoreCdp() {
-        GetIPGeolocation().then(function (response) {
-            console.debug(CONSOLE_LOG_PREFIX + "Starting SendViewEventToSitecoreCdp...");
-
-            var viewEvent = baseEvent(SITECORECDP_VIEW_TYPE);
-            viewEvent.sessionData = {
-                "uri": window.location.pathname,
-                "ipInfo": {
-                    "ipAddress": response.ip,
-                    "latitude": response.latitude,
-                    "longitude": response.longitude,
-                    "city": response.city,
-                    "country": response.country_name
-                }
-            };
-            SendTrackingDataToSitecoreCdp(viewEvent);
-
-            console.debug(CONSOLE_LOG_PREFIX + "Ended SendViewEventToSitecoreCdp.");
-        });
-    }
-
-
     //If progressive parameter is true or not specified then data properties with empty values are not removed before submitting the event.
     function SendGuestDataExtensions(extensionName, data, progressive = true) {
         console.debug(CONSOLE_LOG_PREFIX + "Starting SendGuestDataExtensions...");
