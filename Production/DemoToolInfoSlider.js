@@ -1408,7 +1408,7 @@ function ComposeAccordion(accordionDefinitionPath, parentHtmlElement) {
     //Compose Accordion Content
     if (composeAccordionContent) {
         //Compose accordion and show if it contains content.
-        accordion.style.display = (ComposeObject(accordionContent, false)) ? "inline-block" : "none";
+        accordion.style.display = (ComposeObject(accordionContent, false)) ? "block" : "none";
     }
     else {
         accordion.style.display = "none";
