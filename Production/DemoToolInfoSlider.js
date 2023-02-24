@@ -96,6 +96,7 @@ const CONTAINERDEFINITIONS_URL = "https://sitecore-jbe.github.io/CdpPersonalizeD
 const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo.png";
 const CDPLOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp.png";
 const PERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-personalize.png";
+const SITECORELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
 
 const EVENTFILTERINGENABLED_TEXT = "Disable event filtering.";
 const EVENTFILTERINGDISABLED_TEXT = "Enable event filtering.";
@@ -1664,6 +1665,11 @@ function InitializeInfoSlider() {
 
     // Add info slider (open/close) event handler.
     AddInfoSliderClickEventHandlers(InfoSlider, InfoSliderToggle, InfoSliderToggleIcon, InfoSliderBody);
+
+    //Info Slider Header
+    var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
+    var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "cdpLogo" });
+
 
     console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeInfoSlider.");
 
