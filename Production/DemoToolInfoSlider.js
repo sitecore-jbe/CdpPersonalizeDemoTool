@@ -1670,7 +1670,7 @@ function InitializeInfoSlider() {
 
     //Info Slider Header
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
-    var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "cdpLogo" });
+    var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
 
 
     console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeInfoSlider.");
