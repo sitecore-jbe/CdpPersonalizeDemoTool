@@ -1663,8 +1663,10 @@ function InitializeInfoSlider() {
         AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderRightBottomQaToolButton);
     }
 
+    var InfoSliderBodyAccordions = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Accordions", classList: "demoToolInfoSliderBodyAccordions" });
+
     // Add info slider (open/close) event handler.
-    AddInfoSliderClickEventHandlers(InfoSlider, InfoSliderToggle, InfoSliderToggleIcon, InfoSliderBody);
+    AddInfoSliderClickEventHandlers(InfoSlider, InfoSliderToggle, InfoSliderToggleIcon, InfoSliderBodyAccordions);
 
     //Info Slider Header
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
