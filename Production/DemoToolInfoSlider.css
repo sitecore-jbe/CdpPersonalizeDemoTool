@@ -17,9 +17,10 @@
 
 
 /* Info Slider Header */
-#DemoToolInfoSlider .demoToolInfoSliderBodyHeader { overflow: hidden; font-family: 'Montserrat', sans-serif; font-size: 15px;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeader {  font-family: 'Montserrat', sans-serif; font-size: 15px;}
 
-#DemoToolInfoSlider .demoToolInfoSliderBodyFooter  { display: flex; position: absolute; bottom: 0; width: 100%; justify-content: center; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyFooter  { display: flex; position: absolute; bottom: 0; width: 100%; justify-content: center; margin-bottom:10px}
+#DemoToolInfoSlider .demoToolInfoSliderBodyAccordions  { overflow: hidden; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderLeft { float:left; margin-top: 20px; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderLeftImage { width: 35px; margin: 10px; }
 #DemoToolInfoSlider .personalizeLogo { height: 30px; width:auto;}
