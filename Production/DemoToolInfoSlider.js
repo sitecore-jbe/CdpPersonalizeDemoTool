@@ -94,8 +94,9 @@ const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/
 const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSlider.css" };
 const CONTAINERDEFINITIONS_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
 const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo.png";
-const CDPLOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp.png";
-const PERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-personalize.png";
+//const CDPLOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp.png";
+//const PERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-personalize.png";
+const CDPANDPERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
 const SITECORELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
 
 const EVENTFILTERINGENABLED_TEXT = "Disable event filtering.";
