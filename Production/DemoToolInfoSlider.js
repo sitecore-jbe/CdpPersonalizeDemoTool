@@ -1617,9 +1617,9 @@ function InitializeInfoSlider() {
     //Info Slider Header
     var InfoSliderBodyHeader = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Header", classList: "demoToolInfoSliderBodyHeader" });
 
-    //Info Slider Header Left
-    var InfoSliderBodyHeaderLeft = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Left", classList: "demoToolInfoSliderBodyHeaderLeft" });
-    var InfoSliderBodyHeaderLeftImage = AppendElementAsChild(InfoSliderBodyHeaderLeft, "img", { id: InfoSliderBodyHeaderLeft.id + "Image", src: LOGO_URL, classList: "demoToolInfoSliderBodyHeaderLeftImage" });
+    ////Info Slider Header Left
+    //var InfoSliderBodyHeaderLeft = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Left", classList: "demoToolInfoSliderBodyHeaderLeft" });
+    //var InfoSliderBodyHeaderLeftImage = AppendElementAsChild(InfoSliderBodyHeaderLeft, "img", { id: InfoSliderBodyHeaderLeft.id + "Image", src: LOGO_URL, classList: "demoToolInfoSliderBodyHeaderLeftImage" });
 
     //Info Slider Header Right
     var InfoSliderBodyHeaderRight = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Right", classList: "demoToolInfoSliderBodyHeaderRight" });
