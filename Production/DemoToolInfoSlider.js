@@ -1626,9 +1626,8 @@ function InitializeInfoSlider() {
 
     //Info Slider Header Right Top
     var InfoSliderBodyHeaderRightTop = AppendElementAsChild(InfoSliderBodyHeaderRight, "div", { id: InfoSliderBodyHeaderRight.id + "Top" });
-    var InfoSliderBodyHeaderCdpLogoImage = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "img", { id: InfoSliderBodyHeaderRightTop.id + "Image", src: CDPLOGO_URL, classList: "cdpLogo" });
-    var InfoSliderBodyHeaderAndLabel = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "label", { id: InfoSliderBodyHeaderRightTop.id + "Label", innerText: " & ", classList: "and" });
-    var InfoSliderBodyHeaderPersonalizeLogoImage = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "img", { id: InfoSliderBodyHeaderRightTop.id + "Image", src: PERSONALIZELOGO_URL, classList: "personalizeLogo" });
+    var InfoSliderBodyHeaderCdpLogoImage = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "img", { id: InfoSliderBodyHeaderRightTop.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "cdpandPersonalizeLogo" });
+    var InfoSliderBodyHeaderAndLabel = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "label", { id: InfoSliderBodyHeaderRightTop.id + "Label", innerText: "Profiling Tool", classList: "toolTitle" });
 
     //Info Slider Header Right Bottom
     var InfoSliderBodyHeaderRightBottom = AppendElementAsChild(InfoSliderBodyHeaderRight, "div", { id: InfoSliderBodyHeaderRight.id + "Bottom" });
