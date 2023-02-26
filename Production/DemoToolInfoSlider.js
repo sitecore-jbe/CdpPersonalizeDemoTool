@@ -2155,7 +2155,7 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
     LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
 
-    LoadStyleSheetAsync(FONT_MONSERRAT_CSS);
+    LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
     LoadStyleSheetAsync(FONT_AWESOME_CSS);
     LoadStyleSheetAsync(DEMOTOOL_CSS, true);
 
