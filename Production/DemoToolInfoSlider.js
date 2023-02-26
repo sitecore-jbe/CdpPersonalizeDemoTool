@@ -102,6 +102,8 @@ const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVI
 const CDPANDPERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
 const SITECORELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
 
+const ABOUT_TEXT = "About";
+
 const EVENTFILTERINGENABLED_TEXT = "Disable event filtering.";
 const EVENTFILTERINGDISABLED_TEXT = "Enable event filtering.";
 
@@ -1586,6 +1588,27 @@ function AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, toggl
     });
 }
 
+function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipContent) {
+    //Create the popper
+    popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
+        placement: "auto", //preferred placement of popper
+        modifiers: [
+            {
+                name: "offset", //offsets popper from the reference/button
+                options: {
+                    offset: [0, 8]
+                }
+            },
+            {
+                name: "flip", //flips popper with allowed placements
+                options: {
+                    allowedAutoPlacements: ["right", "left", "top", "bottom"],
+                    rootBoundary: "viewport"
+                }
+            }
+        ]
+    });
+}
 function AddInfoSliderExtendedPropertiesButtonClickEventHandlers(button, htmlElementsDataId) {
     AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, [DEMOTOOL_FONTAWESOME_ANGLESDOWN, DEMOTOOL_FONTAWESOME_ANGLESUP], "extendedproperty", function () { return IsExtendedPropertiesEnabled() }, EXTENDEDPROPERTIESENABLED_TEXT, EXTENDEDPROPERTIESDISABLED_TEXT, "DemoToolExtendedPropertiesButtonState");
 }
@@ -1644,6 +1667,11 @@ function InitializeInfoSlider() {
 
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
+
+    var AboutButtonDataId = "AboutButton";
+    var InfoSliderBodyHeaderBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "Aboutbutton", title: ABOUT_TEXT })
+    AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderBottomAboutButton, "About this tool");
+
     //Add the ExtendedPropertiesButtonId to the htmlElementIDs and init htmlElementIDs if neccessary.
     var ExtendedPropertiesButtonDataId = "ExtendedPropertiesButton";
     var InfoSliderBodyHeaderBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
