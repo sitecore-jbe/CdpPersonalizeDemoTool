@@ -1617,49 +1617,41 @@ function InitializeInfoSlider() {
     //Info Slider Header
     var InfoSliderBodyHeader = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Header", classList: "demoToolInfoSliderBodyHeader" });
 
-    ////Info Slider Header Left
-    //var InfoSliderBodyHeaderLeft = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Left", classList: "demoToolInfoSliderBodyHeaderLeft" });
-    //var InfoSliderBodyHeaderLeftImage = AppendElementAsChild(InfoSliderBodyHeaderLeft, "img", { id: InfoSliderBodyHeaderLeft.id + "Image", src: LOGO_URL, classList: "demoToolInfoSliderBodyHeaderLeftImage" });
-
-    //Info Slider Header Right
+    //Info Slider Header Top
     var InfoSliderBodyHeaderTop = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Top", classList: "demoToolInfoSliderBodyHeaderTop" });
+    var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderTop, "img", { id: InfoSliderBodyHeaderTop.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "cdpandPersonalizeLogo" });
+    var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTop, "label", { id: InfoSliderBodyHeaderTop.id + "Label", innerText: "Profiling Tool", classList: "toolTitle" });
 
-    //Info Slider Header Right Top
-    var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "img", { id: InfoSliderBodyHeaderRightTop.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "cdpandPersonalizeLogo" });
-    var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderRightTop, "label", { id: InfoSliderBodyHeaderRightTop.id + "Label", innerText: "Profiling Tool", classList: "toolTitle" });
-
-    //Info Slider Header Right Bottom
-    var InfoSliderBodyHeaderRightBottom = AppendElementAsChild(InfoSliderBodyHeaderRight, "div", { id: InfoSliderBodyHeaderRight.id + "Bottom" });
-    var InfoSliderBodyHeaderRightBottomSubTitle = AppendElementAsChild(InfoSliderBodyHeaderRightBottom, "i", { id: InfoSliderBodyHeaderRightBottom.id + "SubTitle", innerText: "Demo Tool" });
-
+    //Info Slider Header Bottom
+    var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Bottom" });
 
     //Add the ExtendedPropertiesButtonId to the htmlElementIDs and init htmlElementIDs if neccessary.
     var ExtendedPropertiesButtonDataId = "ExtendedPropertiesButton";
-    var InfoSliderBodyHeaderRightBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderRightBottom, 'i', { id: InfoSliderBodyHeaderRightBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
-    AddInfoSliderExtendedPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderRightBottomExtendedPropertiesButton, ExtendedPropertiesButtonDataId + "Id");
+    var InfoSliderBodyHeaderBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
+    AddInfoSliderExtendedPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomExtendedPropertiesButton, ExtendedPropertiesButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolExtendedPropertiesButtonState") == "true") {
-        InfoSliderBodyHeaderRightBottomExtendedPropertiesButton.click();
+        InfoSliderBodyHeaderBottomExtendedPropertiesButton.click();
     }
 
     var NotConfiguredPropertiesButtonDataId = "NotConfiguredPropertiesButton";
-    var InfoSliderBodyHeaderRightBottomNotConfiguredPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderRightBottom, 'i', { id: InfoSliderBodyHeaderRightBottom.id + NotConfiguredPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_BARSSTAGGERED + " " + "notconfiguredpropertiesbutton", title: NOTCONFIGUREDPROPERTIESENABLED_TEXT })
-    AddInfoSliderNotConfiguredPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderRightBottomNotConfiguredPropertiesButton, NotConfiguredPropertiesButtonDataId + "Id");
+    var InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + NotConfiguredPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_BARSSTAGGERED + " " + "notconfiguredpropertiesbutton", title: NOTCONFIGUREDPROPERTIESENABLED_TEXT })
+    AddInfoSliderNotConfiguredPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton, NotConfiguredPropertiesButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolNotConfiguredPropertiesButtonState") == "true") {
-        InfoSliderBodyHeaderRightBottomNotConfiguredPropertiesButton.click();
+        InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton.click();
     }
     var FilterEventsButtonDataId = "FilterEventsButton";
-    var InfoSliderBodyHeaderRightBottomFilterEventsButton = AppendElementAsChild(InfoSliderBodyHeaderRightBottom, 'i', { id: InfoSliderBodyHeaderRightBottom.id + FilterEventsButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK + " " + "filtereventsbutton", title: EVENTFILTERINGENABLED_TEXT });
-    AddInfoSliderFilterEventsButtonClickEventHandlers(InfoSliderBodyHeaderRightBottomFilterEventsButton, FilterEventsButtonDataId + "Id");
+    var InfoSliderBodyHeaderBottomFilterEventsButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + FilterEventsButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK + " " + "filtereventsbutton", title: EVENTFILTERINGENABLED_TEXT });
+    AddInfoSliderFilterEventsButtonClickEventHandlers(InfoSliderBodyHeaderBottomFilterEventsButton, FilterEventsButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolFilterEventsButtonState") == "false") {
-        InfoSliderBodyHeaderRightBottomFilterEventsButton.click();
+        InfoSliderBodyHeaderBottomFilterEventsButton.click();
     }
 
 
     if (!document.location.href.includes("bxQATool=true")) {
         var QaToolButtonDataId = "QAToolButton";
 
-        var InfoSliderBodyHeaderRightBottomQaToolButton = AppendElementAsChild(InfoSliderBodyHeaderRightBottom, 'i', { id: InfoSliderBodyHeaderRightBottom.id + QaToolButtonDataId, classList: "qatoolbutton", title: "Open QA Tool" });
-        AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderRightBottomQaToolButton);
+        var InfoSliderBodyHeaderBottomQaToolButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + QaToolButtonDataId, classList: "qatoolbutton", title: "Open QA Tool" });
+        AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderBottomQaToolButton);
     }
 
     var InfoSliderBodyAccordions = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Accordions", classList: "demoToolInfoSliderBodyAccordions" });
