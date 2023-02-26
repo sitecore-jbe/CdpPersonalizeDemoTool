@@ -1589,25 +1589,30 @@ function AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, toggl
 }
 
 function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipContent) {
-    //Create the popper
-    popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-        placement: "auto", //preferred placement of popper
-        modifiers: [
-            {
-                name: "offset", //offsets popper from the reference/button
-                options: {
-                    offset: [0, 8]
+    toolTipCloseButtonHtmlElement.addEventListener("click", function (e) {
+        toolTipButton.preventDefault();
+
+        popperInstance = Popper.createPopper(toolTipButton.id, toolTipContent, {
+            placement: "auto", //preferred placement of popper
+            modifiers: [
+                {
+                    name: "offset", //offsets popper from the reference/button
+                    options: {
+                        offset: [0, 8]
+                    }
+                },
+                {
+                    name: "flip", //flips popper with allowed placements
+                    options: {
+                        allowedAutoPlacements: ["right", "left", "top", "bottom"],
+                        rootBoundary: "viewport"
+                    }
                 }
-            },
-            {
-                name: "flip", //flips popper with allowed placements
-                options: {
-                    allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                    rootBoundary: "viewport"
-                }
-            }
-        ]
+            ]
+        });
     });
+    //Create the popper
+    
 }
 function AddInfoSliderExtendedPropertiesButtonClickEventHandlers(button, htmlElementsDataId) {
     AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, [DEMOTOOL_FONTAWESOME_ANGLESDOWN, DEMOTOOL_FONTAWESOME_ANGLESUP], "extendedproperty", function () { return IsExtendedPropertiesEnabled() }, EXTENDEDPROPERTIESENABLED_TEXT, EXTENDEDPROPERTIESDISABLED_TEXT, "DemoToolExtendedPropertiesButtonState");
