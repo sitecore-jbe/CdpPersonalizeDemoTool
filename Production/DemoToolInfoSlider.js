@@ -1589,8 +1589,8 @@ function AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, toggl
 }
 
 function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipContent) {
-    toolTipCloseButtonHtmlElement.addEventListener("click", function (e) {
-        toolTipButton.preventDefault();
+    toolTipButton.addEventListener("click", function (e) {
+        e.preventDefault();
 
         popperInstance = Popper.createPopper(toolTipButton.id, toolTipContent, {
             placement: "auto", //preferred placement of popper
