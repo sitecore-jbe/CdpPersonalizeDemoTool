@@ -1637,7 +1637,7 @@ function InitializeInfoSlider() {
 
     //Info Slider Header Top Right Top
     var InfoSliderBodyHeaderTopRightTop = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Top", classList: "demoToolInfoSliderBodyHeaderTopRightTop" });
-    var InfoSliderBodyHeaderTopRightTopLabel = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Label", innerText: "vx.xx", classList: "demoToolInfoSliderBodyHeaderTopRightTopLabel" });
+    var InfoSliderBodyHeaderTopRightTopLabel = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Label", innerText: "v1.00", classList: "demoToolInfoSliderBodyHeaderTopRightTopLabel" });
 
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
