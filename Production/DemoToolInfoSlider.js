@@ -92,6 +92,8 @@ const MOMENT_TIMEZONE_JS = { id: "MOMENT_TIMEZONE_JS", url: "//cdnjs.cloudflare.
 const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
 const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
+const FONT_MONTSERRAT_CSS = { id: "FONT_MONTSERRAT_CSS", url: "//fonts.googleapis.com/css?family=Montserrat" };
+
 const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSlider.css" };
 const CONTAINERDEFINITIONS_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
 const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo.png";
@@ -164,8 +166,8 @@ unsafeWindow._boxever_settings = {
 //START ADDING JSS & CSS LIBRARIES
 class ResourceType {
     // Create new instances of the same class as static attributes
-    static Stylesheet = new ResourceType("Stylesheet")
-    static Javascript = new ResourceType("Javascript")
+    static Stylesheet = new ResourceType("Stylesheet");
+    static Javascript = new ResourceType("Javascript");
 
     constructor(name) {
         this.name = name;
@@ -2153,6 +2155,7 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
     LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
 
+    LoadStyleSheetAsync(FONT_MONSERRAT_CSS);
     LoadStyleSheetAsync(FONT_AWESOME_CSS);
     LoadStyleSheetAsync(DEMOTOOL_CSS, true);
 
