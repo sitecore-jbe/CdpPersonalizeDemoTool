@@ -22,6 +22,7 @@
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeft { float:left; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopRight { float:right; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopRightTop { text-align: right; margin-right: 3px; font-style: italic; font-size: 9px; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopRightTopVersion { margin-top: 6px;}
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderBottom { margin-bottom: 10px; clear: left; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeftLogo { margin-left:10px; height: 40px; width:auto;}
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeftToolTitle { color: blue; font-style: italic; display: flex; position: absolute; top: 37px; left: 190px; font-size: 12px; }

@@ -15,6 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
+const DEMOTOOL_VERSION = "v1.00";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -1637,7 +1638,7 @@ function InitializeInfoSlider() {
 
     //Info Slider Header Top Right Top
     var InfoSliderBodyHeaderTopRightTop = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Top", classList: "demoToolInfoSliderBodyHeaderTopRightTop" });
-    var InfoSliderBodyHeaderTopRightTopLabel = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Label", innerText: "v1.00", classList: "demoToolInfoSliderBodyHeaderTopRightTopLabel" });
+    var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", innerText: DEMOTOOL_VERSION, classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
 
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
