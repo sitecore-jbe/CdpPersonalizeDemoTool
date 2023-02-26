@@ -1617,13 +1617,19 @@ function InitializeInfoSlider() {
     //Info Slider Header
     var InfoSliderBodyHeader = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Header", classList: "demoToolInfoSliderBodyHeader" });
 
+    ////Info Slider Header Left
+    //var InfoSliderBodyHeaderLeft = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Left", classList: "demoToolInfoSliderBodyHeaderLeft" });
+    //var InfoSliderBodyHeaderLeftImage = AppendElementAsChild(InfoSliderBodyHeaderLeft, "img", { id: InfoSliderBodyHeaderLeft.id + "Image", src: LOGO_URL, classList: "demoToolInfoSliderBodyHeaderLeftImage" });
+
     //Info Slider Header Top
     var InfoSliderBodyHeaderTop = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Top", classList: "demoToolInfoSliderBodyHeaderTop" });
-    var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderTop, "img", { id: InfoSliderBodyHeaderTop.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "cdpandPersonalizeLogo" });
+    var InfoSliderBodyHeaderTopLeft = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Left", classList: "demoToolInfoSliderBodyHeaderTopLeft" });
+    var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderTop, "img", { id: InfoSliderBodyHeaderTop.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "cdpAndPersonalizeLogo" });
     var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTop, "label", { id: InfoSliderBodyHeaderTop.id + "Label", innerText: "Profiling Tool", classList: "toolTitle" });
+    var InfoSliderBodyHeaderTopRight = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Right", classList: "demoToolInfoSliderBodyHeaderTopRight" });
 
     //Info Slider Header Bottom
-    var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Bottom" });
+    var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
 
     //Add the ExtendedPropertiesButtonId to the htmlElementIDs and init htmlElementIDs if neccessary.
     var ExtendedPropertiesButtonDataId = "ExtendedPropertiesButton";
