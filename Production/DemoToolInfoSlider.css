@@ -18,17 +18,17 @@
 
 /* Info Slider Header */
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeader { margin: 9px 4px 0 4px; font-family: 'Montserrat', sans-serif; font-size: 15px;}
-#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTop{ width: 100%; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTop{ width: 100%; margin-bottom: 10px;}
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeft{ float:left; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopRight{ float:right; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyHeaderBottom{  }
-#DemoToolInfoSlider .cdpAndPersonalizeLogo { margin-left:10px; height: 40px; width:auto;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeftLogo { margin-left:10px; height: 40px; width:auto;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeftToolTitle { color: blue; font-style: italic; display: flex; position: absolute; top: 37px; left: 190px; font-size: 12px; }
 #DemoToolInfoSlider .demoToolInfoSliderBodyFooter  { display: flex; position: absolute; bottom: 0; width: 100%; justify-content: center; margin-bottom:10px}
 #DemoToolInfoSlider .demoToolInfoSliderBodyFooter .sitecoreLogo { height: 20px; width:auto;}
 #DemoToolInfoSlider .demoToolInfoSliderBodyAccordions  { overflow-y: scroll; display:inline-block; width:100%; max-height:86% }
 
 
-#DemoToolInfoSlider .toolTitle { color: blue; font-style: italic; display: flex; position: absolute; top: 30px; left: 177px; font-size: 12px; }
 #DemoToolInfoSlider h3.demoToolInfoSliderBodyHeaderRightTopTitle { font-size: 26px; margin-bottom: 5px; font-family: 'Montserrat', sans-serif !important;}
 
 #DemoToolInfoSlider .expandpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
