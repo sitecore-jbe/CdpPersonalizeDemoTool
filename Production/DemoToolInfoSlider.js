@@ -15,7 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
-const DEMOTOOL_VERSION = "v1.03";
+const DEMOTOOL_VERSION = "v1.04";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -847,17 +847,17 @@ function InitReplacers(data) {
                 demoToolData.Replacers.location.weather = {};
                 demoToolData.Replacers.location.weather.code = response.current_weather.weathercode;
                 demoToolData.Replacers.location.weather.description = WeatherDescription(response.current_weather.weathercode);
-                demoToolData.Replacers.location.weather.temperature = response.current_weather.temperature + "°C";
+                demoToolData.Replacers.location.weather.temperature = response.current_weather.temperature;
                 demoToolData.Replacers.location.weather.windDirection = response.current_weather.winddirection;
                 demoToolData.Replacers.location.weather.cardinalWindDirection = ConvertWindDirectionDegreesToCardinalDirection(response.current_weather.winddirection);
-                demoToolData.Replacers.location.weather.windSpeed = response.current_weather.windspeed + " km/h";
+                demoToolData.Replacers.location.weather.windSpeed = response.current_weather.windspeed;
             });
 
 
             // Initiate Timezone Time Interval
             setInterval(() => {
                 var enUSMoment = moment().locale('en-US');
-                var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone).format('MMM DD, YYYY - HH:mm:ss');
+                var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
                 demoToolData.Replacers.demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
                 demoToolData.Replacers.demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
             }, 1000);
