@@ -1592,7 +1592,7 @@ function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipConten
     toolTipButton.addEventListener("click", function (e) {
         e.preventDefault();
 
-        var popperInstance = Popper.createPopper(toolTipButton.id, "DemoToolInfoSliderBodyAccordionsGeoipAccordionAccordionButton", {
+        var popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
             placement: "auto", //preferred placement of popper
             modifiers: [
                 {

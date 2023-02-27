@@ -3482,6 +3482,29 @@
           "Property": "languages",
           "Icon": "Calculated",
           "DataType": "Array"
+        },
+        {
+          "Property": "weather",
+          "Icon": "Calculated",
+          "DataType": "Object",
+          "Properties": [
+            {
+              "Property": "code",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "temperature",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "windDirection",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "windSpeed",
+              "Icon": "Calculated"
+            }
+          ]
         }
       ]
     }
