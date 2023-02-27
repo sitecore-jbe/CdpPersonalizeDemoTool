@@ -15,7 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
-const DEMOTOOL_VERSION = "v1.00";
+const DEMOTOOL_VERSION = "v1.01";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -778,7 +778,7 @@ function InitReplacers(data) {
                 demoToolData.Replacers.location.weather.code = response.current_weather.weathercode;
                 demoToolData.Replacers.location.weather.temperature = response.current_weather.temperature + "°C";
                 demoToolData.Replacers.location.weather.windDirection = response.current_weather.winddirection;
-                demoToolData.Replacers.location.weather.windSpeed = response.current_weather.windspeed + "km/h";
+                demoToolData.Replacers.location.weather.windSpeed = response.current_weather.windspeed + " km/h";
             });
 
 
