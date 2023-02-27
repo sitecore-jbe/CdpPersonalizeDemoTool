@@ -3440,6 +3440,7 @@
           "Property": "weather",
           "Icon": "Calculated",
           "DataType": "Object",
+          "Collapsable": true,
           "Properties": [
             {
               "Property": "description",
@@ -3524,6 +3525,11 @@
           "DataType": "Object",
           "Collapsable": true,
           "Properties": [
+            {
+              "Property": "time_zone",
+              "Label": "Timezone",
+              "Icon": "Calculated"
+            },
             {
               "Property": "time",
               "Icon": "Calculated"

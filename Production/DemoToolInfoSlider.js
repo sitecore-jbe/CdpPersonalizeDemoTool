@@ -15,7 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
-const DEMOTOOL_VERSION = "v1.04";
+const DEMOTOOL_VERSION = "v1.05";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -841,6 +841,7 @@ function InitReplacers(data) {
             demoToolData.Replacers.location.isp = response.isp;
 
             demoToolData.Replacers.location.timezone = response.time_zone;
+            demoToolData.Replacers.location.timezone.timeOfTheDay = "";
 
             // Call weather service to get weather info.
             GetCurrentWeather(response.latitude, response.longitude).then(function (response) {
@@ -858,7 +859,7 @@ function InitReplacers(data) {
             setInterval(() => {
                 var enUSMoment = moment().locale('en-US');
                 var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
-                demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
+                demoToolData.Replacers.location.timezone.current_time = currentTimeInTimezone;
                 demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
             }, 1000);
 
