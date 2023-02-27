@@ -789,8 +789,9 @@ function InitReplacers(data) {
             //    demoToolData.Replacers.demoToolData.Replacers.location.timeZone.time = currentTimeInTimezone;
             //    demoToolData.Replacers.demoToolData.Replacers.location.timeZone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
             //}, 1000);
+
+            resolve(demoToolData);
         });
-        resolve(demoToolData);
     });
 }
 
