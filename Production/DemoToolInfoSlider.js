@@ -840,7 +840,7 @@ function InitReplacers(data) {
             }
             demoToolData.Replacers.location.isp = response.isp;
 
-            demoToolData.Replacers.location.timezone = response.timezone;
+            demoToolData.Replacers.location.timezone = response.time_zone;
 
             // Call weather service to get weather info.
             GetCurrentWeather(response.latitude, response.longitude).then(function (response) {
