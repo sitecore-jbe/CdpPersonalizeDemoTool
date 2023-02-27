@@ -15,7 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
-const DEMOTOOL_VERSION = "v1.02";
+const DEMOTOOL_VERSION = "v1.03";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -817,13 +817,13 @@ function InitReplacers(data) {
             });
 
 
-            //// Initiate Timezone Time Interval
-            //setInterval(() => {
-            //    var enUSMoment = moment().locale('en-US');
-            //    var currentTimeInTimezone = enUSMoment.tz(response.timezone).format('MMM DD, YYYY - HH:mm:ss');
-            //    demoToolData.Replacers.demoToolData.Replacers.location.timeZone.time = currentTimeInTimezone;
-            //    demoToolData.Replacers.demoToolData.Replacers.location.timeZone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
-            //}, 1000);
+            // Initiate Timezone Time Interval
+            setInterval(() => {
+                var enUSMoment = moment().locale('en-US');
+                var currentTimeInTimezone = enUSMoment.tz(response.timezone).format('MMM DD, YYYY - HH:mm:ss');
+                demoToolData.Replacers.demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
+                demoToolData.Replacers.demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
+            }, 1000);
 
             resolve(demoToolData);
         });

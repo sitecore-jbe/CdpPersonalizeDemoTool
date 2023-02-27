@@ -3511,6 +3511,22 @@
           "Property": "languages",
           "Icon": "Calculated",
           "DataType": "Array"
+        },
+        {
+          "Property": "timezone",
+          "Icon": "Calculated",
+          "DataType": "Object",
+          "Collapsable": true,
+          "Properties": [
+            {
+              "Property": "time",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "timeOfTheDay",
+              "Icon": "Calculated"
+            }
+          ]
         }
       ]
     }
