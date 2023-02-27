@@ -3450,7 +3450,8 @@
               "Icon": "Calculated"
             },
             {
-              "Property": "windDirection",
+              "Label": "Wind Direction",
+              "Value": "{{cardinalWindDirection}} ({{WindDirection}}°)",
               "Icon": "Calculated"
             },
             {
@@ -3511,6 +3512,9 @@
           "Property": "languages",
           "Icon": "Calculated",
           "DataType": "Array"
+        },
+        {
+          "Seperator": true
         },
         {
           "Property": "timezone",
