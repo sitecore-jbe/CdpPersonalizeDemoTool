@@ -857,7 +857,7 @@ function InitReplacers(data) {
             // Initiate Timezone Time Interval
             setInterval(() => {
                 var enUSMoment = moment().locale('en-US');
-                var currentTimeInTimezone = enUSMoment.tz(response.timezone).format('MMM DD, YYYY - HH:mm:ss');
+                var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone).format('MMM DD, YYYY - HH:mm:ss');
                 demoToolData.Replacers.demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
                 demoToolData.Replacers.demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
             }, 1000);
