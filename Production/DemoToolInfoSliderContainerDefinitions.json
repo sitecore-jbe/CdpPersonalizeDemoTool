@@ -3489,7 +3489,7 @@
           "DataType": "Object",
           "Properties": [
             {
-              "Property": "code",
+              "Property": "description",
               "Icon": "Calculated"
             },
             {

@@ -15,7 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
-const DEMOTOOL_VERSION = "v1.01";
+const DEMOTOOL_VERSION = "v1.02";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -702,6 +702,40 @@ function GetDataPropertiesByHtmlElement(htmlElement) {
 }
 
 
+function WeatherDescription(weathercode) {
+    switch (weathercode) {
+        case 0: return "clear sky";
+        case 1: return "mainly clear";
+        case 2: return "partly cloudy";
+        case 3: return "overcast";
+        case 45: return "fog";
+        case 48: return "depositing rime fog";
+        case 51: return "light drizzle";
+        case 53: return "moderate drizzle";
+        case 55: return "dense intensity drizzle";
+        case 56: return "light freezing drizzle";
+        case 57: return "dense intensity freezing drizzle";
+        case 61: return "slight rain";
+        case 63: return "moderate rain";
+        case 65: return "heavy intensity rain";
+        case 66: return "light freezing rain";
+        case 67: return "heavy intensity freezing rain";
+        case 71: return "slight snow fall";
+        case 73: return "moderate snow fall";
+        case 75: return "heavy intensity snow fall";
+        case 77: return "snow grains";
+        case 80: return "slight rain showers";
+        case 81: return "moderate rain showers";
+        case 82: return "violent rain showers";
+        case 85: return "slight snow showers";
+        case 95: return "slight thunderstorm";
+        case 96: return "thunderstorm with slight hail";
+        case 99: return "thunderstorm with heavy hail";
+        default: return "weathercode is: " + weathercode;
+    }
+}
+
+
 function InitReplacers(data) {
     return new Promise(function (resolve, reject) {
         if (!demoToolData.Replacers) {
@@ -776,6 +810,7 @@ function InitReplacers(data) {
             GetCurrentWeather(response.latitude, response.longitude).then(function (response) {
                 demoToolData.Replacers.location.weather = {};
                 demoToolData.Replacers.location.weather.code = response.current_weather.weathercode;
+                demoToolData.Replacers.location.weather.description = WeatherDescription(response.current_weather.weathercode);
                 demoToolData.Replacers.location.weather.temperature = response.current_weather.temperature + "°C";
                 demoToolData.Replacers.location.weather.windDirection = response.current_weather.winddirection;
                 demoToolData.Replacers.location.weather.windSpeed = response.current_weather.windspeed + " km/h";
@@ -1613,7 +1648,7 @@ function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipConten
         });
     });
     //Create the popper
-    
+
 }
 function AddInfoSliderExtendedPropertiesButtonClickEventHandlers(button, htmlElementsDataId) {
     AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, [DEMOTOOL_FONTAWESOME_ANGLESDOWN, DEMOTOOL_FONTAWESOME_ANGLESUP], "extendedproperty", function () { return IsExtendedPropertiesEnabled() }, EXTENDEDPROPERTIESENABLED_TEXT, EXTENDEDPROPERTIESDISABLED_TEXT, "DemoToolExtendedPropertiesButtonState");
