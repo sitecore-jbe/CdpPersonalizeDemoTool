@@ -858,8 +858,8 @@ function InitReplacers(data) {
             setInterval(() => {
                 var enUSMoment = moment().locale('en-US');
                 var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
-                demoToolData.Replacers.demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
-                demoToolData.Replacers.demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
+                demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
+                demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
             }, 1000);
 
             resolve(demoToolData);
