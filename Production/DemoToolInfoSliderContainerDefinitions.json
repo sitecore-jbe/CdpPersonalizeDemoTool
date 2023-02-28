@@ -3544,6 +3544,7 @@
             },
             {
               "Property": "current_time",
+              "Label": "Current Local Time",
               "DataType": "Timestamp",
               "Icon": "Calculated"
             },
