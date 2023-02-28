@@ -3454,7 +3454,7 @@
             {
               "Property": "cardinalWindDirection",
               "Label": "Wind Direction",
-              "Value": "{{cardinalWindDirection}} ({{windDirection}}°)",
+              "Value": "{{cardinalWindDirection}} ({{windDirection}}&deg)",
               "Icon": "Calculated"
             },
             {
