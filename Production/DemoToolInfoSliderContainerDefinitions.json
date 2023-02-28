@@ -3535,6 +3535,7 @@
             },
             {
               "Property": "current_time",
+              "DataType": "Timestamp",
               "Icon": "Calculated"
             },
             {
@@ -3550,6 +3551,11 @@
             {
               "Property": "dst_savings",
               "DataType": "Boolean",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "current_time_unix",
+              "Display": false,
               "Icon": "Calculated"
             }
           ]

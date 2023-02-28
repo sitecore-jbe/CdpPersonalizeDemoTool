@@ -852,7 +852,9 @@ function InitReplacers(data) {
             });
 
             demoToolData.Replacers.location.timezone = response.time_zone;
-            demoToolData.Replacers.location.timezone.timeOfTheDay = "";
+            var enUSMoment = moment().locale('en-US');
+            //var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
 
             // Initiate Timezone Time Interval
             setInterval(() => {
