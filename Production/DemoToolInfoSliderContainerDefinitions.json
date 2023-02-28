@@ -3531,6 +3531,7 @@
             },
             {
               "Property": "offset",
+              "Suffix": "h",
               "Icon": "Calculated"
             },
             {
@@ -3544,13 +3545,14 @@
             },
             {
               "Property": "is_dst",
-              "Label": "Daylight Saving Time",
               "DataType": "Boolean",
+              "Label": "Is Daylight Saving Time",
               "Icon": "Calculated"
             },
             {
               "Property": "dst_savings",
-              "DataType": "Boolean",
+              "Label": "Daylight Saving Time Offset",
+              "Suffix": "h",
               "Icon": "Calculated"
             },
             {

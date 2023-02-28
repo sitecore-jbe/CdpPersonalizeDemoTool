@@ -15,7 +15,7 @@ const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 //DemoTool settings
-const DEMOTOOL_VERSION = "v1.05";
+const DEMOTOOL_VERSION = "v1.06";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
@@ -852,17 +852,10 @@ function InitReplacers(data) {
             });
 
             demoToolData.Replacers.location.timezone = response.time_zone;
+
             var enUSMoment = moment().locale('en-US');
             demoToolData.Replacers.location.timezone.current_time = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).toDate();
             demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
-
-            // Initiate Timezone Time Interval
-            setInterval(() => {
-                var enUSMoment = moment().locale('en-US');
-                //var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
-                //demoToolData.Replacers.location.timezone.current_time = currentTimeInTimezone;
-                //demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
-            }, 1000);
 
             resolve(demoToolData);
         });
@@ -872,6 +865,9 @@ function InitReplacers(data) {
 function FormatDataByDataType(value, dataType) {
     if (value) {
         switch (dataType) {
+            case "Boolean":
+                //If 'Boolean' then show as boolean text
+                value = (value) ? "True" : "False";
             case "Timestamp":
                 //If 'Timestamp' then convert to ISO String and set dataType as 'DateTime'
                 value = new Date(value).toISOString();
@@ -1088,7 +1084,6 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
 
     //Initialize displayValue
     var displayValue;
-    var displaySuffix;
 
     if (propertyDefinition.Value) {
         displayValue = ReplaceValueTokens(propertyDefinition.Value, dataPath);
@@ -2224,6 +2219,7 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
                                 }
                                 break;
                             case "String":
+                            case "Boolean":
                             case "DateTime":
                             case "Timestamp":
                             case "Property":
