@@ -3545,11 +3545,13 @@
             {
               "Property": "current_time",
               "Label": "Current Local Time",
+              "ContiniouslyUpdate": true,
               "DataType": "Timestamp",
               "Icon": "Calculated"
             },
             {
               "Property": "timeOfTheDay",
+              "ContiniouslyUpdate": true,
               "Icon": "Calculated"
             },
             {
