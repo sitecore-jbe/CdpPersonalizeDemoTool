@@ -3452,13 +3452,19 @@
               "Icon": "Calculated"
             },
             {
+              "Property": "cardinalWindDirection",
               "Label": "Wind Direction",
-              "Value": "{{cardinalWindDirection}} ({{WindDirection}}°)",
+              "Value": "{{cardinalWindDirection}} ({{windDirection}}°)",
               "Icon": "Calculated"
             },
             {
               "Property": "windSpeed",
               "Suffix": "km/h",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "windDirection",
+              "Display": false,
               "Icon": "Calculated"
             }
           ]
@@ -3531,7 +3537,9 @@
             },
             {
               "Property": "offset",
-              "Suffix": "h",
+              "Suffix": {
+                "Text": "h"
+              },
               "Icon": "Calculated"
             },
             {
@@ -3552,7 +3560,9 @@
             {
               "Property": "dst_savings",
               "Label": "Daylight Saving Time Offset",
-              "Suffix": "h",
+              "Suffix": {
+                "Text": "h"
+              },
               "Icon": "Calculated"
             },
             {
