@@ -752,7 +752,7 @@ function ConvertWindDirectionDegreesToCardinalDirection(degrees) {
                                                         if (degrees >= 281.25 && degrees < 303.75) { return "WNW"; } else {
                                                             if (degrees >= 303.75 && degrees < 326.25) { return "NW"; } else {
                                                                 if (degrees >= 326.25 && degrees < 348.75) { return "NNW"; } else {
-                                                                    if (degrees >= 348.75) { return "N"; } 
+                                                                    if (degrees >= 348.75) { return "N"; }
                                                                 }
                                                             }
                                                         }
@@ -767,7 +767,7 @@ function ConvertWindDirectionDegreesToCardinalDirection(degrees) {
                     }
                 }
             }
-        }        
+        }
     }
 }
 
@@ -863,17 +863,24 @@ function InitReplacers(data) {
 }
 
 function FormatDataByDataType(value, dataType) {
-    if (value) {
-        switch (dataType) {
-            case "Boolean":
-                //If 'Boolean' then show as boolean text
-                value = (value) ? "True" : "False";
-            case "Timestamp":
-                //If 'Timestamp' then convert to ISO String and set dataType as 'DateTime'
+    switch (dataType) {
+        case "Boolean":
+            //If 'Boolean' then show as boolean text
+            value = (value) ? "True" : "False";
+            break;
+        case "YesNoBoolean":
+            //If 'Boolean' then show as boolean text
+            value = (value) ? "Yes" : "No";
+            break;
+        case "Timestamp":
+            //If 'Timestamp' then convert to ISO String and set dataType as 'DateTime'
+            if (value) {
                 value = new Date(value).toISOString();
-            //no break because DateTime code needs to be executed also.
-            case "DateTime":
-                // Replace T00:00Z with T00:00:00.000Z to make it an IsoDate.
+            }
+        //no break because DateTime code needs to be executed also.
+        case "DateTime":
+            // Replace T00:00Z with T00:00:00.000Z to make it an IsoDate.
+            if (value) {
                 if (value.endsWith("T00:00Z")) {
                     value = value.replace("T00:00Z", "T00:00:00.000Z");
                 }
@@ -881,8 +888,8 @@ function FormatDataByDataType(value, dataType) {
                 if (isIsoDate(value)) {
                     value = value.endsWith("T00:00:00.000Z") ? FormatDateTimeForDisplay(value, true, false) : FormatDateTimeForDisplay(value, true, true);
                 }
-                break;
-        }
+            }
+            break;
     }
     return value;
 }

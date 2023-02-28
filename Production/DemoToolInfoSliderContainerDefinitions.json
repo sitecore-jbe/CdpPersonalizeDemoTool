@@ -3554,7 +3554,7 @@
             },
             {
               "Property": "is_dst",
-              "DataType": "Boolean",
+              "DataType": "YesNoBoolean",
               "Label": "Is Daylight Saving Time",
               "Icon": "Calculated"
             },
