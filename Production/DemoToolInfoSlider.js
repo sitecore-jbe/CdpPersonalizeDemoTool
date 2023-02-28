@@ -853,15 +853,15 @@ function InitReplacers(data) {
 
             demoToolData.Replacers.location.timezone = response.time_zone;
             var enUSMoment = moment().locale('en-US');
-            //var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
+            demoToolData.Replacers.location.timezone.current_time = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).toDate();
             demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
 
             // Initiate Timezone Time Interval
             setInterval(() => {
                 var enUSMoment = moment().locale('en-US');
-                var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
-                demoToolData.Replacers.location.timezone.current_time = currentTimeInTimezone;
-                demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
+                //var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).format('MMM DD, YYYY - HH:mm:ss');
+                //demoToolData.Replacers.location.timezone.current_time = currentTimeInTimezone;
+                //demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
             }, 1000);
 
             resolve(demoToolData);
