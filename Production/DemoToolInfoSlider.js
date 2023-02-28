@@ -840,9 +840,6 @@ function InitReplacers(data) {
             }
             demoToolData.Replacers.location.isp = response.isp;
 
-            demoToolData.Replacers.location.timezone = response.time_zone;
-            demoToolData.Replacers.location.timezone.timeOfTheDay = "";
-
             // Call weather service to get weather info.
             GetCurrentWeather(response.latitude, response.longitude).then(function (response) {
                 demoToolData.Replacers.location.weather = {};
@@ -854,6 +851,8 @@ function InitReplacers(data) {
                 demoToolData.Replacers.location.weather.windSpeed = response.current_weather.windspeed;
             });
 
+            demoToolData.Replacers.location.timezone = response.time_zone;
+            demoToolData.Replacers.location.timezone.timeOfTheDay = "";
 
             // Initiate Timezone Time Interval
             setInterval(() => {

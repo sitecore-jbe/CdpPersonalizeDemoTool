@@ -3526,16 +3526,30 @@
           "Collapsable": true,
           "Properties": [
             {
-              "Property": "time_zone",
-              "Label": "Timezone",
+              "Property": "name",
               "Icon": "Calculated"
             },
             {
-              "Property": "time",
+              "Property": "offset",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "current_time",
               "Icon": "Calculated"
             },
             {
               "Property": "timeOfTheDay",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "is_dst",
+              "Label": "Daylight Saving Time",
+              "DataType": "Boolean",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "dst_savings",
+              "DataType": "Boolean",
               "Icon": "Calculated"
             }
           ]
