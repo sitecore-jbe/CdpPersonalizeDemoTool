@@ -89,7 +89,7 @@ const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const MOMENT_JS = { id: "MOMENT_JS", url: "//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" };
 const MOMENT_TIMEZONE_JS = { id: "MOMENT_TIMEZONE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.39/moment-timezone-with-data.js" };
-const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
+const POPPER_JS = { id: "POPPER_JS", url: "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/popper.min.js" }; //unpkg.com/@popperjs/core@2
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
 const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
 const FONT_MONTSERRAT_CSS = { id: "FONT_MONTSERRAT_CSS", url: "//fonts.googleapis.com/css?family=Montserrat" };
@@ -137,7 +137,7 @@ function convertToDms(decimalDegrees, isLongitude) {
     let sec = frac * 3600 - min * 60;
     // Round it to 2 decimal points.
     sec = Math.round(sec * 100) / 100;
-    return degrees + "°" + min + "'" + sec + '"' + direction;
+    return degrees + "°" + min + "'" + sec + '" ' + direction;
 }
 
 
@@ -1127,7 +1127,7 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
 
     // Format if specific DataType. By default treat as string.
     let dataType = propertyDefinition.DataType ? propertyDefinition.DataType : "String";
-    displayValue = FormatDataByDataType(displayValue, dataType)
+    displayValue = FormatDataByDataType(displayValue, dataType);
 
     // Render property if 'displayValue' is not empty or createIfEmptyValue is explicitly set.
     let createIfEmptyValue = propertyDefinition.CreateIfEmptyValue ?? false;
@@ -1154,7 +1154,7 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
         if (propertyDefinition.Link) {
             // Render value of property as link 
             let link = ReplaceValueTokens(propertyDefinition.Link, dataPath);
-            propertyValue = AppendElementAsChild(property, 'a', { id: property.id + "Link", classList: "propertyvalue", href: link, target: DEMOTOOL_SITECORECDP_TARGET_NAME, innerText: JSON.stringify(displayValue) });
+            propertyValue = AppendElementAsChild(property, 'a', { id: property.id + "Link", classList: "propertyvalue", href: link, target: DEMOTOOL_SITECORECDP_TARGET_NAME, innerHtml: displayValue}); //JSON.stringify(displayValue)
             let propertyValueCopyToClipboard = AppendElementAsChild(property, 'i', { id: property.id + "CopyToClipboard", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + "link" });
             if (propertyDefinition.Suffix) {
                 AppendSuffix(propertyValue, propertyDefinition.Suffix, dataPath);
@@ -1162,7 +1162,7 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
         }
         else {
             // Render value of property
-            propertyValue = AppendElementAsChild(property, 'label', { id: property.id + "Value", classList: "propertyvalue", innerHTML: JSON.stringify(displayValue) });
+            propertyValue = AppendElementAsChild(property, 'label', { id: property.id + "Value", classList: "propertyvalue", innerHTML: displayValue}); //JSON.stringify(displayValue)
             if (propertyDefinition.Suffix) {
                 AppendSuffix(propertyValue, propertyDefinition.Suffix, dataPath);
             }
@@ -1174,6 +1174,17 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
             let propertyValueCopyToClipboard = AppendElementAsChild(property, 'i', { id: property.id + "CopyToClipboard", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_COPY + " copyicon" });
             propertyValueCopyToClipboard.addEventListener("click", function () { CopyToClipboard(ReplaceValueTokens(propertyDefinition.CopyToClipboardValue, dataPath)); });
         }
+
+        //if (propertyDefinition.ContiniouslyUpdate) {
+        //    // Initiate Timezone Time Interval
+        //    setInterval(() => {
+        //        var enUSMoment = moment().locale('en-US');
+        //        var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name);
+        //        demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
+        //        demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
+        //        propertyValue.text = FormatDataByDataType(displayValue, dataType);
+        //    }, 1000);
+        //}
 
         // Property is rendered
         return true;
@@ -1669,7 +1680,7 @@ function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipConten
     toolTipButton.addEventListener("click", function (e) {
         e.preventDefault();
 
-        var popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
+        var popperInstance = DemoToolPopper.createPopper(toolTipButton, toolTipContent, {
             placement: "auto", //preferred placement of popper
             modifiers: [
                 {
@@ -1944,7 +1955,7 @@ function togglePopper(toolTipButton) {
         //Check if popper already exists in toolTipArray
         if (!demoToolData.toolTipsArray || (demoToolData.toolTipsArray && !demoToolData.toolTipsArray.some(item => item.id == toolTipButton.id))) {
             //Create the popper
-            popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
+            popperInstance = DemoToolPopper.createPopper(toolTipButton, toolTipContent, {
                 placement: "auto", //preferred placement of popper
                 modifiers: [
                     {
