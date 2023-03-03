@@ -856,7 +856,7 @@ function InitReplacers(data) {
 
             demoToolData.Replacers.location.timezone = response.time_zone;
             let timezoneName = demoToolData.Replacers.location.timezone.name;
-            demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName));
+            demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName)).toISOString();
             demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(timezoneName));
 
             resolve(demoToolData);
@@ -1183,7 +1183,7 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
             // Initiate Timezone Time Interval
             setInterval(() => {
                 let timezoneName = demoToolData.Replacers.location.timezone.name;
-                demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName));
+                demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName)).toISOString();
                 demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(timezoneName));
                 propertyValue.text = FormatDataByDataType(demoToolData.Replacers.location.timezone.current_time, dataType);
             }, 1000);
