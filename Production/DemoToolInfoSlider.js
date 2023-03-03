@@ -294,14 +294,14 @@ String.prototype.interpolate = function (props) {
 function FormatDateTimeForDisplay(date, showDate, showTime) {
     if (date) {
         if (showDate && showTime) {
-            return new Date().toLocaleString("en-US", { year: 'numeric', month: 'short', day: '2-digit', weekday: "short", hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' })
+            return date.toLocaleString("en-US", { year: 'numeric', month: 'short', day: '2-digit', weekday: "short", hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' })
         }
         else {
             if (showDate) {
-                return new Date().toLocaleString("en-US", { year: 'numeric', month: 'short', day: '2-digit', weekday: "short" })
+                return date.toLocaleString("en-US", { year: 'numeric', month: 'short', day: '2-digit', weekday: "short" })
             }
             if (showTime) {
-                return new Date().toLocaleString("en-US", { hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' })
+                return date.toLocaleString("en-US", { hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' })
             }
         }
     }
