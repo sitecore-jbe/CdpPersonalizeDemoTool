@@ -87,8 +87,6 @@ const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 //Fixed Demo Tool settings
 const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
-const MOMENT_JS = { id: "MOMENT_JS", url: "//cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js" };
-const MOMENT_TIMEZONE_JS = { id: "MOMENT_TIMEZONE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.39/moment-timezone-with-data.js" };
 const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
 const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
@@ -1181,16 +1179,15 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
             propertyValueCopyToClipboard.addEventListener("click", function () { CopyToClipboard(ReplaceValueTokens(propertyDefinition.CopyToClipboardValue, dataPath)); });
         }
 
-        //if (propertyDefinition.ContiniouslyUpdate) {
-        //    // Initiate Timezone Time Interval
-        //    setInterval(() => {
-        //        var enUSMoment = moment().locale('en-US');
-        //        var currentTimeInTimezone = enUSMoment.tz(demoToolData.Replacers.location.timezone.name);
-        //        demoToolData.Replacers.location.timezone.time = currentTimeInTimezone;
-        //        demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
-        //        propertyValue.text = FormatDataByDataType(displayValue, dataType);
-        //    }, 1000);
-        //}
+        if (propertyDefinition.ContiniouslyUpdate) {
+            // Initiate Timezone Time Interval
+            setInterval(() => {
+                let timezoneName = demoToolData.Replacers.location.timezone.name;
+                demoToolData.Replacers.location.timezone.current_time = CurrentDateTimeInTimezoneLocaleString(timezoneName);
+                demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(timezoneName));
+                propertyValue.text = FormatDataByDataType(displayValue, dataType);
+            }, 1000);
+        }
 
         // Property is rendered
         return true;
@@ -2275,10 +2272,6 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
             SendViewEventToSitecoreCdp();
         }
     });
-
-    //LoadJavascriptAsync(MOMENT_JS).then(() => {
-    //    LoadJavascriptAsync(MOMENT_TIMEZONE_JS);
-    //});
 
     LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
