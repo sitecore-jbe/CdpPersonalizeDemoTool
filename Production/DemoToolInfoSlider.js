@@ -160,7 +160,7 @@ function CurrentTimeInTimezone(timeZone) {
     if (time.endsWith("AM")) {
         time = time.replace(" AM", "");
         return parseInt(time);
-    } elseif(time.endsWith("PM")) {
+    } else if(time.endsWith("PM")) {
         time = time.replace(" PM", "");
         return parseInt(time) + 12;
     }
