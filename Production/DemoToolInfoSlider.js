@@ -853,14 +853,13 @@ function InitReplacers(data) {
             var currentDatetime = new Date();
             var currentTimezoneOffset = currentDatetime.getTimezoneOffset(); // -60
             var currentTimeHours = currentDatetime.getHours();
-            var targetTimezoneOffset = currentDatetime.getTimezoneOffset(); 
+            var targetTimezoneOffset = demoToolData.Replacers.location.timezone.offset * 60;
 
-            demoToolData.Replacers.location.timezone.offset
 
-            var timezoneDateTime = currentDatetime.setHours(currentTimeHours + targetTimezoneOffset - currentTimezoneOffset)
+            var timezoneDateTime = currentDatetime.setHours(currentTimeHours + targetTimezoneOffset - currentTimezoneOffset);
 
             demoToolData.Replacers.location.timezone.current_time = timezoneDateTime;
-            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(currentDatetime.getHours());
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(timezoneDateTime.getHours());
 
             resolve(demoToolData);
         });
