@@ -156,14 +156,7 @@ function CurrentDateTimeInTimezoneLocaleString(timeZone) {
 }
 
 function CurrentTimeInTimezone(timeZone) {
-    var time = new Date().toLocaleString("en-US", { timeZone: timeZone, hour: 'numeric' });
-    if (time.endsWith("AM")) {
-        time = time.replace(" AM", "");
-        return parseInt(time);
-    } else if(time.endsWith("PM")) {
-        time = time.replace(" PM", "");
-        return parseInt(time) + 12;
-    }
+    return new Date().toLocaleString("en-US", { timeZone: timeZone, hour12: false, hour: 'numeric' });
 }
 
 // Define the Boxever settings
@@ -301,14 +294,14 @@ String.prototype.interpolate = function (props) {
 function FormatDateTimeForDisplay(date, showDate, showTime) {
     if (date) {
         if (showDate && showTime) {
-            return moment(date).locale('en-US').format('MMM DD, YYYY - HH:mm:ss');
+            return new Date().toLocaleString("en-US", { year: 'numeric', month: 'short', day: '2-digit', weekday: "short", hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' })
         }
         else {
             if (showDate) {
-                return moment(date).locale('en-US').format('MMM DD, YYYY');
+                return new Date().toLocaleString("en-US", { year: 'numeric', month: 'short', day: '2-digit', weekday: "short" })
             }
             if (showTime) {
-                return moment(date).locale('en-US').format('HH:mm:ss');
+                return new Date().toLocaleString("en-US", { hour: '2-digit', hour12: false, minute: '2-digit', second: '2-digit' })
             }
         }
     }
@@ -864,9 +857,9 @@ function InitReplacers(data) {
             });
 
             demoToolData.Replacers.location.timezone = response.time_zone;
-            demoToolData.Replacers.location.timezone.name = "America/New_York";
-            demoToolData.Replacers.location.timezone.current_time = CurrentDateTimeInTimezoneLocaleString(demoToolData.Replacers.location.timezone.name);
-            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(demoToolData.Replacers.location.timezone.name));
+            let timezoneName = demoToolData.Replacers.location.timezone.name;
+            demoToolData.Replacers.location.timezone.current_time = CurrentDateTimeInTimezoneLocaleString(timezoneName);
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(timezoneName));
 
             resolve(demoToolData);
         });
@@ -2283,9 +2276,9 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
         }
     });
 
-    LoadJavascriptAsync(MOMENT_JS).then(() => {
-        LoadJavascriptAsync(MOMENT_TIMEZONE_JS);
-    });
+    //LoadJavascriptAsync(MOMENT_JS).then(() => {
+    //    LoadJavascriptAsync(MOMENT_TIMEZONE_JS);
+    //});
 
     LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
