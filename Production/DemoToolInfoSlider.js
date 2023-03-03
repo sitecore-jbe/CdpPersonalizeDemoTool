@@ -151,8 +151,19 @@ function TimeOfTheDay(hour) {
     }
 }
 
-function CurrentDateTimeInTimezone(timeZone) {
+function CurrentDateTimeLocaleStringInTimezone(timeZone) {
     return new Date().toLocaleString("en-US", { timeZone: timeZone });
+}
+
+function CurrentTimeInTimezone(timeZone) {
+    var time = new Date().toLocaleString("en-US", { timeZone: timeZone, hour: 'numeric' });
+    if (time.endsWith("AM")) {
+        time = time.replace(" AM", "");
+        return parseInt(time);
+    } elseif(time.endsWith("PM")) {
+        time = time.replace(" PM", "");
+        return parseInt(time) + 12;
+    }
 }
 
 // Define the Boxever settings
@@ -853,9 +864,9 @@ function InitReplacers(data) {
             });
 
             demoToolData.Replacers.location.timezone = response.time_zone;
-            var timezoneDateTime = CurrentDateTimeInTimezone("America/New_York");
-            demoToolData.Replacers.location.timezone.current_time = timezoneDateTime;
-            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(timezoneDateTime.getHours());
+            demoToolData.Replacers.location.timezone.name = "America/New_York";
+            demoToolData.Replacers.location.timezone.current_time = CurrentDateTimeInTimezone(demoToolData.Replacers.location.timezone.name);
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(demoToolData.Replacers.location.timezone.name));
 
             resolve(demoToolData);
         });
