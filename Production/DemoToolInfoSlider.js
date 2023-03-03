@@ -151,6 +151,10 @@ function TimeOfTheDay(hour) {
     }
 }
 
+function CurrentDateTimeInTimezone(timeZone) {
+    return new Date().toLocaleString("en-US", { timeZone: timeZone });
+}
+
 // Define the Boxever settings
 unsafeWindow._boxever_settings = {
     client_key: SITECORECDP_CLIENT_KEY, // Replace with your client key
@@ -849,20 +853,16 @@ function InitReplacers(data) {
             });
 
             demoToolData.Replacers.location.timezone = response.time_zone;
-
-            var currentDatetime = new Date();
-            var currentTimezoneOffset = currentDatetime.getTimezoneOffset(); // -60
-            var currentTimeHours = currentDatetime.getHours();
-            var targetTimezoneOffset = demoToolData.Replacers.location.timezone.offset * 60;
-            currentDatetime.setHours(currentTimeHours + targetTimezoneOffset - currentTimezoneOffset);
-
-            demoToolData.Replacers.location.timezone.current_time = currentDatetime;
-            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(currentDatetime.getHours());
+            var timezoneDateTime = CurrentDateTimeInTimezone("America/New_York");
+            demoToolData.Replacers.location.timezone.current_time = timezoneDateTime;
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(timezoneDateTime.getHours());
 
             resolve(demoToolData);
         });
     });
 }
+
+
 
 function FormatDataByDataType(value, dataType) {
     switch (dataType) {
