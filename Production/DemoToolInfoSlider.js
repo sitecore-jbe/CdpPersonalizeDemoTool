@@ -151,7 +151,7 @@ function TimeOfTheDay(hour) {
     }
 }
 
-function CurrentDateTimeLocaleStringInTimezone(timeZone) {
+function CurrentDateTimeInTimezoneLocaleString(timeZone) {
     return new Date().toLocaleString("en-US", { timeZone: timeZone });
 }
 
@@ -865,7 +865,7 @@ function InitReplacers(data) {
 
             demoToolData.Replacers.location.timezone = response.time_zone;
             demoToolData.Replacers.location.timezone.name = "America/New_York";
-            demoToolData.Replacers.location.timezone.current_time = CurrentDateTimeInTimezone(demoToolData.Replacers.location.timezone.name);
+            demoToolData.Replacers.location.timezone.current_time = CurrentDateTimeInTimezoneLocaleString(demoToolData.Replacers.location.timezone.name);
             demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(demoToolData.Replacers.location.timezone.name));
 
             resolve(demoToolData);
