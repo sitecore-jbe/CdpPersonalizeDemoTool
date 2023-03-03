@@ -18,7 +18,7 @@ const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 const DEMOTOOL_VERSION = "v1.07";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
-const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
+//const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
 const WEATHER_API_TARGET = "https://api.open-meteo.com/v1/forecast";
 const BASE_WEB_INTERFACE_URL = "https://app.boxever.com";
 const DEMOTOOL_FONTAWESOME_STYLE_SOLID = "fa-solid";
@@ -528,12 +528,12 @@ function GetIPGeolocation() {
 
 
 
-function GetTimezoneDateTime(ipaddress) {
-    console.debug(CONSOLE_LOG_PREFIX + "Starting GetTimezoneDateTime for IP Address: '" + ipaddress + "'...");
+//function GetTimezoneDateTime(ipaddress) {
+//    console.debug(CONSOLE_LOG_PREFIX + "Starting GetTimezoneDateTime for IP Address: '" + ipaddress + "'...");
 
-    var request = new Request(TIMEZONE_API_TARGET + "/ipaddress", GetDefaultJsonGetRequestOptions());
-    return Ajax(request);
-}
+//    var request = new Request(TIMEZONE_API_TARGET + "/ipaddress", GetDefaultJsonGetRequestOptions());
+//    return Ajax(request);
+//}
 
 
 function GetCurrentWeather(latitude, longitude) {
@@ -850,9 +850,17 @@ function InitReplacers(data) {
 
             demoToolData.Replacers.location.timezone = response.time_zone;
 
-            var enUSMoment = moment().locale('en-US');
-            demoToolData.Replacers.location.timezone.current_time = enUSMoment.tz(demoToolData.Replacers.location.timezone.name).toDate();
-            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(enUSMoment.hours());
+            var currentDatetime = new Date();
+            var currentTimezoneOffset = currentDatetime.getTimezoneOffset(); // -60
+            var currentTimeHours = currentDatetime.getHours();
+            var targetTimezoneOffset = currentDatetime.getTimezoneOffset(); 
+
+            demoToolData.Replacers.location.timezone.offset
+
+            var timezoneDateTime = currentDatetime.setHours(currentTimeHours + targetTimezoneOffset - currentTimezoneOffset)
+
+            demoToolData.Replacers.location.timezone.current_time = timezoneDateTime;
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(currentDatetime.getHours());
 
             resolve(demoToolData);
         });
