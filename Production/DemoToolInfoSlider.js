@@ -854,12 +854,10 @@ function InitReplacers(data) {
             var currentTimezoneOffset = currentDatetime.getTimezoneOffset(); // -60
             var currentTimeHours = currentDatetime.getHours();
             var targetTimezoneOffset = demoToolData.Replacers.location.timezone.offset * 60;
+            currentDatetime.setHours(currentTimeHours + targetTimezoneOffset - currentTimezoneOffset);
 
-
-            var timezoneDateTime = currentDatetime.setHours(currentTimeHours + targetTimezoneOffset - currentTimezoneOffset);
-
-            demoToolData.Replacers.location.timezone.current_time = timezoneDateTime;
-            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(timezoneDateTime.getHours());
+            demoToolData.Replacers.location.timezone.current_time = currentDatetime;
+            demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(currentDatetime.getHours());
 
             resolve(demoToolData);
         });
