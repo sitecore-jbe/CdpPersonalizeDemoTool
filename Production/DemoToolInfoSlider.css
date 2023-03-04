@@ -33,6 +33,7 @@
 
 #DemoToolInfoSlider h3.demoToolInfoSliderBodyHeaderRightTopTitle { font-size: 26px; margin-bottom: 5px; font-family: 'Montserrat', sans-serif !important;}
 
+#DemoToolInfoSlider .aboutbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolInfoSlider .expandpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolInfoSlider .notconfiguredpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolInfoSlider .filtereventsbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
