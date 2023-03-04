@@ -2251,6 +2251,9 @@
         {
           "Property": "orders",
           "DataType": "Array",
+          "ShowLabel": true,
+          "ShowIcon": false,
+          "Icon": "Calculated",
           "CollapsedProperties": [
             {
               "Value": "{{createdAt}} // {{channel}} // @{{price}} {{currencyCode}}",
