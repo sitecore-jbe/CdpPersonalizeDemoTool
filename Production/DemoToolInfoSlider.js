@@ -7,46 +7,13 @@ const SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with y
 const SITECORECDP_CHANNEL = "WEB";
 const SITECORECDP_VIEW_TYPE = "VIEW";
 const SITECORECDP_IDENTITY_TYPE = "IDENTITY";
+const SITECORECDP_FEEDBACK_TYPE = "FEEDBACK";
 const SITECORECDP_FORCE_CLOSE_TYPE = "FORCE_CLOSE";
 const SITECORECDP_ORDER_CHECKOUT_TYPE = "ORDER_CHECKOUT";
 const SITECORECDP_CURRENCY = "USD";
 const SITECORECDP_LANGUAGE = "EN";
-const SITECORECDP_POINT_OF_SALE = "StandardDemo"; // Sitecore Sales Engineering 3 EU tenant - do not change
+const SITECORECDP_POINT_OF_SALE = "StandardDemo";
 const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
-
-//DemoTool settings
-const DEMOTOOL_VERSION = "v1.07";
-const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
-const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
-//const TIMEZONE_API_TARGET = "http://worldtimeapi.org/api/ip";
-const WEATHER_API_TARGET = "https://api.open-meteo.com/v1/forecast";
-const BASE_WEB_INTERFACE_URL = "https://app.boxever.com";
-const DEMOTOOL_FONTAWESOME_STYLE_SOLID = "fa-solid";
-
-const DEMOTOOL_FONTAWESOME_CIRCLEINFO = "fa-circle-info";
-const DEMOTOOL_FONTAWESOME_CIRCLEXMARK = "fa-circle-xmark";
-const DEMOTOOL_FONTAWESOME_CARETDOWN = "fa-square-caret-down";
-const DEMOTOOL_FONTAWESOME_CARETUP = "fa-square-caret-up";
-const DEMOTOOL_FONTAWESOME_ANGLESDOWN = "fa-angles-down";
-const DEMOTOOL_FONTAWESOME_ANGLESUP = "fa-angles-up";
-const DEMOTOOL_FONTAWESOME_WINDOWRESTORE = "fa-window-restore";
-const DEMOTOOL_FONTAWESOME_XMARK = "fa-xmark";
-const DEMOTOOL_FONTAWESOME_REQUIRED = "fa-database";
-const DEMOTOOL_FONTAWESOME_OPTIONAL = "fa-database";
-const DEMOTOOL_FONTAWESOME_CALCULATED = "fa-calculator";
-const DEMOTOOL_FONTAWESOME_COPY = "fa-copy";
-const DEMOTOOL_FONTAWESOME_CHECK = "fa-check";
-const DEMOTOOL_FONTAWESOME_BARSSTAGGERED = "fa-bars-staggered";
-const DEMOTOOL_FONTAWESOME_BARS = "fa-bars";
-const DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK = "fa-filter-circle-xmark";
-const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
-const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
-
-
-const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
-const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
-
-const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
 
 
 //Demo specific default values
@@ -85,6 +52,7 @@ const SITECORECDP_CLIENTVERSION = "1.4.9";
 const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 
 //Fixed Demo Tool settings
+const DEMOTOOL_VERSION = "v4.01.00";
 const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
@@ -96,6 +64,33 @@ const CONTAINERDEFINITIONS_URL = "https://sitecore-jbe.github.io/CdpPersonalizeD
 const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo.png";
 const CDPANDPERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
 const SITECORELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
+const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
+const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
+const WEATHER_API_TARGET = "https://api.open-meteo.com/v1/forecast";
+const BASE_WEB_INTERFACE_URL = "https://app.boxever.com";
+const DEMOTOOL_FONTAWESOME_STYLE_SOLID = "fa-solid";
+const DEMOTOOL_FONTAWESOME_CIRCLEINFO = "fa-circle-info";
+const DEMOTOOL_FONTAWESOME_CIRCLEXMARK = "fa-circle-xmark";
+const DEMOTOOL_FONTAWESOME_CARETDOWN = "fa-square-caret-down";
+const DEMOTOOL_FONTAWESOME_CARETUP = "fa-square-caret-up";
+const DEMOTOOL_FONTAWESOME_ANGLESDOWN = "fa-angles-down";
+const DEMOTOOL_FONTAWESOME_ANGLESUP = "fa-angles-up";
+const DEMOTOOL_FONTAWESOME_WINDOWRESTORE = "fa-window-restore";
+const DEMOTOOL_FONTAWESOME_XMARK = "fa-xmark";
+const DEMOTOOL_FONTAWESOME_REQUIRED = "fa-database";
+const DEMOTOOL_FONTAWESOME_OPTIONAL = "fa-database";
+const DEMOTOOL_FONTAWESOME_CALCULATED = "fa-calculator";
+const DEMOTOOL_FONTAWESOME_COPY = "fa-copy";
+const DEMOTOOL_FONTAWESOME_CHECK = "fa-check";
+const DEMOTOOL_FONTAWESOME_BARSSTAGGERED = "fa-bars-staggered";
+const DEMOTOOL_FONTAWESOME_BARS = "fa-bars";
+const DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK = "fa-filter-circle-xmark";
+const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
+const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
+const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
+const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
+const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
+
 
 const ABOUT_TEXT = "About";
 
@@ -368,15 +363,6 @@ function AppendElementAsChild(parentHtmlElement, element, options) {
 function CreateElement(element, options) {
     var tempElement = document.createElement(element);
     for (var prop in options) {
-        //if (prop === "childNodes") {
-        //    initObj.childNodes.forEach(function (node) { tempElement.appendChild(node); });
-        //}
-        //else if (prop === "attributes") {
-        //    initObj.attributes.forEach(function (attr) { tempElement.setAttribute(attr.key, attr.value) });
-        //}
-        //else tempElement[prop] = initObj[prop];
-
-
         if (prop == "class") {
             tempElement["classList"] = options[prop];
         }
@@ -533,15 +519,6 @@ function GetIPGeolocation() {
         }
     });
 }
-
-
-
-//function GetTimezoneDateTime(ipaddress) {
-//    console.debug(CONSOLE_LOG_PREFIX + "Starting GetTimezoneDateTime for IP Address: '" + ipaddress + "'...");
-
-//    var request = new Request(TIMEZONE_API_TARGET + "/ipaddress", GetDefaultJsonGetRequestOptions());
-//    return Ajax(request);
-//}
 
 
 function GetCurrentWeather(latitude, longitude) {
