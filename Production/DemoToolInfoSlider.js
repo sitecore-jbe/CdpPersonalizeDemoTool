@@ -139,13 +139,15 @@ function convertToDms(decimalDegrees, isLongitude) {
 function TimeOfTheDay(hour) {
     if (hour >= 0 && hour < 6) {
         return "Night";
-    }
-    else if (hour >= 6 && hour < 12) {
+    } else if (hour >= 6 && hour < 12) {
         return "Morning";
     } else if (hour >= 12 && hour < 18) {
         return "Afternoon";
     } else if (hour >= 18 && hour < 24) {
         return "Evening";
+    } else if (hour = 24) {
+        // used if American 2 digit notation
+        return "Night";
     }
 }
 
@@ -1158,7 +1160,7 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
         if (propertyDefinition.Link) {
             // Render value of property as link 
             let link = ReplaceValueTokens(propertyDefinition.Link, dataPath);
-            propertyValue = AppendElementAsChild(property, 'a', { id: property.id + "Link", classList: "propertyvalue", href: link, target: DEMOTOOL_SITECORECDP_TARGET_NAME, innerText: displayValue}); //JSON.stringify(displayValue)
+            propertyValue = AppendElementAsChild(property, 'a', { id: property.id + "Link", classList: "propertyvalue", href: link, target: DEMOTOOL_SITECORECDP_TARGET_NAME, innerText: displayValue }); //JSON.stringify(displayValue)
             let propertyValueCopyToClipboard = AppendElementAsChild(property, 'i', { id: property.id + "CopyToClipboard", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + "link" });
             if (propertyDefinition.Suffix) {
                 AppendSuffix(propertyValue, propertyDefinition.Suffix, dataPath);
@@ -1166,7 +1168,7 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
         }
         else {
             // Render value of property
-            propertyValue = AppendElementAsChild(property, 'label', { id: property.id + "Value", classList: "propertyvalue", innerHTML: displayValue}); //JSON.stringify(displayValue)
+            propertyValue = AppendElementAsChild(property, 'label', { id: property.id + "Value", classList: "propertyvalue", innerHTML: displayValue }); //JSON.stringify(displayValue)
             if (propertyDefinition.Suffix) {
                 AppendSuffix(propertyValue, propertyDefinition.Suffix, dataPath);
             }
@@ -1180,13 +1182,21 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
         }
 
         if (propertyDefinition.ContiniouslyUpdate) {
-            // Initiate Timezone Time Interval
-            setInterval(() => {
-                let timezoneName = demoToolData.Replacers.location.timezone.name;
-                demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName)).toISOString();
-                demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(timezoneName));
-                propertyValue.text = FormatDataByDataType(demoToolData.Replacers.location.timezone.current_time, dataType);
-            }, 1000);
+            if (propertyDefinition.property == "current_time") {
+                // Initiate Timezone Time Interval
+                setInterval(() => {
+                    let timezoneName = demoToolData.Replacers.location.timezone.name;
+                    demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName)).toISOString();
+                    propertyValue.innerText = FormatDataByDataType(demoToolData.Replacers.location.timezone.current_time, dataType);
+                }, 1000);
+            } else if (propertyDefinition.property == "timeOfTheDay") {
+                // Initiate Timezone Time Interval
+                setInterval(() => {
+                    let timezoneName = demoToolData.Replacers.location.timezone.name;
+                    demoToolData.Replacers.location.timezone.timeOfTheDay = TimeOfTheDay(CurrentTimeInTimezone(timezoneName));
+                    propertyValue.innerText = FormatDataByDataType(demoToolData.Replacers.location.timezone.timeOfTheDay, dataType);
+                }, 1000);
+            }
         }
 
         // Property is rendered
