@@ -1159,14 +1159,14 @@ function ComposeDemoToolProperty(propertyDefinitionPath, parentHtmlElement) {
         }
 
         if (propertyDefinition.ContiniouslyUpdate) {
-            if (propertyDefinition.property == "current_time") {
+            if (propertyDefinition.Property == "current_time") {
                 // Initiate Timezone Time Interval
                 setInterval(() => {
                     let timezoneName = demoToolData.Replacers.location.timezone.name;
                     demoToolData.Replacers.location.timezone.current_time = new Date(CurrentDateTimeInTimezoneLocaleString(timezoneName)).toISOString();
                     propertyValue.innerText = FormatDataByDataType(demoToolData.Replacers.location.timezone.current_time, dataType);
                 }, 1000);
-            } else if (propertyDefinition.property == "timeOfTheDay") {
+            } else if (propertyDefinition.Property == "timeOfTheDay") {
                 // Initiate Timezone Time Interval
                 setInterval(() => {
                     let timezoneName = demoToolData.Replacers.location.timezone.name;
