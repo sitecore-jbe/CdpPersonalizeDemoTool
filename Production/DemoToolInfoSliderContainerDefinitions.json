@@ -2685,14 +2685,13 @@
       "Name": "Sessions",
       "DataSource": "Guest",
       "HtmlElementId": "Sessions",
-      "Label": "Sessions",
       "CSSClass": "",
       "RefreshOnDisplay": true,
       "ShowAllSubProperties": false,
       "Properties": [
         {
           "Property": "sessions",
-          "ShowLabel": false,
+          "ShowLabel": true,
           "ShowIcon": false,
           "DataType": "Array",
           "Icon": "Calculated",
