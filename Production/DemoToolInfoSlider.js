@@ -1,5 +1,6 @@
 ﻿"use strict";
 
+
 //Demo specific Sitecore CDP settings
 var SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
 var SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
@@ -1714,7 +1715,7 @@ function AddInfoSliderFilterButtonClickEventHandlers(button, htmlElementsDataId,
 
         // Update Array element counters
         var propertyLengthLabels = document.querySelectorAll('[data-filtered-text]', '[data-text]');
-        for (i = 0; i < propertyLengthLabels.length; i++) {
+        for (let i = 0; i < propertyLengthLabels.length; i++) {
             propertyLengthLabels[i].innerText = IsEventFilteringEnabled() ? propertyLengthLabels[i].dataset["filteredText"] : propertyLengthLabels[i].dataset["text"];
         }
     });
