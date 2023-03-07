@@ -99,7 +99,7 @@ const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
 const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
 const DEMOTOOL_GITHUB_TARGET_NAME = "Github"
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
-const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Tool";
+const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Assistant";
 const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
 
 //Demotool button tooltips/questions/texts
@@ -157,13 +157,20 @@ function PositionPopup(anchor, elem) {
 }
 
 
-function AddPopupResizeEventListener(element) {
-    var resizeObserver = new ResizeObserver(() => {
+function ResizeAllPopupsIfNeeded() {
+    if (demoToolData.toolTipsArray) {
         for (var i = 0; i < demoToolData.toolTipsArray.length; i++) {
             var element = document.getElementById(demoToolData.toolTipsArray[i].popupId);
             var anchor = document.getElementById(demoToolData.toolTipsArray[i].id);
             PositionPopup(anchor, element);
         }
+    }
+}
+
+//Resize/reposition popups if popup content is expanded/collapsed
+function AddPopupResizeEventListener(element) {
+    var resizeObserver = new ResizeObserver(() => {
+        ResizeAllPopupsIfNeeded();
     });
 
     // Observe one or multiple elements
@@ -171,13 +178,10 @@ function AddPopupResizeEventListener(element) {
 }
 
 
+//Resize/reposition popups if window is resized
 function AddWindowResizeEventListener() {
     window.addEventListener('resize', () => {
-        for (var i = 0; i < demoToolData.toolTipsArray.length; i++) {
-            var element = document.getElementById(demoToolData.toolTipsArray[i].popupId);
-            var anchor = document.getElementById(demoToolData.toolTipsArray[i].id);
-            PositionPopup(anchor, element);
-        }
+        ResizeAllPopupsIfNeeded();
     });
 }
 
@@ -1819,7 +1823,7 @@ function InitializeInfoSlider() {
     //Info Slider Header Top Right Top
     var InfoSliderBodyHeaderTopRightTop = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Top", classList: "demoToolInfoSliderBodyHeaderTopRightTop" });
     var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
-    var InfoSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(InfoSliderBodyHeaderTopRightTopVersion, 'a', { id: InfoSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "propertyvalue", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
+    var InfoSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(InfoSliderBodyHeaderTopRightTopVersion, 'a', { id: InfoSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "versionlink", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
 
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
@@ -1886,11 +1890,14 @@ function baseEvent(type) {
         "browser_id": Boxever.getID(),
         "channel": SITECORECDP_CHANNEL,
         "type": type,
-        "language": SITECORECDP_LANGUAGE,
-        "currency": SITECORECDP_CURRENCY,
-        "page": SITECORECDP_PAGE,
         "pos": SITECORECDP_POINT_OF_SALE
     };
+
+    if (type == SITECORECDP_VIEW_TYPE || type == SITECORECDP_IDENTITY_TYPE) {
+        sitecoreEvent.language = SITECORECDP_LANGUAGE;
+        sitecoreEvent.page = SITECORECDP_PAGE;
+        sitecoreEvent.currency = SITECORECDP_CURRENCY;
+    }
 
     return sitecoreEvent;
 }
