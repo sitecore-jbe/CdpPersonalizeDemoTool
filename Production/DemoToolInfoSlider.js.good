@@ -89,113 +89,27 @@ const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
 const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
 const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
-const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Tool";
 const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
 
-//Demotool button tooltips/questions/texts
+
 const ABOUT_TEXT = "About";
+
 const EVENTFILTERINGENABLED_TEXT = "Disable event filtering.";
 const EVENTFILTERINGDISABLED_TEXT = "Enable event filtering.";
+
 const EXTENDEDPROPERTIESENABLED_TEXT = "Show extended properties.";
 const EXTENDEDPROPERTIESDISABLED_TEXT = "Hide extended properties.";
+
 const NOTCONFIGUREDPROPERTIESENABLED_TEXT = "Show not configured properties.";
 const NOTCONFIGUREDPROPERTIESDISABLED_TEXT = "Hide not configured properties.";
+
 const OPENQATOOLQUESTION_TEXT = "Are you sure you want to open the QA Tool. The page will reload."
 
 //Logging settings
 const CONSOLE_LOG_PREFIX = "Sitecore: ";
 
-const usePopper = false; // Trying to remove popper.js dependency (false is not yet supported) 
-
 // Global Variables
 var demoToolData = {};
-
-
-/**
-* Positions elem relative to anchor as said in position.
-*
-* @param {Node} anchor     Anchor element for positioning
-* @param {string} position One of: top/right/bottom
-* @param {Node} elem       Element to position
-*
-* Both elements: elem and anchor must be in the document
-*/
-function positionAt(anchor, position, elem) {
-    //let anchorCoords = anchor.getBoundingClientRect();
-    //let elemCoords = elem.getBoundingClientRect();
-
-    elem.style.position = "fixed";
-    switch (position) {
-        //case "top":
-        //    elem.style.left = anchorCoords.left + "px";
-        //    elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
-        //    break;
-
-        //case "right":
-        //    elem.style.left = anchorCoords.left + anchor.offsetWidth + "px";
-        //    elem.style.top = anchorCoords.top + "px";
-        //    break;
-
-        case "left":
-            PositionPopup(anchor, elem);
-            break;
-
-        //case "bottom":
-        //    elem.style.left = anchorCoords.left + "px";
-        //    elem.style.top = anchorCoords.top + anchor.offsetHeight + "px";
-        //    break;
-    }
-}
-
-
-function PositionPopup(anchor, elem) {
-    var offset = 5;
-    var elemCoords = elem.getBoundingClientRect();
-    let anchorCoords = anchor.getBoundingClientRect();
-
-    //Top positioning
-    var newTop = anchorCoords.top;
-    var newBottom = newTop + elemCoords.height + offset;
-    if (newBottom >= window.innerHeight) {
-        newTop = window.innerHeight - elemCoords.height - (2 * offset);
-    }
-    if (newTop < offset) {
-        elem.style.top = offset + "px";
-        elem.style["overflow-y"] = "scroll";
-        elem.style["max-height"] = window.innerHeight - (2 * offset) + "px";
-    } else {
-        elem.style.top = newTop + "px";
-        elem.style["overflow-y"] = "inherit";
-        elem.style["max-height"] = "inherit"
-    }
-
-    //Left positioning
-    var newLeft = anchorCoords.left - elemCoords.width - offset;
-    var newRight = newLeft + elemCoords.width;
-    if (newRight >= window.innerWidth) {
-        newLeft = window.innerWidth - elemCoords.width - offset;
-    }
-    if (newLeft < offset) {
-        elem.style.left = offset + "px";
-    } else {
-        elem.style.left = newLeft + "px";
-    }
-}
-
-
-function AddPopupResizeEventListener(element) {
-    var resizeObserver = new ResizeObserver(() => {
-        for (var i = 0; i < demoToolData.toolTipsArray.length; i++) {
-            var element = document.getElementById(demoToolData.toolTipsArray[i].popupId);
-            var anchor = document.getElementById(demoToolData.toolTipsArray[i].id);
-            PositionPopup(anchor, element);
-        }
-    });
-
-    // Observe one or multiple elements
-    resizeObserver.observe(element);
-}
-
 
 // Converts decimal degrees to degrees minutes seconds.
 // @param decimalDegrees the decimal degrees value.
@@ -1511,7 +1425,6 @@ function isJSON(text) {
     }
 }
 
-
 function InitializeAccordionClickEventHandlers(parentHtmlElement) {
     /* add open&close accordion event handler */
     parentHtmlElement.addEventListener("click", function () {
@@ -1757,32 +1670,26 @@ function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipConten
     toolTipButton.addEventListener("click", function (e) {
         e.preventDefault();
 
-        if (usePopper) {
-            //Create the popper
-            var popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-                placement: "auto", //preferred placement of popper
-                modifiers: [
-                    {
-                        name: "offset", //offsets popper from the reference/button
-                        options: {
-                            offset: [0, 8]
-                        }
-                    },
-                    {
-                        name: "flip", //flips popper with allowed placements
-                        options: {
-                            allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                            rootBoundary: "viewport"
-                        }
+        var popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
+            placement: "auto", //preferred placement of popper
+            modifiers: [
+                {
+                    name: "offset", //offsets popper from the reference/button
+                    options: {
+                        offset: [0, 8]
                     }
-                ]
-            });
-        }
-        else {
-            //Trying to remove popper dependency.
-            positionAt(toolTipButton, "left", toolTipContent);
-        }
+                },
+                {
+                    name: "flip", //flips popper with allowed placements
+                    options: {
+                        allowedAutoPlacements: ["right", "left", "top", "bottom"],
+                        rootBoundary: "viewport"
+                    }
+                }
+            ]
+        });
     });
+    //Create the popper
 
 }
 function AddInfoSliderExtendedPropertiesButtonClickEventHandlers(button, htmlElementsDataId) {
@@ -1803,29 +1710,6 @@ function AddInfoSliderQaToolButtonClickEventHandlers(button) {
     AddLinkClickEventHandler(button, OPENQATOOLQUESTION_TEXT, qaToolLinkUrl);
 }
 
-function InitializeAboutPopup(parentHtmlElement) {
-    console.debug(CONSOLE_LOG_PREFIX + "Starting InitializeAboutPopup...");
-
-    var aboutPopUpContentHtmlElement = AppendElementAsChild(parentHtmlElement, 'div', { id: parentHtmlElement.id + "Popup", classList: "tooltipcontent" });
-    var aboutPopUpContentHeaderHtmlElement = AppendElementAsChild(aboutPopUpContentHtmlElement, 'label', { id: aboutPopUpContentHtmlElement.id + "Header", classList: "tooltipheader" });
-    var aboutPopUpCloseButtonHtmlElement = AppendElementAsChild(aboutPopUpContentHtmlElement, 'i', { id: aboutPopUpContentHtmlElement.id + "TooltipCloseButton", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_XMARK + " " + "tooltipclosebutton", title: "Close" });
-    var aboutPopUpContentHeaderHorizontalRuleHtmlElement = AppendElementAsChild(aboutPopUpContentHtmlElement, 'hr', { id: aboutPopUpContentHtmlElement.id + "HorizontalRule", classList: "seperator" });
-
-    //Add click event listener to the tooltip close button
-    aboutPopUpCloseButtonHtmlElement.addEventListener("click", function (e) {
-        e.preventDefault();
-        //Pass the tooltipbutton (nextElementSibling) to the togglePopper method because id of button is in Array
-        togglePopper(parentHtmlElement.lastChild);
-    });
-
-    //Compose Tooltip Title
-    aboutPopUpContentHeaderHtmlElement.innerHTML = DEMOTOOL_INFOSLIDER_TITLE;
-
-    //Compose Tooltip Content
-    return aboutPopUpContentHtmlElement;
-}
-
-
 function InitializeInfoSlider() {
     console.debug(CONSOLE_LOG_PREFIX + "Starting InitializeInfoSlider...");
 
@@ -1842,13 +1726,17 @@ function InitializeInfoSlider() {
     //Info Slider Header
     var InfoSliderBodyHeader = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Header", classList: "demoToolInfoSliderBodyHeader" });
 
+    ////Info Slider Header Left
+    //var InfoSliderBodyHeaderLeft = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Left", classList: "demoToolInfoSliderBodyHeaderLeft" });
+    //var InfoSliderBodyHeaderLeftImage = AppendElementAsChild(InfoSliderBodyHeaderLeft, "img", { id: InfoSliderBodyHeaderLeft.id + "Image", src: LOGO_URL, classList: "demoToolInfoSliderBodyHeaderLeftImage" });
+
     //Info Slider Header Top
     var InfoSliderBodyHeaderTop = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Top", classList: "demoToolInfoSliderBodyHeaderTop" });
 
     //Info Slider Header Top Left
     var InfoSliderBodyHeaderTopLeft = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Left", classList: "demoToolInfoSliderBodyHeaderTopLeft" });
     var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "img", { id: InfoSliderBodyHeaderTopLeft.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "demoToolInfoSliderBodyHeaderTopLeftLogo" });
-    var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "label", { id: InfoSliderBodyHeaderTopLeft.id + "ToolTitle", innerText: DEMOTOOL_INFOSLIDER_TITLE, classList: "demoToolInfoSliderBodyHeaderTopLeftToolTitle" });
+    var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "label", { id: InfoSliderBodyHeaderTopLeft.id + "ToolTitle", innerText: "Profiling Tool", classList: "demoToolInfoSliderBodyHeaderTopLeftToolTitle" });
 
     //Info Slider Header Top Right
     var InfoSliderBodyHeaderTopRight = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Right", classList: "demoToolInfoSliderBodyHeaderTopRight" });
@@ -1863,13 +1751,12 @@ function InitializeInfoSlider() {
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
 
+    //Add the ExtendedPropertiesButtonId to the htmlElementIDs and init htmlElementIDs if neccessary.
 
-    //var AboutButtonDataId = "AboutButton";
-    //var InfoSliderBodyHeaderBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "aboutbutton", title: ABOUT_TEXT })
-    //var aboutPopUp = InitializeAboutPopup(InfoSliderBodyHeaderBottomAboutButton);
-    //AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderBottomAboutButton, aboutPopUp);
+    var AboutButtonDataId = "AboutButton";
+    var InfoSliderBodyHeaderBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "aboutbutton", title: ABOUT_TEXT })
+    AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderBottomAboutButton, "About this tool");
 
-    //ExtendedPropertiesButton
     var ExtendedPropertiesButtonDataId = "ExtendedPropertiesButton";
     var InfoSliderBodyHeaderBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
     AddInfoSliderExtendedPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomExtendedPropertiesButton, ExtendedPropertiesButtonDataId + "Id");
@@ -1877,15 +1764,12 @@ function InitializeInfoSlider() {
         InfoSliderBodyHeaderBottomExtendedPropertiesButton.click();
     }
 
-    //NotConfiguredPropertiesButton
     var NotConfiguredPropertiesButtonDataId = "NotConfiguredPropertiesButton";
     var InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + NotConfiguredPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_BARSSTAGGERED + " " + "notconfiguredpropertiesbutton", title: NOTCONFIGUREDPROPERTIESENABLED_TEXT })
     AddInfoSliderNotConfiguredPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton, NotConfiguredPropertiesButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolNotConfiguredPropertiesButtonState") == "true") {
         InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton.click();
     }
-
-    //FilterEventsButton
     var FilterEventsButtonDataId = "FilterEventsButton";
     var InfoSliderBodyHeaderBottomFilterEventsButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + FilterEventsButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK + " " + "filtereventsbutton", title: EVENTFILTERINGENABLED_TEXT });
     AddInfoSliderFilterEventsButtonClickEventHandlers(InfoSliderBodyHeaderBottomFilterEventsButton, FilterEventsButtonDataId + "Id");
@@ -1893,9 +1777,10 @@ function InitializeInfoSlider() {
         InfoSliderBodyHeaderBottomFilterEventsButton.click();
     }
 
-    //QAToolButton
+
     if (!document.location.href.includes("bxQATool=true")) {
         var QaToolButtonDataId = "QAToolButton";
+
         var InfoSliderBodyHeaderBottomQaToolButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + QaToolButtonDataId, classList: "qatoolbutton", title: "Open QA Tool" });
         AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderBottomQaToolButton);
     }
@@ -1908,6 +1793,7 @@ function InitializeInfoSlider() {
     //Info Slider Header
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
     var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
+
 
     console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeInfoSlider.");
 
@@ -2037,14 +1923,12 @@ function togglePopper(toolTipButton) {
 
         const toolTipsArrayElement = demoToolData.toolTipsArray.find(toolTip => toolTip.id == toolTipButton.id);
         if (toolTipsArrayElement) {
-            if (usePopper) {
-                var popperInstance = toolTipsArrayElement.popperInstance;
+            var popperInstance = toolTipsArrayElement.popperInstance;
 
-                //Destroy the popper
-                if (popperInstance) {
-                    popperInstance.destroy();
-                    popperInstance = null;
-                }
+            //Destroy the popper
+            if (popperInstance) {
+                popperInstance.destroy();
+                popperInstance = null;
             }
 
             //Remove the popper from the toolTipsArray
@@ -2061,40 +1945,31 @@ function togglePopper(toolTipButton) {
 
         //Check if popper already exists in toolTipArray
         if (!demoToolData.toolTipsArray || (demoToolData.toolTipsArray && !demoToolData.toolTipsArray.some(item => item.id == toolTipButton.id))) {
-
-            if (usePopper) {
-                //Create the popper
-                popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-                    placement: "auto", //preferred placement of popper
-                    modifiers: [
-                        {
-                            name: "offset", //offsets popper from the reference/button
-                            options: {
-                                offset: [0, 8]
-                            }
-                        },
-                        {
-                            name: "flip", //flips popper with allowed placements
-                            options: {
-                                allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                                rootBoundary: "viewport"
-                            }
+            //Create the popper
+            popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
+                placement: "auto", //preferred placement of popper
+                modifiers: [
+                    {
+                        name: "offset", //offsets popper from the reference/button
+                        options: {
+                            offset: [0, 8]
                         }
-                    ]
-                });
+                    },
+                    {
+                        name: "flip", //flips popper with allowed placements
+                        options: {
+                            allowedAutoPlacements: ["right", "left", "top", "bottom"],
+                            rootBoundary: "viewport"
+                        }
+                    }
+                ]
+            });
 
-                //Add the popper to the toolTipsArray and init if neccessary.
-                if (!demoToolData.toolTipsArray) {
-                    demoToolData.toolTipsArray = [];
-                }
-                demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popperInstance": popperInstance });
-            } else {
-                positionAt(toolTipButton, "left", toolTipContent);
-                if (!demoToolData.toolTipsArray) {
-                    demoToolData.toolTipsArray = [];
-                }
-                demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popupId": toolTipContent.id });
+            //Add the popper to the toolTipsArray and init if neccessary.
+            if (!demoToolData.toolTipsArray) {
+                demoToolData.toolTipsArray = [];
             }
+            demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popperInstance": popperInstance });
         }
     }
 }
@@ -2128,10 +2003,6 @@ function ComposeTooltipContent(parentHtmlElement) {
         title = propertyDefinition.Label ? propertyDefinition.Label : ToSentenceCase(propertyDefinition.Property);
     }
     toolTipContentHeaderHtmlElement.innerHTML = title;
-
-    if (!usePopper) {
-        AddPopupResizeEventListener(toolTipContentHtmlElement);
-    }
 
     //Compose Tooltip Content
     return ComposeObject(toolTipContentHtmlElement, true);
@@ -2390,7 +2261,7 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
         }
     });
 
-    //LoadJavascriptAsync(POPPER_JS);
+    LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
 
     LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
