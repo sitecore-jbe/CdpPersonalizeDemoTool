@@ -120,47 +120,12 @@ const CONSOLE_LOG_PREFIX = "Sitecore: ";
 var demoToolData = {};
 
 
-/**
-* Positions elem relative to anchor as said in position.
-*
-* @param {Node} anchor     Anchor element for positioning
-* @param {string} position One of: top/right/bottom
-* @param {Node} elem       Element to position
-*
-* Both elements: elem and anchor must be in the document
-*/
-function positionAt(anchor, position, elem) {
-    //let anchorCoords = anchor.getBoundingClientRect();
-    //let elemCoords = elem.getBoundingClientRect();
-
-    elem.style.position = "fixed";
-    switch (position) {
-        //case "top":
-        //    elem.style.left = anchorCoords.left + "px";
-        //    elem.style.top = anchorCoords.top - elem.offsetHeight + "px";
-        //    break;
-
-        //case "right":
-        //    elem.style.left = anchorCoords.left + anchor.offsetWidth + "px";
-        //    elem.style.top = anchorCoords.top + "px";
-        //    break;
-
-        case "left":
-            PositionPopup(anchor, elem);
-            break;
-
-        //case "bottom":
-        //    elem.style.left = anchorCoords.left + "px";
-        //    elem.style.top = anchorCoords.top + anchor.offsetHeight + "px";
-        //    break;
-    }
-}
-
-
 function PositionPopup(anchor, elem) {
     var offset = 5;
     var elemCoords = elem.getBoundingClientRect();
     let anchorCoords = anchor.getBoundingClientRect();
+
+    elem.style.position = "fixed";
 
     //Top positioning
     var newTop = anchorCoords.top;
@@ -1765,7 +1730,7 @@ function AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, toggl
 function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipContent) {
     toolTipButton.addEventListener("click", function (e) {
         e.preventDefault();
-        positionAt(toolTipButton, "left", toolTipContent);
+        PositionPopup(toolTipButton, toolTipContent);
     });
 
 }
@@ -2036,7 +2001,7 @@ function togglePopper(toolTipButton) {
 
         //Check if popper already exists in toolTipArray
         if (!demoToolData.toolTipsArray || (demoToolData.toolTipsArray && !demoToolData.toolTipsArray.some(item => item.id == toolTipButton.id))) {
-            positionAt(toolTipButton, "left", toolTipContent);
+            pPositionPopup(toolTipButton, toolTipContent);
             if (!demoToolData.toolTipsArray) {
                 demoToolData.toolTipsArray = [];
             }
