@@ -1,5 +1,49 @@
 ﻿"use strict";
 
+//Demo specific Sitecore CDP settings
+var SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
+var SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
+var SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
+var SITECORECDP_CHANNEL = "WEB";
+var SITECORECDP_VIEW_TYPE = "VIEW";
+var SITECORECDP_IDENTITY_TYPE = "IDENTITY";
+var SITECORECDP_FEEDBACK_TYPE = "FEEDBACK";
+var SITECORECDP_FORCE_CLOSE_TYPE = "FORCE_CLOSE";
+var SITECORECDP_ORDER_CHECKOUT_TYPE = "ORDER_CHECKOUT";
+var SITECORECDP_CURRENCY = "USD";
+var SITECORECDP_LANGUAGE = "EN";
+var SITECORECDP_POINT_OF_SALE = "StandardDemo";
+var SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
+
+
+//Demo specific default values
+var SITECORECDP_DEFAULT_EMAIL_VALUE = "jbe@sitecore.net";
+var SITECORECDP_DEFAULT_FIRSTNAME_VALUE = "Johan";
+var SITECORECDP_DEFAULT_LASTNAME_VALUE = "Becue";
+var SITECORECDP_DEFAULT_GENDER_VALUE = "Male";
+var SITECORECDP_DEFAULT_DATEOFBIRTH_VALUE = "1977-06-06T00:00Z";
+var SITECORECDP_DEFAULT_TITLE_VALUE = "Unknown";
+var DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION = true;
+var DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE = "Sitecore";
+var DEMOTOOL_OVERWRITE_IPADDRESS = false;
+var DEMOTOOL_OVERWRITE_IPADDRESS_VALUE = "193.134.178.243";
+
+
+//Demo specific default data extension values
+var SITECORECDP_DEFAULT_CONSENT_EMAIL_OWN_OFFERS_VALUE = "true";
+var SITECORECDP_DEFAULT_CONSENT_EMAIL_PARTNER_OFFERS_VALUE = "true";
+var SITECORECDP_DEFAULT_CONSENT_SHARE_EMAIL_WITH_THIRD_PARTY_VALUE = "true";
+var SITECORECDP_DEFAULT_REGION_VALUE = "DefaultRegion";
+var SITECORECDP_DEFAULT_COUNTRY_VALUE = "BE";
+var SITECORECDP_DEFAULT_CITY_VALUE = "Kampenhout";
+var SITECORECDP_DEFAULT_POSTCODE_VALUE = "1910";
+var SITECORECDP_DEFAULT_PHONENUMBERS_VALUE = ['+32499707709', '+32499707710'];
+var SITECORECDP_DEFAULT_ROLE_VALUE = "DefaultRole";
+var SITECORECDP_DEFAULT_POSITION_VALUE = "DefaultPosition";
+var SITECORECDP_DEFAULT_HOSPITAL_VALUE = "DefaultHospital";
+var SITECORECDP_DEFAULT_MESSAGE_VALUE = "I have a neutral sentiment.";
+
+
 //Fixed Sitecore CDP settings
 const SITECORECDP_STREAM_API_TARGET = "https://api.boxever.com/v1.2"; //  do not change
 const SITECORECDP_INTERACTIVE_API_TARGET = "https://api.boxever.com/v2"; //  do not change
@@ -8,7 +52,7 @@ const SITECORECDP_CLIENTVERSION = "1.4.9";
 const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 
 //Fixed Demo Tool settings
-const DEMOTOOL_VERSION = "v4.03.00";
+const DEMOTOOL_VERSION = "v4.02.00";
 const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
