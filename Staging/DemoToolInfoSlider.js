@@ -1125,7 +1125,7 @@ function AppendSuffix(propertyValue, displaySuffix, dataPath) {
         var innerText = JSON.stringify(displaySuffix.Text);
         //remove leading and trailing quotes and add space before
         innerText = " " + innerText.replace(/^"(.*)"$/, '$1');
-        propertyValueSuffix = AppendElementAsChild(propertyValue, 'label', { id: propertyValue.id + "Suffix", classList: "propertyvaluesuffix", innerText: innerText });
+        propertyValueSuffix = AppendElementAsChild(propertyValue, 'label', { id: propertyValue.id + "Suffix", classList: "propertyvaluesuffix", innerHtml: innerText });
     }
     if (displaySuffix.DisplayQAToolLink) {
         var sessionDataPath = dataPath.slice(0, dataPath.indexOf(".", dataPath.indexOf("sessions") + 9));
