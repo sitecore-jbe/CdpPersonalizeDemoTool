@@ -848,7 +848,8 @@ function InitReplacers(data) {
         var currentSession = GetCurrentSession(data.Guest.sessions);
         if (currentSession) {
             if (currentSession.events) {
-                var firstViewEventinSession = currentSession.events.find(element => {
+                //Using findLast because it gives the first VIEW event (most recent event is always added as (0))
+                var firstViewEventinSession = currentSession.events.findLast(element => {
                     return element.type == "VIEW";
                 });
 
