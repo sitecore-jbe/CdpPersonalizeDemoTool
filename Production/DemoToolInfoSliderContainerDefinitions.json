@@ -3452,7 +3452,7 @@
             {
               "Property": "temperature",
               "Suffix": {
-                "Text": "°C"
+                "Text": "&degC"
               },
               "Icon": "Calculated"
             },
