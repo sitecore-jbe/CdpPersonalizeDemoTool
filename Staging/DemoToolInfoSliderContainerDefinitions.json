@@ -3451,7 +3451,9 @@
             },
             {
               "Property": "temperature",
-              "Suffix": "°C",
+              "Suffix": {
+                "Text": "°C"
+              },
               "Icon": "Calculated"
             },
             {
@@ -3462,7 +3464,9 @@
             },
             {
               "Property": "windSpeed",
-              "Suffix": "km/h",
+              "Suffix": {
+                "Text": "km/h"
+              },
               "Icon": "Calculated"
             },
             {
