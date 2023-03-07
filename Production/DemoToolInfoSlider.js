@@ -1,7 +1,12 @@
 ﻿"use strict";
 
+//Script settings
+//Using var instead of const - to allow override in tampermonkey
+var ENABLE_KEYBOARD_SHORTCUTS = true;
+var SEND_VIEW_EVENT = true;
 
 //Demo specific Sitecore CDP settings
+//Using var instead of const - to allow override in tampermonkey
 var SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
 var SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
 var SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
@@ -18,6 +23,7 @@ var SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 
 //Demo specific default values
+//Using var instead of const - to allow override in tampermonkey
 var SITECORECDP_DEFAULT_EMAIL_VALUE = "jbe@sitecore.net";
 var SITECORECDP_DEFAULT_FIRSTNAME_VALUE = "Johan";
 var SITECORECDP_DEFAULT_LASTNAME_VALUE = "Becue";
@@ -31,6 +37,7 @@ var DEMOTOOL_OVERWRITE_IPADDRESS_VALUE = "193.134.178.243";
 
 
 //Demo specific default data extension values
+//Using var instead of const - to allow override in tampermonkey
 var SITECORECDP_DEFAULT_CONSENT_EMAIL_OWN_OFFERS_VALUE = "true";
 var SITECORECDP_DEFAULT_CONSENT_EMAIL_PARTNER_OFFERS_VALUE = "true";
 var SITECORECDP_DEFAULT_CONSENT_SHARE_EMAIL_WITH_THIRD_PARTY_VALUE = "true";
@@ -107,6 +114,7 @@ const OPENQATOOLQUESTION_TEXT = "Are you sure you want to open the QA Tool. The 
 
 //Logging settings
 const CONSOLE_LOG_PREFIX = "Sitecore: ";
+
 
 // Global Variables
 var demoToolData = {};
