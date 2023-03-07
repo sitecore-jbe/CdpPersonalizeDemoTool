@@ -52,7 +52,7 @@ const SITECORECDP_CLIENTVERSION = "1.4.9";
 const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 
 //Fixed Demo Tool settings
-const DEMOTOOL_VERSION = "v4.01.00";
+const DEMOTOOL_VERSION = "v4.02.00";
 const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
