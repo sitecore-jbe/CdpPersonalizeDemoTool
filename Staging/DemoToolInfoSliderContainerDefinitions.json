@@ -2251,6 +2251,9 @@
         {
           "Property": "orders",
           "DataType": "Array",
+          "ShowLabel": true,
+          "ShowIcon": false,
+          "Icon": "Calculated",
           "CollapsedProperties": [
             {
               "Value": "{{createdAt}} // {{channel}} // @{{price}} {{currencyCode}}",
@@ -2691,7 +2694,7 @@
       "Properties": [
         {
           "Property": "sessions",
-          "ShowLabel": false,
+          "ShowLabel": true,
           "ShowIcon": false,
           "DataType": "Array",
           "Icon": "Calculated",
@@ -3434,6 +3437,45 @@
           ]
         },
         {
+          "Seperator": true
+        },
+        {
+          "Property": "weather",
+          "Icon": "Calculated",
+          "DataType": "Object",
+          "Collapsable": true,
+          "Properties": [
+            {
+              "Property": "description",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "temperature",
+              "Suffix": "°C",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "cardinalWindDirection",
+              "Label": "Wind Direction",
+              "Value": "{{cardinalWindDirection}} ({{windDirection}}&deg)",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "windSpeed",
+              "Suffix": "km/h",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "windDirection",
+              "Display": false,
+              "Icon": "Calculated"
+            }
+          ]
+        },
+        {
+          "Seperator": true
+        },
+        {
           "Property": "currency",
           "Icon": "Calculated",
           "DataType": "Object",
@@ -3482,6 +3524,59 @@
           "Property": "languages",
           "Icon": "Calculated",
           "DataType": "Array"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "timezone",
+          "Icon": "Calculated",
+          "DataType": "Object",
+          "Collapsable": true,
+          "Properties": [
+            {
+              "Property": "name",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "offset",
+              "Suffix": {
+                "Text": "h"
+              },
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "current_time",
+              "Label": "Current Local Time",
+              "ContiniouslyUpdate": true,
+              "DataType": "Timestamp",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "timeOfTheDay",
+              "ContiniouslyUpdate": true,
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "is_dst",
+              "DataType": "YesNoBoolean",
+              "Label": "Is Daylight Saving Time",
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "dst_savings",
+              "Label": "Daylight Saving Time Offset",
+              "Suffix": {
+                "Text": "h"
+              },
+              "Icon": "Calculated"
+            },
+            {
+              "Property": "current_time_unix",
+              "Display": false,
+              "Icon": "Calculated"
+            }
+          ]
         }
       ]
     }

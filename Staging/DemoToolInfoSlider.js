@@ -1,47 +1,55 @@
 ﻿"use strict";
 
+//Script settings
+//Using var instead of const - to allow override in tampermonkey
+var ENABLE_KEYBOARD_SHORTCUTS = true;
+var SEND_VIEW_EVENT = true;
+
 //Demo specific Sitecore CDP settings
-const SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
-const SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
-const SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
-const SITECORECDP_CHANNEL = "WEB";
-const SITECORECDP_VIEW_TYPE = "VIEW";
-const SITECORECDP_IDENTITY_TYPE = "IDENTITY";
-const SITECORECDP_FEEDBACK_TYPE = "FEEDBACK";
-const SITECORECDP_FORCE_CLOSE_TYPE = "FORCE_CLOSE";
-const SITECORECDP_ORDER_CHECKOUT_TYPE = "ORDER_CHECKOUT";
-const SITECORECDP_CURRENCY = "USD";
-const SITECORECDP_LANGUAGE = "EN";
-const SITECORECDP_POINT_OF_SALE = "StandardDemo";
-const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
+//Using var instead of const - to allow override in tampermonkey
+var SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
+var SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
+var SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
+var SITECORECDP_CHANNEL = "WEB";
+var SITECORECDP_VIEW_TYPE = "VIEW";
+var SITECORECDP_IDENTITY_TYPE = "IDENTITY";
+var SITECORECDP_FEEDBACK_TYPE = "FEEDBACK";
+var SITECORECDP_FORCE_CLOSE_TYPE = "FORCE_CLOSE";
+var SITECORECDP_ORDER_CHECKOUT_TYPE = "ORDER_CHECKOUT";
+var SITECORECDP_CURRENCY = "USD";
+var SITECORECDP_LANGUAGE = "EN";
+var SITECORECDP_POINT_OF_SALE = "StandardDemo";
+var SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
 
 
 //Demo specific default values
-const SITECORECDP_DEFAULT_EMAIL_VALUE = "jbe@sitecore.net";
-const SITECORECDP_DEFAULT_FIRSTNAME_VALUE = "Johan";
-const SITECORECDP_DEFAULT_LASTNAME_VALUE = "Becue";
-const SITECORECDP_DEFAULT_GENDER_VALUE = "Male";
-const SITECORECDP_DEFAULT_DATEOFBIRTH_VALUE = "1977-06-06T00:00Z";
-const SITECORECDP_DEFAULT_TITLE_VALUE = "Unknown";
-const DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION = true;
-const DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE = "Sitecore";
-const DEMOTOOL_OVERWRITE_IPADDRESS = false;
-const DEMOTOOL_OVERWRITE_IPADDRESS_VALUE = "193.134.178.243";
+//Using var instead of const - to allow override in tampermonkey
+var SITECORECDP_DEFAULT_EMAIL_VALUE = "jbe@sitecore.net";
+var SITECORECDP_DEFAULT_FIRSTNAME_VALUE = "Johan";
+var SITECORECDP_DEFAULT_LASTNAME_VALUE = "Becue";
+var SITECORECDP_DEFAULT_GENDER_VALUE = "Male";
+var SITECORECDP_DEFAULT_DATEOFBIRTH_VALUE = "1977-06-06T00:00Z";
+var SITECORECDP_DEFAULT_TITLE_VALUE = "Unknown";
+var DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION = true;
+var DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE = "Sitecore";
+var DEMOTOOL_OVERWRITE_IPADDRESS = false;
+var DEMOTOOL_OVERWRITE_IPADDRESS_VALUE = "193.134.178.243";
 
 
 //Demo specific default data extension values
-const SITECORECDP_DEFAULT_CONSENT_EMAIL_OWN_OFFERS_VALUE = "true";
-const SITECORECDP_DEFAULT_CONSENT_EMAIL_PARTNER_OFFERS_VALUE = "true";
-const SITECORECDP_DEFAULT_CONSENT_SHARE_EMAIL_WITH_THIRD_PARTY_VALUE = "true";
-const SITECORECDP_DEFAULT_REGION_VALUE = "DefaultRegion";
-const SITECORECDP_DEFAULT_COUNTRY_VALUE = "BE";
-const SITECORECDP_DEFAULT_CITY_VALUE = "Kampenhout";
-const SITECORECDP_DEFAULT_POSTCODE_VALUE = "1910";
-const SITECORECDP_DEFAULT_PHONENUMBERS_VALUE = ['+32499707709', '+32499707710'];
-const SITECORECDP_DEFAULT_ROLE_VALUE = "DefaultRole";
-const SITECORECDP_DEFAULT_POSITION_VALUE = "DefaultPosition";
-const SITECORECDP_DEFAULT_HOSPITAL_VALUE = "DefaultHospital";
-const SITECORECDP_DEFAULT_MESSAGE_VALUE = "I have a neutral sentiment.";
+//Using var instead of const - to allow override in tampermonkey
+var SITECORECDP_DEFAULT_CONSENT_EMAIL_OWN_OFFERS_VALUE = "true";
+var SITECORECDP_DEFAULT_CONSENT_EMAIL_PARTNER_OFFERS_VALUE = "true";
+var SITECORECDP_DEFAULT_CONSENT_SHARE_EMAIL_WITH_THIRD_PARTY_VALUE = "true";
+var SITECORECDP_DEFAULT_REGION_VALUE = "DefaultRegion";
+var SITECORECDP_DEFAULT_COUNTRY_VALUE = "BE";
+var SITECORECDP_DEFAULT_CITY_VALUE = "Kampenhout";
+var SITECORECDP_DEFAULT_POSTCODE_VALUE = "1910";
+var SITECORECDP_DEFAULT_PHONENUMBERS_VALUE = ['+32499707709', '+32499707710'];
+var SITECORECDP_DEFAULT_ROLE_VALUE = "DefaultRole";
+var SITECORECDP_DEFAULT_POSITION_VALUE = "DefaultPosition";
+var SITECORECDP_DEFAULT_HOSPITAL_VALUE = "DefaultHospital";
+var SITECORECDP_DEFAULT_MESSAGE_VALUE = "I have a neutral sentiment.";
 
 
 //Fixed Sitecore CDP settings
@@ -52,18 +60,19 @@ const SITECORECDP_CLIENTVERSION = "1.4.9";
 const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 
 //Fixed Demo Tool settings
-const DEMOTOOL_VERSION = "v4.01.00";
+const DEMOTOOL_VERSION = "v4.02.00";
 const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
-const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
 const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
 const FONT_MONTSERRAT_CSS = { id: "FONT_MONTSERRAT_CSS", url: "//fonts.googleapis.com/css?family=Montserrat" };
-const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSlider.css" };
-const CONTAINERDEFINITIONS_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
-const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo.png";
-const CDPANDPERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
-const SITECORELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
+const DEMOTOOL_GITHUB_REPOSITORY_URL = "https://github.com/sitecore-jbe/CdpPersonalizeDemoTool/";
+const DEMOTOOL_GITHUB_DEPLOYMENT_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/";
+const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolInfoSlider.css" };
+const CONTAINERDEFINITIONS_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
+const LOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-logo.png";
+const CDPANDPERSONALIZELOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
+const SITECORELOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const WEATHER_API_TARGET = "https://api.open-meteo.com/v1/forecast";
@@ -88,28 +97,90 @@ const DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK = "fa-filter-circle-xmark";
 const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
 const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
 const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
+const DEMOTOOL_GITHUB_TARGET_NAME = "Github"
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
+const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Tool";
 const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
 
-
+//Demotool button tooltips/questions/texts
 const ABOUT_TEXT = "About";
-
 const EVENTFILTERINGENABLED_TEXT = "Disable event filtering.";
 const EVENTFILTERINGDISABLED_TEXT = "Enable event filtering.";
-
 const EXTENDEDPROPERTIESENABLED_TEXT = "Show extended properties.";
 const EXTENDEDPROPERTIESDISABLED_TEXT = "Hide extended properties.";
-
 const NOTCONFIGUREDPROPERTIESENABLED_TEXT = "Show not configured properties.";
 const NOTCONFIGUREDPROPERTIESDISABLED_TEXT = "Hide not configured properties.";
-
 const OPENQATOOLQUESTION_TEXT = "Are you sure you want to open the QA Tool. The page will reload."
 
 //Logging settings
 const CONSOLE_LOG_PREFIX = "Sitecore: ";
 
+
 // Global Variables
 var demoToolData = {};
+
+
+function PositionPopup(anchor, elem) {
+    var offset = 5;
+    var elemCoords = elem.getBoundingClientRect();
+    let anchorCoords = anchor.getBoundingClientRect();
+
+    elem.style.position = "fixed";
+
+    //Top positioning
+    var newTop = anchorCoords.top;
+    var newBottom = newTop + elemCoords.height + offset;
+    if (newBottom >= window.innerHeight) {
+        newTop = window.innerHeight - elemCoords.height - (2 * offset);
+    }
+    if (newTop < offset) {
+        elem.style.top = offset + "px";
+        elem.style["overflow-y"] = "scroll";
+        elem.style["max-height"] = window.innerHeight - (2 * offset) + "px";
+    } else {
+        elem.style.top = newTop + "px";
+        elem.style["overflow-y"] = "inherit";
+        elem.style["max-height"] = "inherit"
+    }
+
+    //Left positioning
+    var newLeft = anchorCoords.left - elemCoords.width - offset;
+    var newRight = newLeft + elemCoords.width;
+    if (newRight >= window.innerWidth) {
+        newLeft = window.innerWidth - elemCoords.width - offset;
+    }
+    if (newLeft < offset) {
+        elem.style.left = offset + "px";
+    } else {
+        elem.style.left = newLeft + "px";
+    }
+}
+
+
+function AddPopupResizeEventListener(element) {
+    var resizeObserver = new ResizeObserver(() => {
+        for (var i = 0; i < demoToolData.toolTipsArray.length; i++) {
+            var element = document.getElementById(demoToolData.toolTipsArray[i].popupId);
+            var anchor = document.getElementById(demoToolData.toolTipsArray[i].id);
+            PositionPopup(anchor, element);
+        }
+    });
+
+    // Observe one or multiple elements
+    resizeObserver.observe(element);
+}
+
+
+function AddWindowResizeEventListener() {
+    window.addEventListener('resize', () => {
+        for (var i = 0; i < demoToolData.toolTipsArray.length; i++) {
+            var element = document.getElementById(demoToolData.toolTipsArray[i].popupId);
+            var anchor = document.getElementById(demoToolData.toolTipsArray[i].id);
+            PositionPopup(anchor, element);
+        }
+    });
+}
+
 
 // Converts decimal degrees to degrees minutes seconds.
 // @param decimalDegrees the decimal degrees value.
@@ -1390,12 +1461,12 @@ function ComposeDemoToolArray(propertyDefinitionPath, parentHtmlElement) {
                         var arrayPropertyElement = AppendElementAsChild(collapsableContainerContent, 'div', { id: collapsableContainerContent.id + i, classList: "propertyelement", dataPath: dataPath + "." + propertyDefinition.Property + "." + i, dataElementCounter: i });
                         ComposeDemoToolCollapsableArrayContainer(arrayPropertyElement);
 
-                        if (IsEventFilteringEnabled()) {
-                            if (IsFilterableEvent(data[i])) {
-                                // Set CSS classes if filteredProperty.
-                                SetCssClassesForFilteredProperty(arrayPropertyElement);
-                            }
+                        //if (IsEventFilteringEnabled()) {
+                        if (IsFilterableEvent(data[i])) {
+                            // Set CSS classes if filteredProperty.
+                            SetCssClassesForFilteredProperty(arrayPropertyElement);
                         }
+                        //}
                     }
                 }
             }
@@ -1424,6 +1495,7 @@ function isJSON(text) {
         return false;
     }
 }
+
 
 function InitializeAccordionClickEventHandlers(parentHtmlElement) {
     /* add open&close accordion event handler */
@@ -1627,7 +1699,7 @@ function AddInfoSliderFilterButtonClickEventHandlers(button, htmlElementsDataId,
 
         // Update Array element counters
         var propertyLengthLabels = document.querySelectorAll('[data-filtered-text]', '[data-text]');
-        for (i = 0; i < propertyLengthLabels.length; i++) {
+        for (let i = 0; i < propertyLengthLabels.length; i++) {
             propertyLengthLabels[i].innerText = IsEventFilteringEnabled() ? propertyLengthLabels[i].dataset["filteredText"] : propertyLengthLabels[i].dataset["text"];
         }
     });
@@ -1669,27 +1741,8 @@ function AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, toggl
 function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipContent) {
     toolTipButton.addEventListener("click", function (e) {
         e.preventDefault();
-
-        var popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-            placement: "auto", //preferred placement of popper
-            modifiers: [
-                {
-                    name: "offset", //offsets popper from the reference/button
-                    options: {
-                        offset: [0, 8]
-                    }
-                },
-                {
-                    name: "flip", //flips popper with allowed placements
-                    options: {
-                        allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                        rootBoundary: "viewport"
-                    }
-                }
-            ]
-        });
+        PositionPopup(toolTipButton, toolTipContent);
     });
-    //Create the popper
 
 }
 function AddInfoSliderExtendedPropertiesButtonClickEventHandlers(button, htmlElementsDataId) {
@@ -1710,6 +1763,29 @@ function AddInfoSliderQaToolButtonClickEventHandlers(button) {
     AddLinkClickEventHandler(button, OPENQATOOLQUESTION_TEXT, qaToolLinkUrl);
 }
 
+function InitializeAboutPopup(parentHtmlElement) {
+    console.debug(CONSOLE_LOG_PREFIX + "Starting InitializeAboutPopup...");
+
+    var aboutPopUpContentHtmlElement = AppendElementAsChild(parentHtmlElement, 'div', { id: parentHtmlElement.id + "Popup", classList: "tooltipcontent" });
+    var aboutPopUpContentHeaderHtmlElement = AppendElementAsChild(aboutPopUpContentHtmlElement, 'label', { id: aboutPopUpContentHtmlElement.id + "Header", classList: "tooltipheader" });
+    var aboutPopUpCloseButtonHtmlElement = AppendElementAsChild(aboutPopUpContentHtmlElement, 'i', { id: aboutPopUpContentHtmlElement.id + "TooltipCloseButton", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_XMARK + " " + "tooltipclosebutton", title: "Close" });
+    var aboutPopUpContentHeaderHorizontalRuleHtmlElement = AppendElementAsChild(aboutPopUpContentHtmlElement, 'hr', { id: aboutPopUpContentHtmlElement.id + "HorizontalRule", classList: "seperator" });
+
+    //Add click event listener to the tooltip close button
+    aboutPopUpCloseButtonHtmlElement.addEventListener("click", function (e) {
+        e.preventDefault();
+        //Pass the tooltipbutton (nextElementSibling) to the togglePopper method because id of button is in Array
+        togglePopper(parentHtmlElement.lastChild);
+    });
+
+    //Compose Tooltip Title
+    aboutPopUpContentHeaderHtmlElement.innerHTML = DEMOTOOL_INFOSLIDER_TITLE;
+
+    //Compose Tooltip Content
+    return aboutPopUpContentHtmlElement;
+}
+
+
 function InitializeInfoSlider() {
     console.debug(CONSOLE_LOG_PREFIX + "Starting InitializeInfoSlider...");
 
@@ -1726,17 +1802,13 @@ function InitializeInfoSlider() {
     //Info Slider Header
     var InfoSliderBodyHeader = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Header", classList: "demoToolInfoSliderBodyHeader" });
 
-    ////Info Slider Header Left
-    //var InfoSliderBodyHeaderLeft = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Left", classList: "demoToolInfoSliderBodyHeaderLeft" });
-    //var InfoSliderBodyHeaderLeftImage = AppendElementAsChild(InfoSliderBodyHeaderLeft, "img", { id: InfoSliderBodyHeaderLeft.id + "Image", src: LOGO_URL, classList: "demoToolInfoSliderBodyHeaderLeftImage" });
-
     //Info Slider Header Top
     var InfoSliderBodyHeaderTop = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Top", classList: "demoToolInfoSliderBodyHeaderTop" });
 
     //Info Slider Header Top Left
     var InfoSliderBodyHeaderTopLeft = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Left", classList: "demoToolInfoSliderBodyHeaderTopLeft" });
     var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "img", { id: InfoSliderBodyHeaderTopLeft.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "demoToolInfoSliderBodyHeaderTopLeftLogo" });
-    var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "label", { id: InfoSliderBodyHeaderTopLeft.id + "ToolTitle", innerText: "Profiling Tool", classList: "demoToolInfoSliderBodyHeaderTopLeftToolTitle" });
+    var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "label", { id: InfoSliderBodyHeaderTopLeft.id + "ToolTitle", innerText: DEMOTOOL_INFOSLIDER_TITLE, classList: "demoToolInfoSliderBodyHeaderTopLeftToolTitle" });
 
     //Info Slider Header Top Right
     var InfoSliderBodyHeaderTopRight = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Right", classList: "demoToolInfoSliderBodyHeaderTopRight" });
@@ -1746,17 +1818,19 @@ function InitializeInfoSlider() {
 
     //Info Slider Header Top Right Top
     var InfoSliderBodyHeaderTopRightTop = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Top", classList: "demoToolInfoSliderBodyHeaderTopRightTop" });
-    var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", innerText: DEMOTOOL_VERSION, classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
+    var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
+    var InfoSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(InfoSliderBodyHeaderTopRightTopVersion, 'a', { id: InfoSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "propertyvalue", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
 
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
 
-    //Add the ExtendedPropertiesButtonId to the htmlElementIDs and init htmlElementIDs if neccessary.
 
-    var AboutButtonDataId = "AboutButton";
-    var InfoSliderBodyHeaderBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "aboutbutton", title: ABOUT_TEXT })
-    AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderBottomAboutButton, "About this tool");
+    //var AboutButtonDataId = "AboutButton";
+    //var InfoSliderBodyHeaderBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "aboutbutton", title: ABOUT_TEXT })
+    //var aboutPopUp = InitializeAboutPopup(InfoSliderBodyHeaderBottomAboutButton);
+    //AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderBottomAboutButton, aboutPopUp);
 
+    //ExtendedPropertiesButton
     var ExtendedPropertiesButtonDataId = "ExtendedPropertiesButton";
     var InfoSliderBodyHeaderBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
     AddInfoSliderExtendedPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomExtendedPropertiesButton, ExtendedPropertiesButtonDataId + "Id");
@@ -1764,12 +1838,15 @@ function InitializeInfoSlider() {
         InfoSliderBodyHeaderBottomExtendedPropertiesButton.click();
     }
 
+    //NotConfiguredPropertiesButton
     var NotConfiguredPropertiesButtonDataId = "NotConfiguredPropertiesButton";
     var InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + NotConfiguredPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_BARSSTAGGERED + " " + "notconfiguredpropertiesbutton", title: NOTCONFIGUREDPROPERTIESENABLED_TEXT })
     AddInfoSliderNotConfiguredPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton, NotConfiguredPropertiesButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolNotConfiguredPropertiesButtonState") == "true") {
         InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton.click();
     }
+
+    //FilterEventsButton
     var FilterEventsButtonDataId = "FilterEventsButton";
     var InfoSliderBodyHeaderBottomFilterEventsButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + FilterEventsButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK + " " + "filtereventsbutton", title: EVENTFILTERINGENABLED_TEXT });
     AddInfoSliderFilterEventsButtonClickEventHandlers(InfoSliderBodyHeaderBottomFilterEventsButton, FilterEventsButtonDataId + "Id");
@@ -1777,10 +1854,9 @@ function InitializeInfoSlider() {
         InfoSliderBodyHeaderBottomFilterEventsButton.click();
     }
 
-
+    //QAToolButton
     if (!document.location.href.includes("bxQATool=true")) {
         var QaToolButtonDataId = "QAToolButton";
-
         var InfoSliderBodyHeaderBottomQaToolButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + QaToolButtonDataId, classList: "qatoolbutton", title: "Open QA Tool" });
         AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderBottomQaToolButton);
     }
@@ -1794,6 +1870,9 @@ function InitializeInfoSlider() {
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
     var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
 
+
+    //Add window resize event listener.
+    AddWindowResizeEventListener();
 
     console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeInfoSlider.");
 
@@ -1923,14 +2002,6 @@ function togglePopper(toolTipButton) {
 
         const toolTipsArrayElement = demoToolData.toolTipsArray.find(toolTip => toolTip.id == toolTipButton.id);
         if (toolTipsArrayElement) {
-            var popperInstance = toolTipsArrayElement.popperInstance;
-
-            //Destroy the popper
-            if (popperInstance) {
-                popperInstance.destroy();
-                popperInstance = null;
-            }
-
             //Remove the popper from the toolTipsArray
             demoToolData.toolTipsArray = demoToolData.toolTipsArray.filter(function (e) { return e.id !== toolTipButton.id });
 
@@ -1945,31 +2016,11 @@ function togglePopper(toolTipButton) {
 
         //Check if popper already exists in toolTipArray
         if (!demoToolData.toolTipsArray || (demoToolData.toolTipsArray && !demoToolData.toolTipsArray.some(item => item.id == toolTipButton.id))) {
-            //Create the popper
-            popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-                placement: "auto", //preferred placement of popper
-                modifiers: [
-                    {
-                        name: "offset", //offsets popper from the reference/button
-                        options: {
-                            offset: [0, 8]
-                        }
-                    },
-                    {
-                        name: "flip", //flips popper with allowed placements
-                        options: {
-                            allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                            rootBoundary: "viewport"
-                        }
-                    }
-                ]
-            });
-
-            //Add the popper to the toolTipsArray and init if neccessary.
+            PositionPopup(toolTipButton, toolTipContent);
             if (!demoToolData.toolTipsArray) {
                 demoToolData.toolTipsArray = [];
             }
-            demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popperInstance": popperInstance });
+            demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popupId": toolTipContent.id });
         }
     }
 }
@@ -1996,13 +2047,15 @@ function ComposeTooltipContent(parentHtmlElement) {
     //Compose Tooltip Title
     var title = "";
     if (propertyDefinition.DataType == "Array") {
-        //TODO: Maybe change instead of multiple collapsedproperties to a collapsed label templated property
-        title = ReplaceValueTokens(propertyDefinition.CollapsedProperties[0].Value, dataPath);
+        ComposeObject(toolTipContentHeaderHtmlElement, true);
     }
     else {
         title = propertyDefinition.Label ? propertyDefinition.Label : ToSentenceCase(propertyDefinition.Property);
+        toolTipContentHeaderHtmlElement.innerHTML = title;
     }
-    toolTipContentHeaderHtmlElement.innerHTML = title;
+
+    AddPopupResizeEventListener(toolTipContentHtmlElement);
+
 
     //Compose Tooltip Content
     return ComposeObject(toolTipContentHtmlElement, true);
@@ -2261,9 +2314,7 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
         }
     });
 
-    LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
-
     LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
     LoadStyleSheetAsync(FONT_AWESOME_CSS);
     LoadStyleSheetAsync(DEMOTOOL_CSS, true);

@@ -171,6 +171,17 @@ function AddPopupResizeEventListener(element) {
 }
 
 
+function AddWindowResizeEventListener() {
+    window.addEventListener('resize', () => {
+        for (var i = 0; i < demoToolData.toolTipsArray.length; i++) {
+            var element = document.getElementById(demoToolData.toolTipsArray[i].popupId);
+            var anchor = document.getElementById(demoToolData.toolTipsArray[i].id);
+            PositionPopup(anchor, element);
+        }
+    });
+}
+
+
 // Converts decimal degrees to degrees minutes seconds.
 // @param decimalDegrees the decimal degrees value.
 // @param isLng specifies whether the decimal degrees value is a longitude.
@@ -1450,12 +1461,12 @@ function ComposeDemoToolArray(propertyDefinitionPath, parentHtmlElement) {
                         var arrayPropertyElement = AppendElementAsChild(collapsableContainerContent, 'div', { id: collapsableContainerContent.id + i, classList: "propertyelement", dataPath: dataPath + "." + propertyDefinition.Property + "." + i, dataElementCounter: i });
                         ComposeDemoToolCollapsableArrayContainer(arrayPropertyElement);
 
-                        if (IsEventFilteringEnabled()) {
-                            if (IsFilterableEvent(data[i])) {
-                                // Set CSS classes if filteredProperty.
-                                SetCssClassesForFilteredProperty(arrayPropertyElement);
-                            }
+                        //if (IsEventFilteringEnabled()) {
+                        if (IsFilterableEvent(data[i])) {
+                            // Set CSS classes if filteredProperty.
+                            SetCssClassesForFilteredProperty(arrayPropertyElement);
                         }
+                        //}
                     }
                 }
             }
@@ -1859,6 +1870,10 @@ function InitializeInfoSlider() {
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
     var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
 
+
+    //Add window resize event listener.
+    AddWindowResizeEventListener();
+
     console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeInfoSlider.");
 
     return InfoSlider;
@@ -2032,16 +2047,15 @@ function ComposeTooltipContent(parentHtmlElement) {
     //Compose Tooltip Title
     var title = "";
     if (propertyDefinition.DataType == "Array") {
-        //TODO: Maybe change instead of multiple collapsedproperties to a collapsed label templated property
-        title = ReplaceValueTokens(propertyDefinition.CollapsedProperties[0].Value, dataPath);
+        ComposeObject(toolTipContentHeaderHtmlElement, true);
     }
     else {
         title = propertyDefinition.Label ? propertyDefinition.Label : ToSentenceCase(propertyDefinition.Property);
+        toolTipContentHeaderHtmlElement.innerHTML = title;
     }
-    toolTipContentHeaderHtmlElement.innerHTML = title;
 
     AddPopupResizeEventListener(toolTipContentHtmlElement);
-    
+
 
     //Compose Tooltip Content
     return ComposeObject(toolTipContentHtmlElement, true);
