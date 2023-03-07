@@ -1,49 +1,5 @@
 ﻿"use strict";
 
-//Demo specific Sitecore CDP settings
-const SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
-const SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
-const SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
-const SITECORECDP_CHANNEL = "WEB";
-const SITECORECDP_VIEW_TYPE = "VIEW";
-const SITECORECDP_IDENTITY_TYPE = "IDENTITY";
-const SITECORECDP_FEEDBACK_TYPE = "FEEDBACK";
-const SITECORECDP_FORCE_CLOSE_TYPE = "FORCE_CLOSE";
-const SITECORECDP_ORDER_CHECKOUT_TYPE = "ORDER_CHECKOUT";
-const SITECORECDP_CURRENCY = "USD";
-const SITECORECDP_LANGUAGE = "EN";
-const SITECORECDP_POINT_OF_SALE = "StandardDemo";
-const SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
-
-
-//Demo specific default values
-const SITECORECDP_DEFAULT_EMAIL_VALUE = "jbe@sitecore.net";
-const SITECORECDP_DEFAULT_FIRSTNAME_VALUE = "Johan";
-const SITECORECDP_DEFAULT_LASTNAME_VALUE = "Becue";
-const SITECORECDP_DEFAULT_GENDER_VALUE = "Male";
-const SITECORECDP_DEFAULT_DATEOFBIRTH_VALUE = "1977-06-06T00:00Z";
-const SITECORECDP_DEFAULT_TITLE_VALUE = "Unknown";
-const DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION = true;
-const DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE = "Sitecore";
-const DEMOTOOL_OVERWRITE_IPADDRESS = false;
-const DEMOTOOL_OVERWRITE_IPADDRESS_VALUE = "193.134.178.243";
-
-
-//Demo specific default data extension values
-const SITECORECDP_DEFAULT_CONSENT_EMAIL_OWN_OFFERS_VALUE = "true";
-const SITECORECDP_DEFAULT_CONSENT_EMAIL_PARTNER_OFFERS_VALUE = "true";
-const SITECORECDP_DEFAULT_CONSENT_SHARE_EMAIL_WITH_THIRD_PARTY_VALUE = "true";
-const SITECORECDP_DEFAULT_REGION_VALUE = "DefaultRegion";
-const SITECORECDP_DEFAULT_COUNTRY_VALUE = "BE";
-const SITECORECDP_DEFAULT_CITY_VALUE = "Kampenhout";
-const SITECORECDP_DEFAULT_POSTCODE_VALUE = "1910";
-const SITECORECDP_DEFAULT_PHONENUMBERS_VALUE = ['+32499707709', '+32499707710'];
-const SITECORECDP_DEFAULT_ROLE_VALUE = "DefaultRole";
-const SITECORECDP_DEFAULT_POSITION_VALUE = "DefaultPosition";
-const SITECORECDP_DEFAULT_HOSPITAL_VALUE = "DefaultHospital";
-const SITECORECDP_DEFAULT_MESSAGE_VALUE = "I have a neutral sentiment.";
-
-
 //Fixed Sitecore CDP settings
 const SITECORECDP_STREAM_API_TARGET = "https://api.boxever.com/v1.2"; //  do not change
 const SITECORECDP_INTERACTIVE_API_TARGET = "https://api.boxever.com/v2"; //  do not change
@@ -52,18 +8,19 @@ const SITECORECDP_CLIENTVERSION = "1.4.9";
 const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 
 //Fixed Demo Tool settings
-const DEMOTOOL_VERSION = "v4.02.00";
+const DEMOTOOL_VERSION = "v4.03.00";
 const ENVIRONMENT = "Production"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
-const POPPER_JS = { id: "POPPER_JS", url: "//unpkg.com/@popperjs/core@2" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
 const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
 const FONT_MONTSERRAT_CSS = { id: "FONT_MONTSERRAT_CSS", url: "//fonts.googleapis.com/css?family=Montserrat" };
-const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSlider.css" };
-const CONTAINERDEFINITIONS_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
-const LOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo.png";
-const CDPANDPERSONALIZELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
-const SITECORELOGO_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/" + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
+const DEMOTOOL_GITHUB_REPOSITORY_URL = "https://github.com/sitecore-jbe/CdpPersonalizeDemoTool/";
+const DEMOTOOL_GITHUB_DEPLOYMENT_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/";
+const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolInfoSlider.css" };
+const CONTAINERDEFINITIONS_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
+const LOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-logo.png";
+const CDPANDPERSONALIZELOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
+const SITECORELOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
 const IP_API_TARGET = "https://api.ipgeolocation.io/ipgeo";
 const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const WEATHER_API_TARGET = "https://api.open-meteo.com/v1/forecast";
@@ -88,6 +45,7 @@ const DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK = "fa-filter-circle-xmark";
 const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
 const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
 const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
+const DEMOTOOL_GITHUB_TARGET_NAME = "Github"
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
 const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Tool";
 const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
@@ -104,8 +62,6 @@ const OPENQATOOLQUESTION_TEXT = "Are you sure you want to open the QA Tool. The 
 
 //Logging settings
 const CONSOLE_LOG_PREFIX = "Sitecore: ";
-
-const usePopper = false; // Trying to remove popper.js dependency (false is not yet supported) 
 
 // Global Variables
 var demoToolData = {};
@@ -1756,32 +1712,7 @@ function AddInfoSliderButtonClickEventHandlers(button, htmlElementsDataId, toggl
 function AddInfoSliderAboutButtonClickEventHandlers(toolTipButton, toolTipContent) {
     toolTipButton.addEventListener("click", function (e) {
         e.preventDefault();
-
-        if (usePopper) {
-            //Create the popper
-            var popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-                placement: "auto", //preferred placement of popper
-                modifiers: [
-                    {
-                        name: "offset", //offsets popper from the reference/button
-                        options: {
-                            offset: [0, 8]
-                        }
-                    },
-                    {
-                        name: "flip", //flips popper with allowed placements
-                        options: {
-                            allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                            rootBoundary: "viewport"
-                        }
-                    }
-                ]
-            });
-        }
-        else {
-            //Trying to remove popper dependency.
-            positionAt(toolTipButton, "left", toolTipContent);
-        }
+        positionAt(toolTipButton, "left", toolTipContent);
     });
 
 }
@@ -1858,7 +1789,8 @@ function InitializeInfoSlider() {
 
     //Info Slider Header Top Right Top
     var InfoSliderBodyHeaderTopRightTop = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Top", classList: "demoToolInfoSliderBodyHeaderTopRightTop" });
-    var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", innerText: DEMOTOOL_VERSION, classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
+    var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
+    var InfoSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(InfoSliderBodyHeaderTopRightTopVersion, 'a', { id: InfoSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "propertyvalue", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
 
     //Info Slider Header Top Right Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
@@ -2037,16 +1969,6 @@ function togglePopper(toolTipButton) {
 
         const toolTipsArrayElement = demoToolData.toolTipsArray.find(toolTip => toolTip.id == toolTipButton.id);
         if (toolTipsArrayElement) {
-            if (usePopper) {
-                var popperInstance = toolTipsArrayElement.popperInstance;
-
-                //Destroy the popper
-                if (popperInstance) {
-                    popperInstance.destroy();
-                    popperInstance = null;
-                }
-            }
-
             //Remove the popper from the toolTipsArray
             demoToolData.toolTipsArray = demoToolData.toolTipsArray.filter(function (e) { return e.id !== toolTipButton.id });
 
@@ -2061,40 +1983,11 @@ function togglePopper(toolTipButton) {
 
         //Check if popper already exists in toolTipArray
         if (!demoToolData.toolTipsArray || (demoToolData.toolTipsArray && !demoToolData.toolTipsArray.some(item => item.id == toolTipButton.id))) {
-
-            if (usePopper) {
-                //Create the popper
-                popperInstance = Popper.createPopper(toolTipButton, toolTipContent, {
-                    placement: "auto", //preferred placement of popper
-                    modifiers: [
-                        {
-                            name: "offset", //offsets popper from the reference/button
-                            options: {
-                                offset: [0, 8]
-                            }
-                        },
-                        {
-                            name: "flip", //flips popper with allowed placements
-                            options: {
-                                allowedAutoPlacements: ["right", "left", "top", "bottom"],
-                                rootBoundary: "viewport"
-                            }
-                        }
-                    ]
-                });
-
-                //Add the popper to the toolTipsArray and init if neccessary.
-                if (!demoToolData.toolTipsArray) {
-                    demoToolData.toolTipsArray = [];
-                }
-                demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popperInstance": popperInstance });
-            } else {
-                positionAt(toolTipButton, "left", toolTipContent);
-                if (!demoToolData.toolTipsArray) {
-                    demoToolData.toolTipsArray = [];
-                }
-                demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popupId": toolTipContent.id });
+            positionAt(toolTipButton, "left", toolTipContent);
+            if (!demoToolData.toolTipsArray) {
+                demoToolData.toolTipsArray = [];
             }
+            demoToolData.toolTipsArray.push({ "id": toolTipButton.id, "popupId": toolTipContent.id });
         }
     }
 }
@@ -2129,9 +2022,8 @@ function ComposeTooltipContent(parentHtmlElement) {
     }
     toolTipContentHeaderHtmlElement.innerHTML = title;
 
-    if (!usePopper) {
-        AddPopupResizeEventListener(toolTipContentHtmlElement);
-    }
+    AddPopupResizeEventListener(toolTipContentHtmlElement);
+    
 
     //Compose Tooltip Content
     return ComposeObject(toolTipContentHtmlElement, true);
@@ -2390,7 +2282,6 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
         }
     });
 
-    //LoadJavascriptAsync(POPPER_JS);
     LoadJavascriptAsync(PLURALIZE_JS);
 
     LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
