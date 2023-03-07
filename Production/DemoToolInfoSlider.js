@@ -2001,7 +2001,7 @@ function togglePopper(toolTipButton) {
 
         //Check if popper already exists in toolTipArray
         if (!demoToolData.toolTipsArray || (demoToolData.toolTipsArray && !demoToolData.toolTipsArray.some(item => item.id == toolTipButton.id))) {
-            pPositionPopup(toolTipButton, toolTipContent);
+            PositionPopup(toolTipButton, toolTipContent);
             if (!demoToolData.toolTipsArray) {
                 demoToolData.toolTipsArray = [];
             }
@@ -2301,7 +2301,6 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
     });
 
     LoadJavascriptAsync(PLURALIZE_JS);
-
     LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
     LoadStyleSheetAsync(FONT_AWESOME_CSS);
     LoadStyleSheetAsync(DEMOTOOL_CSS, true);
