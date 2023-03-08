@@ -92,6 +92,6 @@
 #DemoToolInfoSlider .tootltipheader hr.seperator { margin-top: 3px; margin-bottom: 3px;}
 #DemoToolInfoSlider .tooltipcontent { margin: 10px; }
 #DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 10000; opacity: 1; background-color: white; min-width:450px; }
-#DemoToolInfoSlider .tooltip[data-show] { display: block;}
+#DemoToolInfoSlider .tooltip[data-show] { padding:1rem; display: block;}
 
 #DemoToolInfoSlider .geoipflag { max-height: 10px; width:auto;}
