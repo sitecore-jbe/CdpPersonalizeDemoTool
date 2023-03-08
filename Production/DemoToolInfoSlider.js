@@ -1827,43 +1827,43 @@ function InitializeInfoSlider() {
     var InfoSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(InfoSliderBodyHeaderTopRightTopVersion, 'a', { id: InfoSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "versionlink", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
 
     //Info Slider Header Top Right Bottom
-    var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
+    var InfoSliderBodyHeaderTopRightBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderTopRightBottom" });
 
 
     //var AboutButtonDataId = "AboutButton";
-    //var InfoSliderBodyHeaderBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "aboutbutton", title: ABOUT_TEXT })
-    //var aboutPopUp = InitializeAboutPopup(InfoSliderBodyHeaderBottomAboutButton);
-    //AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderBottomAboutButton, aboutPopUp);
+    //var InfoSliderBodyHeaderTopRightBottomAboutButton = AppendElementAsChild(InfoSliderBodyHeaderTopRightBottom, 'i', { id: InfoSliderBodyHeaderTopRightBottom.id + AboutButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO + " " + "aboutbutton", title: ABOUT_TEXT })
+    //var aboutPopUp = InitializeAboutPopup(InfoSliderBodyHeaderTopRightBottomAboutButton);
+    //AddInfoSliderAboutButtonClickEventHandlers(InfoSliderBodyHeaderTopRightBottomAboutButton, aboutPopUp);
 
     //ExtendedPropertiesButton
     var ExtendedPropertiesButtonDataId = "ExtendedPropertiesButton";
-    var InfoSliderBodyHeaderBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
-    AddInfoSliderExtendedPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomExtendedPropertiesButton, ExtendedPropertiesButtonDataId + "Id");
+    var InfoSliderBodyHeaderTopRightBottomExtendedPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderTopRightBottom, 'i', { id: InfoSliderBodyHeaderTopRightBottom.id + ExtendedPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ANGLESDOWN + " " + "expandpropertiesbutton", title: EXTENDEDPROPERTIESENABLED_TEXT });
+    AddInfoSliderExtendedPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderTopRightBottomExtendedPropertiesButton, ExtendedPropertiesButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolExtendedPropertiesButtonState") == "true") {
-        InfoSliderBodyHeaderBottomExtendedPropertiesButton.click();
+        InfoSliderBodyHeaderTopRightBottomExtendedPropertiesButton.click();
     }
 
     //NotConfiguredPropertiesButton
     var NotConfiguredPropertiesButtonDataId = "NotConfiguredPropertiesButton";
-    var InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + NotConfiguredPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_BARSSTAGGERED + " " + "notconfiguredpropertiesbutton", title: NOTCONFIGUREDPROPERTIESENABLED_TEXT })
-    AddInfoSliderNotConfiguredPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton, NotConfiguredPropertiesButtonDataId + "Id");
+    var InfoSliderBodyHeaderTopRightBottomNotConfiguredPropertiesButton = AppendElementAsChild(InfoSliderBodyHeaderTopRightBottom, 'i', { id: InfoSliderBodyHeaderTopRightBottom.id + NotConfiguredPropertiesButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_BARSSTAGGERED + " " + "notconfiguredpropertiesbutton", title: NOTCONFIGUREDPROPERTIESENABLED_TEXT })
+    AddInfoSliderNotConfiguredPropertiesButtonClickEventHandlers(InfoSliderBodyHeaderTopRightBottomNotConfiguredPropertiesButton, NotConfiguredPropertiesButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolNotConfiguredPropertiesButtonState") == "true") {
-        InfoSliderBodyHeaderBottomNotConfiguredPropertiesButton.click();
+        InfoSliderBodyHeaderTopRightBottomNotConfiguredPropertiesButton.click();
     }
 
     //FilterEventsButton
     var FilterEventsButtonDataId = "FilterEventsButton";
-    var InfoSliderBodyHeaderBottomFilterEventsButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + FilterEventsButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK + " " + "filtereventsbutton", title: EVENTFILTERINGENABLED_TEXT });
-    AddInfoSliderFilterEventsButtonClickEventHandlers(InfoSliderBodyHeaderBottomFilterEventsButton, FilterEventsButtonDataId + "Id");
+    var InfoSliderBodyHeaderTopRightBottomFilterEventsButton = AppendElementAsChild(InfoSliderBodyHeaderTopRightBottom, 'i', { id: InfoSliderBodyHeaderTopRightBottom.id + FilterEventsButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK + " " + "filtereventsbutton", title: EVENTFILTERINGENABLED_TEXT });
+    AddInfoSliderFilterEventsButtonClickEventHandlers(InfoSliderBodyHeaderTopRightBottomFilterEventsButton, FilterEventsButtonDataId + "Id");
     if (sessionStorage.getItem("DemoToolFilterEventsButtonState") == "false") {
-        InfoSliderBodyHeaderBottomFilterEventsButton.click();
+        InfoSliderBodyHeaderTopRightBottomFilterEventsButton.click();
     }
 
     //QAToolButton
     if (!document.location.href.includes("bxQATool=true")) {
         var QaToolButtonDataId = "QAToolButton";
-        var InfoSliderBodyHeaderBottomQaToolButton = AppendElementAsChild(InfoSliderBodyHeaderBottom, 'i', { id: InfoSliderBodyHeaderBottom.id + QaToolButtonDataId, classList: "qatoolbutton", title: "Open QA Tool" });
-        AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderBottomQaToolButton);
+        var InfoSliderBodyHeaderTopRightBottomQaToolButton = AppendElementAsChild(InfoSliderBodyHeaderTopRightBottom, 'i', { id: InfoSliderBodyHeaderTopRightBottom.id + QaToolButtonDataId, classList: "qatoolbutton", title: "Open QA Tool" });
+        AddInfoSliderQaToolButtonClickEventHandlers(InfoSliderBodyHeaderTopRightBottomQaToolButton);
     }
 
     var InfoSliderBodyAccordions = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Accordions", classList: "demoToolInfoSliderBodyAccordions" });
