@@ -60,8 +60,8 @@ const SITECORECDP_CLIENTVERSION = "1.4.9";
 const SITECORECDP_PAGE = window.location.pathname + window.location.search;
 
 //Fixed Demo Tool settings
-const DEMOTOOL_VERSION = "v4.02.00";
-const ENVIRONMENT = "Production"; //"Production" or "Staging"
+const DEMOTOOL_VERSION = "v4.03.00";
+const ENVIRONMENT = "Staging"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
 const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
@@ -78,7 +78,7 @@ const IP_API_KEY = "6439efc4f032434d9016cbb032535b43";
 const WEATHER_API_TARGET = "https://api.open-meteo.com/v1/forecast";
 const BASE_WEB_INTERFACE_URL = "https://app.boxever.com";
 const DEMOTOOL_FONTAWESOME_STYLE_SOLID = "fa-solid";
-const DEMOTOOL_FONTAWESOME_CIRCLEINFO = "fa-circle-info";
+const DEMOTOOL_FONTAWESOME_CIRCLEINFO = "fa-circle-Cconfiguration";
 const DEMOTOOL_FONTAWESOME_CIRCLEXMARK = "fa-circle-xmark";
 const DEMOTOOL_FONTAWESOME_CARETDOWN = "fa-square-caret-down";
 const DEMOTOOL_FONTAWESOME_CARETUP = "fa-square-caret-up";
@@ -100,6 +100,8 @@ const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
 const DEMOTOOL_GITHUB_TARGET_NAME = "Github"
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
 const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Assistant";
+const DEMOTOOL_CONFIGURATIONSLIDER_ELEMENTNAME = "DemoToolCConfigurationSlider";
+const DEMOTOOL_CONFIGURATIONSLIDER_TITLE = "Configuration Assistant";
 const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
 
 //Demotool button tooltips/questions/texts
@@ -577,7 +579,7 @@ function GetIPGeolocation() {
         var ipGeoLocationFromSessionStorage = sessionStorage.getItem(sessionStorageItemName);
         if (ipGeoLocationFromSessionStorage) {
             // Use IP geolocation from sessionStorage
-            console.debug(CONSOLE_LOG_PREFIX + "Using ip geo location info from session storage...");
+            console.debug(CONSOLE_LOG_PREFIX + "Using ip geo location Cconfiguration from session storage...");
             resolve(JSON.parse(ipGeoLocationFromSessionStorage));
         }
         else {
@@ -602,7 +604,7 @@ function GetCurrentWeather(latitude, longitude) {
         var weatherFromSessionStorage = sessionStorage.getItem(sessionStorageItemName);
         if (weatherFromSessionStorage) {
             // Use IP geolocation from sessionStorage
-            console.debug(CONSOLE_LOG_PREFIX + "Using weather info for latitude:'" + latitude + "' and longitude: '" + longitude + "' from session storage...");
+            console.debug(CONSOLE_LOG_PREFIX + "Using weather Cconfiguration for latitude:'" + latitude + "' and longitude: '" + longitude + "' from session storage...");
             resolve(JSON.parse(weatherFromSessionStorage));
         }
         else {
@@ -898,7 +900,7 @@ function InitReplacers(data) {
             }
             demoToolData.Replacers.location.isp = response.isp;
 
-            // Call weather service to get weather info.
+            // Call weather service to get weather Cconfiguration.
             GetCurrentWeather(response.latitude, response.longitude).then(function (response) {
                 demoToolData.Replacers.location.weather = {};
                 demoToolData.Replacers.location.weather.code = response.current_weather.weathercode;
@@ -1632,7 +1634,7 @@ function ComposeAccordions(parentHtmlElement) {
 
 
 function AddLinkClickEventHandler(button, yesNoQuestion, url) {
-    //Code to operate the Info Slider
+    //Code to operate the Cconfiguration Slider
     button.onclick = function () {
         // Ask to confirm reloading page to open the Url 
         if (confirm(yesNoQuestion)) {
@@ -1644,7 +1646,7 @@ function AddLinkClickEventHandler(button, yesNoQuestion, url) {
 
 
 function AddInfoSliderClickEventHandlers(InfoSlider, InfoSliderToggle, InfoSliderToggleIcon, InfoSliderBody) {
-    //Code to operate the Info Slider
+    //Code to operate the Cconfiguration Slider
     InfoSliderToggle.onclick = function () {
         //Toggle open/close
         InfoSlider.classList.toggle("open");
@@ -1794,39 +1796,39 @@ function InitializeAboutPopup(parentHtmlElement) {
 function InitializeInfoSlider() {
     console.debug(CONSOLE_LOG_PREFIX + "Starting InitializeInfoSlider...");
 
-    //Info Slider HTML
+    //Cconfiguration Slider HTML
     var InfoSlider = AppendElementAsChild(document.body, 'div', { id: DEMOTOOL_INFOSLIDER_ELEMENTNAME });
 
-    //Info Slider Toggle
+    //Cconfiguration Slider Toggle
     var InfoSliderToggle = AppendElementAsChild(InfoSlider, 'div', { id: InfoSlider.id + "Toggle", classList: "demoToolInfoSliderToggle", title: "Guest Data" });
     var InfoSliderToggleIcon = AppendElementAsChild(InfoSliderToggle, 'i', { id: InfoSliderToggle.id + "Icon", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLEINFO });
 
-    //Info Slider Body
+    //Cconfiguration Slider Body
     var InfoSliderBody = AppendElementAsChild(InfoSlider, 'div', { id: InfoSlider.id + "Body", classList: "demoToolInfoSliderBody" });
 
-    //Info Slider Header
+    //Cconfiguration Slider Header
     var InfoSliderBodyHeader = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Header", classList: "demoToolInfoSliderBodyHeader" });
 
-    //Info Slider Header Top
+    //Cconfiguration Slider Header Top
     var InfoSliderBodyHeaderTop = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Top", classList: "demoToolInfoSliderBodyHeaderTop" });
 
-    //Info Slider Header Top Left
+    //Cconfiguration Slider Header Top Left
     var InfoSliderBodyHeaderTopLeft = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Left", classList: "demoToolInfoSliderBodyHeaderTopLeft" });
     var InfoSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "img", { id: InfoSliderBodyHeaderTopLeft.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "demoToolInfoSliderBodyHeaderTopLeftLogo" });
     var InfoSliderBodyHeaderTopToolTitle = AppendElementAsChild(InfoSliderBodyHeaderTopLeft, "label", { id: InfoSliderBodyHeaderTopLeft.id + "ToolTitle", innerText: DEMOTOOL_INFOSLIDER_TITLE, classList: "demoToolInfoSliderBodyHeaderTopLeftToolTitle" });
 
-    //Info Slider Header Top Right
+    //Cconfiguration Slider Header Top Right
     var InfoSliderBodyHeaderTopRight = AppendElementAsChild(InfoSliderBodyHeaderTop, "div", { id: InfoSliderBodyHeaderTop.id + "Right", classList: "demoToolInfoSliderBodyHeaderTopRight" });
 
-    //Info Slider Header Bottom
+    //Cconfiguration Slider Header Bottom
     var InfoSliderBodyHeaderBottom = AppendElementAsChild(InfoSliderBodyHeader, "div", { id: InfoSliderBodyHeader.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderBottom" });
 
-    //Info Slider Header Top Right Top
+    //Cconfiguration Slider Header Top Right Top
     var InfoSliderBodyHeaderTopRightTop = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Top", classList: "demoToolInfoSliderBodyHeaderTopRightTop" });
     var InfoSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(InfoSliderBodyHeaderTopRightTop, "label", { id: InfoSliderBodyHeaderTopRightTop.id + "Version", classList: "demoToolInfoSliderBodyHeaderTopRightTopVersion" });
     var InfoSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(InfoSliderBodyHeaderTopRightTopVersion, 'a', { id: InfoSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "versionlink", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
 
-    //Info Slider Header Top Right Bottom
+    //Cconfiguration Slider Header Top Right Bottom
     var InfoSliderBodyHeaderTopRightBottom = AppendElementAsChild(InfoSliderBodyHeaderTopRight, "div", { id: InfoSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolInfoSliderBodyHeaderTopRightBottom" });
 
 
@@ -1868,10 +1870,10 @@ function InitializeInfoSlider() {
 
     var InfoSliderBodyAccordions = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Accordions", classList: "demoToolInfoSliderBodyAccordions" });
 
-    // Add info slider (open/close) event handler.
+    // Add Cconfiguration slider (open/close) event handler.
     AddInfoSliderClickEventHandlers(InfoSlider, InfoSliderToggle, InfoSliderToggleIcon, InfoSliderBodyAccordions);
 
-    //Info Slider Header
+    //Cconfiguration Slider Header
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
     var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
 
@@ -1883,6 +1885,65 @@ function InitializeInfoSlider() {
     console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeInfoSlider.");
 
     return InfoSlider;
+}
+
+
+
+function InitializeConfigurationSlider() {
+    console.debug(CONSOLE_LOG_PREFIX + "Starting InitializeConfigurationSlider...");
+
+    //Configuration Slider HTML
+    var ConfigurationSlider = AppendElementAsChild(document.body, 'div', { id: DEMOTOOL_CONFIGURATIONSLIDER_ELEMENTNAME });
+
+    //Configuration Slider Toggle
+    var ConfigurationSliderToggle = AppendElementAsChild(ConfigurationSlider, 'div', { id: ConfigurationSlider.id + "Toggle", classList: "demoToolConfigurationSliderToggle", title: "Guest Data" });
+    var ConfigurationSliderToggleIcon = AppendElementAsChild(ConfigurationSliderToggle, 'i', { id: ConfigurationSliderToggle.id + "Icon", classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_CIRCLECONFIGURATION });
+
+    //Configuration Slider Body
+    var ConfigurationSliderBody = AppendElementAsChild(ConfigurationSlider, 'div', { id: ConfigurationSlider.id + "Body", classList: "demoToolConfigurationSliderBody" });
+
+    //Configuration Slider Header
+    var ConfigurationSliderBodyHeader = AppendElementAsChild(ConfigurationSliderBody, 'div', { id: ConfigurationSliderBody.id + "Header", classList: "demoToolConfigurationSliderBodyHeader" });
+
+    //Configuration Slider Header Top
+    var ConfigurationSliderBodyHeaderTop = AppendElementAsChild(ConfigurationSliderBodyHeader, "div", { id: ConfigurationSliderBodyHeader.id + "Top", classList: "demoToolConfigurationSliderBodyHeaderTop" });
+
+    //Configuration Slider Header Top Left
+    var ConfigurationSliderBodyHeaderTopLeft = AppendElementAsChild(ConfigurationSliderBodyHeaderTop, "div", { id: ConfigurationSliderBodyHeaderTop.id + "Left", classList: "demoToolConfigurationSliderBodyHeaderTopLeft" });
+    var ConfigurationSliderBodyHeaderTopCdpAndPersonalizeLogo = AppendElementAsChild(ConfigurationSliderBodyHeaderTopLeft, "img", { id: ConfigurationSliderBodyHeaderTopLeft.id + "Image", src: CDPANDPERSONALIZELOGO_URL, classList: "demoToolConfigurationSliderBodyHeaderTopLeftLogo" });
+    var ConfigurationSliderBodyHeaderTopToolTitle = AppendElementAsChild(ConfigurationSliderBodyHeaderTopLeft, "label", { id: ConfigurationSliderBodyHeaderTopLeft.id + "ToolTitle", innerText: DEMOTOOL_CONFIGURATIONSLIDER_TITLE, classList: "demoToolConfigurationSliderBodyHeaderTopLeftToolTitle" });
+
+    //Configuration Slider Header Top Right
+    var ConfigurationSliderBodyHeaderTopRight = AppendElementAsChild(ConfigurationSliderBodyHeaderTop, "div", { id: ConfigurationSliderBodyHeaderTop.id + "Right", classList: "demoToolConfigurationSliderBodyHeaderTopRight" });
+
+    //Configuration Slider Header Bottom
+    var ConfigurationSliderBodyHeaderBottom = AppendElementAsChild(ConfigurationSliderBodyHeader, "div", { id: ConfigurationSliderBodyHeader.id + "Bottom", classList: "demoToolConfigurationSliderBodyHeaderBottom" });
+
+    //Configuration Slider Header Top Right Top
+    var ConfigurationSliderBodyHeaderTopRightTop = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRight, "div", { id: ConfigurationSliderBodyHeaderTopRight.id + "Top", classList: "demoToolConfigurationSliderBodyHeaderTopRightTop" });
+    var ConfigurationSliderBodyHeaderTopRightTopVersion = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRightTop, "label", { id: ConfigurationSliderBodyHeaderTopRightTop.id + "Version", classList: "demoToolConfigurationSliderBodyHeaderTopRightTopVersion" });
+    var ConfigurationSliderBodyHeaderTopRightTopVersionLink = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRightTopVersion, 'a', { id: ConfigurationSliderBodyHeaderTopRightTopVersion.id + "Link", classList: "versionlink", href: DEMOTOOL_GITHUB_REPOSITORY_URL, target: DEMOTOOL_GITHUB_TARGET_NAME, innerText: DEMOTOOL_VERSION });
+
+    //Configuration Slider Header Top Right Bottom
+    var ConfigurationSliderBodyHeaderTopRightBottom = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRight, "div", { id: ConfigurationSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolConfigurationSliderBodyHeaderTopRightBottom" });
+
+    var ConfigurationSliderBodyAccordions = AppendElementAsChild(ConfigurationSliderBody, 'div', { id: ConfigurationSliderBody.id + "Accordions", classList: "demoToolConfigurationSliderBodyAccordions" });
+
+    // Add Configuration slider (open/close) event handler.
+    AddConfigurationSliderClickEventHandlers(ConfigurationSlider, ConfigurationSliderToggle, ConfigurationSliderToggleIcon, ConfigurationSliderBodyAccordions);
+
+    //Configuration Slider Header
+    var ConfigurationSliderBodyFooter = AppendElementAsChild(ConfigurationSliderBody, 'div', { id: ConfigurationSliderBody.id + "Footer", classList: "demoToolConfigurationSliderBodyFooter" });
+    var ConfigurationSliderBodyFooterLogo = AppendElementAsChild(ConfigurationSliderBodyFooter, "img", { id: ConfigurationSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
+
+    //ComposeAccordions(ConfigurationSliderBodyAccordions);
+
+    //Add window resize event listener.
+    AddWindowResizeEventListener();
+
+    console.debug(CONSOLE_LOG_PREFIX + "Ended InitializeConfigurationSlider.");
+
+    return ConfigurationSlider;
 }
 
 
@@ -2328,5 +2389,6 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
         LoadStyleSheetAsync(DEMOTOOL_CSS, true);
 
         InitializeInfoSlider();
+        InitializeConfigurationSlider();
     });
 })();
