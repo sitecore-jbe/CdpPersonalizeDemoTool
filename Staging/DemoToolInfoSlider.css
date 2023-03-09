@@ -102,3 +102,17 @@
 #DemoToolConfigurationSlider .demoToolConfigurationSliderToggle:hover { left: 0; transition: 0.3s; }
 #DemoToolConfigurationSlider .demoToolConfigurationSliderToggle i { margin-top: 7px;}
 #DemoToolConfigurationSlider .demoToolConfigurationSliderBody { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
+
+/* Configuration Slider Header */
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeader { margin: 9px 4px 0 4px; font-family: 'Montserrat', sans-serif; font-size: 15px; line-height: 1.42857143; letter-spacing: -0.01em;}
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderTop { width: 100%; margin-bottom: 10px;}
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderTopLeft { float:left; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderTopRight { float:right; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderTopRightTop { text-align: right; margin-right: 3px; font-style: italic; font-size: 9px; margin-bottom: 5px; margin-top: 6px;}
+#DemoToolConfigurationSlider .versionlink { font-size: 9px; font-family: 'Montserrat', sans-serif; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderBottom { margin-bottom: 10px; clear: left; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderTopLeftLogo { margin-left:10px; height: 40px; width:auto;}
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyHeaderTopLeftToolTitle { color: blue; font-style: italic; display: flex; position: absolute; top: 37px; left: 162px; font-size: 12px; font-family: 'Montserrat', sans-serif;  }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyFooter  { display: flex; position: absolute; bottom: 0; width: 100%; justify-content: center; margin-bottom:10px}
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyFooter .sitecoreLogo { height: 20px; width:auto;}
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBodyAccordions  { overflow-y: scroll; display:inline-block; width:100%; max-height:86% }
