@@ -1,0 +1,100 @@
+
+#DemoToolInfoSlider { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 99998; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
+#DemoToolInfoSlider.open { right: 0; z-index: 99999; max-width: 100vw; }
+
+#DemoToolInfoSlider .demoToolInfoSliderToggle { position: absolute; left: 39px; top: 160px; width: 50px; height: 50px; transform: translateX(-100%); background-color: #006EF9; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
+#DemoToolInfoSlider.open .demoToolInfoSliderToggle { left: 0; }
+#DemoToolInfoSlider .demoToolInfoSliderToggle:hover { left: 0; transition: 0.3s; }
+#DemoToolInfoSlider .demoToolInfoSliderToggle i { margin-top: 7px;}
+#DemoToolInfoSlider .demoToolInfoSliderBody { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
+#DemoToolInfoSlider .AccordionContent label{ font-size: 12px;  font-family: 'Montserrat', sans-serif; }
+#DemoToolInfoSlider .AccordionContent a{ text-decoration: none; }
+#DemoToolInfoSlider .AccordionContent a:hover{ text-decoration: underline; }
+
+
+
+/* Info Slider Header */
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeader { margin: 9px 4px 0 4px; font-family: 'Montserrat', sans-serif; font-size: 15px; line-height: 1.42857143; letter-spacing: -0.01em;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTop { width: 100%; margin-bottom: 10px;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeft { float:left; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopRight { float:right; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopRightTop { text-align: right; margin-right: 3px; font-style: italic; font-size: 9px; margin-bottom: 5px; margin-top: 6px;}
+#DemoToolInfoSlider .versionlink { font-size: 9px; font-family: 'Montserrat', sans-serif; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderBottom { margin-bottom: 10px; clear: left; }
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeftLogo { margin-left:10px; height: 40px; width:auto;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyHeaderTopLeftToolTitle { color: blue; font-style: italic; display: flex; position: absolute; top: 37px; left: 162px; font-size: 12px; font-family: 'Montserrat', sans-serif;  }
+#DemoToolInfoSlider .demoToolInfoSliderBodyFooter  { display: flex; position: absolute; bottom: 0; width: 100%; justify-content: center; margin-bottom:10px}
+#DemoToolInfoSlider .demoToolInfoSliderBodyFooter .sitecoreLogo { height: 20px; width:auto;}
+#DemoToolInfoSlider .demoToolInfoSliderBodyAccordions  { overflow-y: scroll; display:inline-block; width:100%; max-height:86% }
+
+
+#DemoToolInfoSlider h3.demoToolInfoSliderBodyHeaderRightTopTitle { font-size: 26px; margin-bottom: 5px; font-family: 'Montserrat', sans-serif !important;}
+
+#DemoToolInfoSlider .aboutbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
+#DemoToolInfoSlider .expandpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
+#DemoToolInfoSlider .notconfiguredpropertiesbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
+#DemoToolInfoSlider .filtereventsbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
+#DemoToolInfoSlider .qatoolbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; background-image: url("https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/Production/Images/demotool-qa-icon-grey.png"); background-position-x: 50%; background-position-y: center; background-size:cover; background-repeat: no-repeat;}
+
+/* Info Slider Accordion */
+#DemoToolInfoSlider .AccordionContent { line-height:normal; font-size: 12px; font-weight: normal; background-color: white; height: 500px; width: 400px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; }
+
+/* Info Slider Accordion Button */
+#DemoToolInfoSlider button.AccordionButton { -moz-appearance: button; width: 100%; background-color: lightgrey; border: none; text-align: left; padding: 15px 10px 15px 5px; font-size: 16px; color: #212621; text-transform: capitalize; cursor: pointer; transition: background-color 0.2s linear; font-weight: 600;}
+#DemoToolInfoSlider button.AccordionButton:after { content: "+"; font-size: 18px; float: right; }
+#DemoToolInfoSlider button.AccordionButton.open:after { content: "-"; }
+#DemoToolInfoSlider button.AccordionButton:hover, #scDemoTool-slider button.accordion.is-open { background-color: grey; }
+
+/* Info Slider Accordion Content Scollbar */
+#DemoToolInfoSlider .Accordion { width: 99%; max-width: 440px; margin: 5px auto; font-family: 'Montserrat', sans-serif; font-size: 15px;}
+#DemoToolInfoSlider .Accordion::-webkit-scrollbar { width: 12px; } /* width of the entire scrollbar */
+#DemoToolInfoSlider .Accordion::-webkit-scrollbar-track {  background-color: #f7f7f7; } /* color of the tracking area */
+#DemoToolInfoSlider .Accordion::-webkit-scrollbar-thumb { background-color: #666666; /* color of the scroll thumb */ border-radius: 20px; /* roundness of the scroll thumb */ border: 3px solid #f7f7f7; /* creates padding around scroll thumb */ }
+
+#DemoToolInfoSlider .property { margin-left: 10px; }
+#DemoToolInfoSlider .hide.extendedproperty { display: none; }
+#DemoToolInfoSlider .hide.notconfiguredproperty { display: none; }
+#DemoToolInfoSlider .filteredproperty { }
+#DemoToolInfoSlider .hide.filteredproperty { display: none; }
+#DemoToolInfoSlider .notconfiguredproperty {  }
+
+#DemoToolInfoSlider .propertylabel { display: inline; font-weight: 700; text-transform: capitalize;}
+#DemoToolInfoSlider .propertyvalue { display: inline; font-weight: 400;}
+#DemoToolInfoSlider .propertyvaluesuffix { display: inline; font-weight: 400;}
+#DemoToolInfoSlider .propertyvaluesuffix.qatoolbutton { width: 12px; height: 12px; margin: 0 0 -2px 5px; background-color: transparent; padding: 0; background-image: url("https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/Production/Images/demotool-qa-icon-black.png"); display:inline-block;  float:none; }
+
+#DemoToolInfoSlider .propertylength { display: inline; }
+#DemoToolInfoSlider .collapsablecontainercaret { display: inline; margin-left:5px;}
+#DemoToolInfoSlider .propertyicon { padding-right:5px; font-size: 10px; }
+#DemoToolInfoSlider .copyicon { cursor: pointer; }
+#DemoToolInfoSlider hr.seperator { margin-top: 3px; margin-bottom: 3px; border-style: solid; border-color: rgb(221, 221, 221); border-width: 1px 0 0; clear: both; height:0;}
+
+#DemoToolInfoSlider .propertyobject { margin-left: 10px; }
+#DemoToolInfoSlider .propertyobject .property { margin-left: 15px; }
+#DemoToolInfoSlider .propertyobject .propertyobject { margin-left: 15px; }
+
+#DemoToolInfoSlider .collapsablecontainer { margin-left: 15px; }
+#DemoToolInfoSlider .collapsablecontainerwithoutproperties { margin-left: 0px; }
+#DemoToolInfoSlider .collapsablecontainerlabel {  display: inline-block; text-transform: capitalize; }
+#DemoToolInfoSlider .collapsablecontainerlabel label { font-weight: 600; }
+#DemoToolInfoSlider .collapsablecontainercontent  {  margin-left: 5px; }
+#DemoToolInfoSlider .collapsablecontainerheader {  display: inline-block; text-transform: capitalize; }
+#DemoToolInfoSlider .arraycontainercontent  {  margin-left: 5px; }
+
+#DemoToolInfoSlider .tooltipbutton { margin-left: 5px; }
+#DemoToolInfoSlider .tooltipclosebutton { width: 17px; height: 17px; font-size: 15px; margin-top: 2px; margin-right: 2px; float: right; color: red; border-radius: 3px; background-color: LightGray; padding: 1px 0 0 3px;}
+#DemoToolInfoSlider .tooltipexpandbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px;}
+#DemoToolInfoSlider .tooltipqatoolbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px;}
+#DemoToolInfoSlider .tooltipheader { display: inline-block;  font-weight: bold; font-size: 15px;}
+#DemoToolInfoSlider .tootltipheader hr.seperator { margin-top: 3px; margin-bottom: 3px;}
+#DemoToolInfoSlider .tooltipcontent { margin: 10px; }
+#DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 10000; opacity: 1; background-color: white; min-width:450px; }
+#DemoToolInfoSlider .tooltip[data-show] { padding:1rem; display: block;}
+
+#DemoToolInfoSlider .geoipflag { max-height: 10px; width:auto;}
+
+
+
+
+#DemoToolInfoSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 190px; width: 50px; height: 50px; transform: translateX(-100%); background-color: #006EF9; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
+#DemoToolInfoSlider.open .demoToolConfigurationSliderToggle { left: 0; }
