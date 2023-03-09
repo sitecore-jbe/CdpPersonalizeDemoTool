@@ -96,5 +96,5 @@
 
 
 
-#DemoToolInfoSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 190px; width: 50px; height: 50px; transform: translateX(-100%); background-color: #006EF9; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
+#DemoToolInfoSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 190px; width: 50px; height: 50px; transform: translateX(-100%); background-color: red; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
 #DemoToolInfoSlider.open .demoToolConfigurationSliderToggle { left: 0; }
