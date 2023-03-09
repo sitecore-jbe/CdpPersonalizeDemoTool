@@ -96,8 +96,8 @@
 
 
 
-#DemoToolInfoSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 190px; width: 50px; height: 50px; transform: translateX(-100%); background-color: red; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
-#DemoToolInfoSlider.open .demoToolConfigurationSliderToggle { left: 0; }
-#DemoToolInfoSlider .demoToolConfigurationSliderToggle:hover { left: 0; transition: 0.3s; }
-#DemoToolInfoSlider .demoToolConfigurationSliderToggle i { margin-top: 7px;}
-#DemoToolInfoSlider .demoToolConfigurationSliderBody { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 190px; width: 50px; height: 50px; transform: translateX(-100%); background-color: red; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
+#DemoToolConfigurationSlider.open .demoToolConfigurationSliderToggle { left: 0; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderToggle:hover { left: 0; transition: 0.3s; }
+#DemoToolConfigurationSlider .demoToolConfigurationSliderToggle i { margin-top: 7px;}
+#DemoToolConfigurationSlider .demoToolConfigurationSliderBody { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
