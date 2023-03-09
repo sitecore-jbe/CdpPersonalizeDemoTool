@@ -1875,6 +1875,7 @@ function InitializeInfoSlider() {
     var InfoSliderBodyFooter = AppendElementAsChild(InfoSliderBody, 'div', { id: InfoSliderBody.id + "Footer", classList: "demoToolInfoSliderBodyFooter" });
     var InfoSliderBodyFooterLogo = AppendElementAsChild(InfoSliderBodyFooter, "img", { id: InfoSliderBodyFooter.id + "Logo", src: SITECORELOGO_URL, classList: "sitecoreLogo" });
 
+    //ComposeAccordions(InfoSliderBodyAccordions);
 
     //Add window resize event listener.
     AddWindowResizeEventListener();
@@ -2320,12 +2321,12 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
             // If send view event on every page load
             SendViewEventToSitecoreCdp();
         }
+
+        LoadJavascriptAsync(PLURALIZE_JS);
+        LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
+        LoadStyleSheetAsync(FONT_AWESOME_CSS);
+        LoadStyleSheetAsync(DEMOTOOL_CSS, true);
+
+        InitializeInfoSlider();
     });
-
-    LoadJavascriptAsync(PLURALIZE_JS);
-    LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
-    LoadStyleSheetAsync(FONT_AWESOME_CSS);
-    LoadStyleSheetAsync(DEMOTOOL_CSS, true);
-
-    InitializeInfoSlider();
 })();

@@ -4,11 +4,8 @@
 
 #DemoToolInfoSlider .demoToolInfoSliderToggle { position: absolute; left: 39px; top: 160px; width: 50px; height: 50px; transform: translateX(-100%); background-color: #006EF9; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
 #DemoToolInfoSlider.open .demoToolInfoSliderToggle { left: 0; }
-
 #DemoToolInfoSlider .demoToolInfoSliderToggle:hover { left: 0; transition: 0.3s; }
-
 #DemoToolInfoSlider .demoToolInfoSliderToggle i { margin-top: 7px;}
-
 #DemoToolInfoSlider .demoToolInfoSliderBody { overflow-y: auto; height: 100%; background-color: #f7f7f7; }
 #DemoToolInfoSlider .AccordionContent label{ font-size: 12px;  font-family: 'Montserrat', sans-serif; }
 #DemoToolInfoSlider .AccordionContent a{ text-decoration: none; }
@@ -95,3 +92,9 @@
 #DemoToolInfoSlider .tooltip[data-show] { padding:1rem; display: block;}
 
 #DemoToolInfoSlider .geoipflag { max-height: 10px; width:auto;}
+
+
+
+
+#DemoToolInfoSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 190px; width: 50px; height: 50px; transform: translateX(-100%); background-color: #006EF9; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
+#DemoToolInfoSlider.open .demoToolConfigurationSliderToggle { left: 0; }
