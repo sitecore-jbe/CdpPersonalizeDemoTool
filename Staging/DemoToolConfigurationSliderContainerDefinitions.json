@@ -12,11 +12,17 @@
           "DataType": "String"
         },
         {
+          "Seperator": true
+        },
+        {
           "Property": "SITECORECDP_API_TOKEN",
           "HtmlElementId": "ApiToken",
           "Label": "Api Token",
           "DefaultValue": "jJFkj6fTF8d0q4kQmRM6lBW6cUfrSLwk",
           "DataType": "String"
+        },
+        {
+          "Seperator": true
         },
         {
           "Property": "BASE_WEB_INTERFACE_URL",
