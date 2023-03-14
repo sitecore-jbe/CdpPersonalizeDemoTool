@@ -140,7 +140,7 @@
 /* Configuration Slider Accordion Content Scollbar */
 #DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue { height: 0;width: 0;visibility: hidden; }
 #DemoToolConfigurationSlider label.ConfigurationSettingValue { cursor: pointer; text-indent: -9999px; width: 20px; height: 10px; background: grey; display: block; border-radius: 10px; position: relative; }
-#DemoToolConfigurationSlider label:after.ConfigurationSettingValue { content: ''; position: absolute; top: 1px; left: 2px; width: 10px; height: 8px; background: #fff; border-radius: 4px; transition: 0.3s; }
-#DemoToolConfigurationSlider input:checked.ConfigurationSettingValue + label.ConfigurationSettingValue { background: #bada55; }
-#DemoToolConfigurationSlider input:checked.ConfigurationSettingValue + label:after.ConfigurationSettingValue { left: calc(100% - 2px); transform: translateX(-100%); }
-#DemoToolConfigurationSlider label:active:after.ConfigurationSettingValue { width: 13px; }
+#DemoToolConfigurationSlider label.ConfigurationSettingValue:after { content: ''; position: absolute; top: 1px; left: 2px; width: 10px; height: 8px; background: #fff; border-radius: 4px; transition: 0.3s; }
+#DemoToolConfigurationSlider input.ConfigurationSettingValue:checked + label.ConfigurationSettingValue { background: #bada55; }
+#DemoToolConfigurationSlider input.ConfigurationSettingValue:checked + label.ConfigurationSettingValue:after { left: calc(100% - 2px); transform: translateX(-100%); }
+#DemoToolConfigurationSlider label.ConfigurationSettingValue:active:after { width: 13px; }
