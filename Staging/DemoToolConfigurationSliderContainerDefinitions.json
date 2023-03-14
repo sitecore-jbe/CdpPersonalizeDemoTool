@@ -32,6 +32,29 @@
           "DataType": "Url"
         }
       ]
+    },
+    {
+      "Name": "Script Settings",
+      "HtmlElementId": "ScriptSettings",
+      "Properties": [
+        {
+          "Property": "ENABLE_KEYBOARD_SHORTCUTS",
+          "HtmlElementId": "EnableKeyboardShortcuts",
+          "Label": "Enable Keyboard Shortcuts",
+          "DefaultValue": true,
+          "DataType": "Boolean"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SEND_VIEW_EVENT",
+          "HtmlElementId": "SendViewEvent",
+          "Label": "Send View Event",
+          "DefaultValue": true,
+          "DataType": "Boolean"
+        }
+      ]
     }
   ]
 }
