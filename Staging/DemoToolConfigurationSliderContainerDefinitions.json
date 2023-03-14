@@ -2,7 +2,7 @@
   "Accordions": [
     {
       "Name": "Instance Settings",
-      "HtmlElementId": "Instance Settings",
+      "HtmlElementId": "InstanceSettings",
       "Properties": [
         {
           "Property": "SITECORECDP_CLIENT_KEY",
