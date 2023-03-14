@@ -1,0 +1,28 @@
+{
+  "Accordions": [
+    {
+      "Name": "Instance Settings",
+      "HtmlElementId": "Instance Settings",
+      "Properties": [
+        {
+          "Property": "SITECORECDP_CLIENT_KEY",
+          "Label": "Client Key",
+          "DefaultValue": "sise3eux6k2504uchriujeee6q87pzzn",
+          "DataType": "String"
+        },
+        {
+          "Property": "SITECORECDP_REST_API_BASIC_AUTH",
+          "Label": "Rest API Basic Authentication",
+          "DefaultValue": "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s=",
+          "DataType": "String"
+        },
+        {
+          "Property": "BASE_WEB_INTERFACE_URL",
+          "Label": "Base Web Interface Url",
+          "DefaultValue": "https://app.boxever.com",
+          "DataType": "Url"
+        }
+      ]
+    }
+  ]
+}
