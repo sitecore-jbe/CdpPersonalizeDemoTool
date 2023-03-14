@@ -25,6 +25,46 @@
           "Seperator": true
         },
         {
+          "Property": "SITECORECDP_CLIENTVERSION",
+          "HtmlElementId": "JavascriptLibraryVersion",
+          "Label": "Javascript Library Version",
+          "DefaultValue": "1.4.9",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_STREAM_API_TARGET",
+          "HtmlElementId": "StreamApiTarget",
+          "Label": "Stream API Target",
+          "DefaultValue": "https://api.boxever.com/v1.2",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_INTERACTIVE_API_TARGET",
+          "HtmlElementId": "InteractiveApiTarget",
+          "Label": "Interactive API Target",
+          "DefaultValue": "https://api.boxever.com/v2",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_WEB_FLOW_TARGET",
+          "HtmlElementId": "WebFlowTarget",
+          "Label": "Web Flow Target",
+          "DefaultValue": "https://d35vb5cccm4xzp.cloudfront.net",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
           "Property": "BASE_WEB_INTERFACE_URL",
           "HtmlElementId": "BaseWebInterfaceUrl",
           "Label": "Base Web Interface Url",
