@@ -185,6 +185,46 @@
           "Label": "Send View Event",
           "DefaultValue": true,
           "DataType": "Boolean"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION",
+          "HtmlElementId": "OverwriteLocationOrganization",
+          "Label": "Overwrite Location Organization",
+          "DefaultValue": true,
+          "DataType": "Boolean"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE",
+          "HtmlElementId": "OverwriteLocationOrganizationValue",
+          "Label": "Overwrite Location Organization Value",
+          "DefaultValue": "Sitecore",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "DEMOTOOL_OVERWRITE_IPADDRESS",
+          "HtmlElementId": "OverwriteIpAddress",
+          "Label": "Overwrite IP Address",
+          "DefaultValue": false,
+          "DataType": "Boolean"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "DEMOTOOL_OVERWRITE_IPADDRESS_VALUE",
+          "HtmlElementId": "OverwriteIpAddressValue",
+          "Label": "Overwrite IP Address Value",
+          "DefaultValue": "193.134.178.243",
+          "DataType": "String"
         }
       ]
     }
