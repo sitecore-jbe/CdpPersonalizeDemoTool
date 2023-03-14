@@ -25,15 +25,18 @@
           "Seperator": true
         },
         {
-          "Property": "SITECORECDP_CLIENTVERSION",
-          "HtmlElementId": "JavascriptLibraryVersion",
-          "Label": "Javascript Library Version",
-          "DefaultValue": "1.4.9",
-          "DataType": "String"
-        },
-        {
-          "Seperator": true
-        },
+          "Property": "BASE_WEB_INTERFACE_URL",
+          "HtmlElementId": "BaseWebInterfaceUrl",
+          "Label": "Base Web Interface Url",
+          "DefaultValue": "https://app.boxever.com",
+          "DataType": "Url"
+        }
+      ]
+    },
+    {
+      "Name": "API Settings",
+      "HtmlElementId": "ApiSettings",
+      "Properties": [
         {
           "Property": "SITECORECDP_STREAM_API_TARGET",
           "HtmlElementId": "StreamApiTarget",
@@ -58,6 +61,10 @@
           "Property": "SITECORECDP_WEB_FLOW_TARGET",
           "HtmlElementId": "WebFlowTarget",
           "Label": "Web Flow Target",
+          "Help": {
+            "Text": "This is the path for the Amazon CloudFront Content Delivery Network (CDN) for Sitecore Personalize. This ensures that you can preview the experiment. Most tenants use the path provided in the example, with the exception of some third-party integrators. You only need to set this if you have a Sitecore Personalize license and use web experiments or web experiences.",
+            "Link": "https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/javascript-tagging-examples-for-webpages.html"
+          },
           "DefaultValue": "https://d35vb5cccm4xzp.cloudfront.net",
           "DataType": "String"
         },
@@ -65,11 +72,15 @@
           "Seperator": true
         },
         {
-          "Property": "BASE_WEB_INTERFACE_URL",
-          "HtmlElementId": "BaseWebInterfaceUrl",
-          "Label": "Base Web Interface Url",
-          "DefaultValue": "https://app.boxever.com",
-          "DataType": "Url"
+          "Property": "SITECORECDP_CLIENTVERSION",
+          "HtmlElementId": "JavascriptLibraryVersion",
+          "Label": "Javascript Library Version",
+          "Help": {
+            "Text": "This is the version of the Boxever JavaScript Library. The <a target='_blank' href='https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/boxever-javascript-library-release-notes.html'>Boxever JavaScript Library release notes</a> provides the versions for {{clientVersion}}.",
+            "Link": "https://doc.sitecore.com/cdp/en/developers/sitecore-customer-data-platform--data-model-2-1/javascript-tagging-examples-for-webpages.html"
+          },
+          "DefaultValue": "1.4.9",
+          "DataType": "String"
         }
       ]
     },
