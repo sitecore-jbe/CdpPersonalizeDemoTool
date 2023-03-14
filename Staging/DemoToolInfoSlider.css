@@ -116,3 +116,18 @@
 #DemoToolConfigurationSlider .demoToolConfigurationSliderBodyFooter  { display: flex; position: absolute; bottom: 0; width: 100%; justify-content: center; margin-bottom:10px}
 #DemoToolConfigurationSlider .demoToolConfigurationSliderBodyFooter .sitecoreLogo { height: 20px; width:auto;}
 #DemoToolConfigurationSlider .demoToolConfigurationSliderBodyAccordions  { overflow-y: scroll; display:inline-block; width:100%; max-height:86% }
+
+/* Configuration Slider Accordion */
+#DemoToolConfigurationSlider .AccordionContent { line-height:normal; font-size: 12px; font-weight: normal; background-color: white; height: 500px; width: 400px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; }
+
+/* Configuration Slider Accordion Button */
+#DemoToolConfigurationSlider button.AccordionButton { -moz-appearance: button; width: 100%; background-color: lightgrey; border: none; text-align: left; padding: 15px 10px 15px 5px; font-size: 16px; color: #212621; text-transform: capitalize; cursor: pointer; transition: background-color 0.2s linear; font-weight: 600;}
+#DemoToolConfigurationSlider button.AccordionButton:after { content: "+"; font-size: 18px; float: right; }
+#DemoToolConfigurationSlider button.AccordionButton.open:after { content: "-"; }
+#DemoToolConfigurationSlider button.AccordionButton:hover, #scDemoTool-slider button.accordion.is-open { background-color: grey; }
+
+/* Configuration Slider Accordion Content Scollbar */
+#DemoToolConfigurationSlider .Accordion { width: 99%; max-width: 440px; margin: 5px auto; font-family: 'Montserrat', sans-serif; font-size: 15px;}
+#DemoToolConfigurationSlider .Accordion::-webkit-scrollbar { width: 12px; } /* width of the entire scrollbar */
+#DemoToolConfigurationSlider .Accordion::-webkit-scrollbar-track {  background-color: #f7f7f7; } /* color of the tracking area */
+#DemoToolConfigurationSlider .Accordion::-webkit-scrollbar-thumb { background-color: #666666; /* color of the scroll thumb */ border-radius: 20px; /* roundness of the scroll thumb */ border: 3px solid #f7f7f7; /* creates padding around scroll thumb */ }
