@@ -101,7 +101,7 @@
           "DefaultValue": "https://api.boxever.com/v2",
           "DataType": "String"
         },
-        
+
         {
           "Seperator": true
         },
@@ -118,6 +118,49 @@
             ]
           },
           "DefaultValue": "1.4.9",
+          "DataType": "String"
+        }
+      ]
+    },
+    {
+      "Name": "Required Parameters",
+      "HtmlElementId": "RequiredParameters",
+      "Properties": [
+        {
+          "Property": "SITECORECDP_COOKIE_DOMAIN",
+          "HtmlElementId": "CookieDomain",
+          "Label": "Cookie Domain",
+          "DefaultValue": ".sportingkampenhout.be",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_CHANNEL",
+          "HtmlElementId": "Channel",
+          "Label": "Channel",
+          "DefaultValue": "WEB",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_POINT_OF_SALE",
+          "HtmlElementId": "PointOfSale",
+          "Label": "Point Of Sale",
+          "DefaultValue": "StandardDemo",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_IDENTITY_PROVIDER",
+          "HtmlElementId": "Identity Provider",
+          "Label": "Identity Provider",
+          "DefaultValue": "SITECORE_ID",
           "DataType": "String"
         }
       ]
