@@ -1,8 +1,8 @@
 {
   "Accordions": [
     {
-      "Name": "Instance Settings",
-      "HtmlElementId": "InstanceSettings",
+      "Name": "Tenant Settings",
+      "HtmlElementId": "TenantSettings",
       "Properties": [
         {
           "Property": "SITECORECDP_CLIENT_KEY",
@@ -12,10 +12,10 @@
           "DataType": "String"
         },
         {
-          "Property": "SITECORECDP_REST_API_BASIC_AUTH",
-          "HtmlElementId": "RestApiBasicAuth",
-          "Label": "Rest API Basic Authentication",
-          "DefaultValue": "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s=",
+          "Property": "SITECORECDP_API_TOKEN",
+          "HtmlElementId": "ApiToken",
+          "Label": "Api Token",
+          "DefaultValue": "jJFkj6fTF8d0q4kQmRM6lBW6cUfrSLwk",
           "DataType": "String"
         },
         {
