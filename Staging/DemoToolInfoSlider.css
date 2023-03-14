@@ -138,5 +138,5 @@
 #DemoToolConfigurationSlider hr.seperator { margin-top: 3px; margin-bottom: 3px; border-style: solid; border-color: rgb(221, 221, 221); border-width: 1px 0 0; clear: both; height:0;}
 
 /* Configuration Slider Accordion Content Scollbar */
-#DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue { background-color: red; }
-#DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue:checked { background-color: green; }
+#DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue { accent-color: red; width:auto }
+#DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue:checked { accent-color: green; width:auto }
