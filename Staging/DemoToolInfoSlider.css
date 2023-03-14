@@ -134,6 +134,6 @@
 
 #DemoToolConfigurationSlider .ConfigurationSetting { width: -webkit-fill-available; margin: 2px 10px 2px 10px;}
 #DemoToolConfigurationSlider .ConfigurationSettingLabel { font-size: 12px; }
-#DemoToolConfigurationSlider .ConfigurationSettingValue { margin-right: 15px; font-size: 12px; width: -webkit-fill-available; }
+#DemoToolConfigurationSlider .ConfigurationSettingValue { font-size: 12px; width: -webkit-fill-available; }
 #DemoToolConfigurationSlider hr.seperator { margin-top: 3px; margin-bottom: 3px; border-style: solid; border-color: rgb(221, 221, 221); border-width: 1px 0 0; clear: both; height:0;}
 
