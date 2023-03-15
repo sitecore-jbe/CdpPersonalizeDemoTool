@@ -193,9 +193,10 @@
           "Property": "DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION",
           "HtmlElementId": "OverwriteLocationOrganization",
           "Label": "Overwrite Location Organization",
-          "DefaultValue": true,
+          "DefaultValue": "Sitecore",
           "DataType": "String",
-          "EnableDisable": true
+          "EnableDisable": true,
+          "DefaultEnableDisableValue": true
         },
         {
           "Seperator": true
@@ -206,7 +207,8 @@
           "Label": "Overwrite IP Address",
           "DefaultValue": "193.134.178.243",
           "DataType": "String",
-          "EnableDisable": true
+          "EnableDisable": true,
+          "DefaultEnableDisableValue": false
         }
       ]
     }
