@@ -140,3 +140,6 @@
 /* Configuration Slider Accordion Content Scollbar */
 #DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue { accent-color: red; width:auto }
 #DemoToolConfigurationSlider input[type=checkbox].ConfigurationSettingValue:checked { accent-color: green; width:auto }
+
+#DemoToolConfigurationSlider .EnableDisable{ float: left; margin-right: 10px;}
+#DemoToolConfigurationSlider .EnableDisableValue{ width: 385px;}
