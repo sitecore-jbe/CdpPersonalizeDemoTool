@@ -145,3 +145,7 @@
 #DemoToolConfigurationSlider input[type=checkbox].EnableDisableConfigurationSettingValue { accent-color: red; width: auto; float: left; margin-right: 10px; }
 #DemoToolConfigurationSlider input[type=checkbox].EnableDisableConfigurationSettingValue:checked { accent-color: green; width: auto; float: left; margin-right: 10px; }
 #DemoToolConfigurationSlider .EnableDisableConfigurationSettingValue { font-size: 12px; width: 385px; }
+
+#DemoToolConfigurationSlider .downloadConfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; background-image: url("https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/Production/Images/demotool-qa-icon-grey.png"); background-position-x: 50%; background-position-y: center; background-size:cover; background-repeat: no-repeat;}
+#DemoToolConfigurationSlider .uploadConfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; background-image: url("https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/Production/Images/demotool-qa-icon-grey.png"); background-position-x: 50%; background-position-y: center; background-size:cover; background-repeat: no-repeat;}
+
