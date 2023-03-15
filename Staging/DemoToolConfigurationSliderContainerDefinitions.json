@@ -5,7 +5,7 @@
       "HtmlElementId": "TenantSettings",
       "Properties": [
         {
-          "Identifier": "SITECORECDP_CLIENT_KEY",
+          "Property": "SITECORECDP_CLIENT_KEY",
           "HtmlElementId": "ClientKey",
           "Label": "Client Key",
           "Help": {
@@ -28,7 +28,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_API_TOKEN",
+          "Property": "SITECORECDP_API_TOKEN",
           "HtmlElementId": "ApiToken",
           "Label": "Api Token",
           "Help": {
@@ -46,7 +46,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "BASE_WEB_INTERFACE_URL",
+          "Property": "BASE_WEB_INTERFACE_URL",
           "HtmlElementId": "BaseWebInterfaceUrl",
           "Label": "Base Web Interface Url",
           "DefaultValue": "https://app.boxever.com",
@@ -56,7 +56,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_WEB_FLOW_TARGET",
+          "Property": "SITECORECDP_WEB_FLOW_TARGET",
           "HtmlElementId": "WebFlowTarget",
           "Label": "Web Flow Target",
           "Help": {
@@ -77,7 +77,7 @@
       "HtmlElementId": "ApiSettings",
       "Properties": [
         {
-          "Identifier": "SITECORECDP_STREAM_API_TARGET",
+          "Property": "SITECORECDP_STREAM_API_TARGET",
           "HtmlElementId": "StreamApiTarget",
           "Label": "Stream API Target",
           "DefaultValue": "https://api.boxever.com/v1.2",
@@ -87,7 +87,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_INTERACTIVE_API_TARGET",
+          "Property": "SITECORECDP_INTERACTIVE_API_TARGET",
           "HtmlElementId": "InteractiveApiTarget",
           "Help": {
             "Text": "This is the API target endpoint for Sitecore CDP and Sitecore Personalize. This ensures that events are successfully sent to Sitecore CDP by the Sitecore CDP Stream API. <ul><li>Europe: https://api.boxever.com/v1.2 </li><li>Asia Pacific: https://api-ap-southeast-2-production.boxever.com/v1.2 </li><li>United States: https://api-us.boxever.com/v1.2",
@@ -106,7 +106,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_CLIENTVERSION",
+          "Property": "SITECORECDP_CLIENTVERSION",
           "HtmlElementId": "JavascriptLibraryVersion",
           "Label": "Javascript Library Version",
           "Help": {
@@ -127,7 +127,7 @@
       "HtmlElementId": "RequiredParameters",
       "Properties": [
         {
-          "Identifier": "SITECORECDP_COOKIE_DOMAIN",
+          "Property": "SITECORECDP_COOKIE_DOMAIN",
           "HtmlElementId": "CookieDomain",
           "Label": "Cookie Domain",
           "DefaultValue": ".sportingkampenhout.be",
@@ -137,7 +137,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_CHANNEL",
+          "Property": "SITECORECDP_CHANNEL",
           "HtmlElementId": "Channel",
           "Label": "Channel",
           "DefaultValue": "WEB",
@@ -147,7 +147,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_POINT_OF_SALE",
+          "Property": "SITECORECDP_POINT_OF_SALE",
           "HtmlElementId": "PointOfSale",
           "Label": "Point Of Sale",
           "DefaultValue": "StandardDemo",
@@ -157,7 +157,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SITECORECDP_IDENTITY_PROVIDER",
+          "Property": "SITECORECDP_IDENTITY_PROVIDER",
           "HtmlElementId": "Identity Provider",
           "Label": "Identity Provider",
           "DefaultValue": "SITECORE_ID",
@@ -170,7 +170,7 @@
       "HtmlElementId": "ScriptSettings",
       "Properties": [
         {
-          "Identifier": "ENABLE_KEYBOARD_SHORTCUTS",
+          "Property": "ENABLE_KEYBOARD_SHORTCUTS",
           "HtmlElementId": "EnableKeyboardShortcuts",
           "Label": "Enable Keyboard Shortcuts",
           "DefaultValue": true,
@@ -180,7 +180,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "SEND_VIEW_EVENT",
+          "Property": "SEND_VIEW_EVENT",
           "HtmlElementId": "SendViewEvent",
           "Label": "Send View Event",
           "DefaultValue": true,
@@ -190,7 +190,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION",
+          "Property": "DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION",
           "HtmlElementId": "OverwriteLocationOrganization",
           "Label": "Overwrite Location Organization",
           "DefaultValue": "Sitecore",
@@ -202,7 +202,7 @@
           "Seperator": true
         },
         {
-          "Identifier": "DEMOTOOL_OVERWRITE_IPADDRESS",
+          "Property": "DEMOTOOL_OVERWRITE_IPADDRESS",
           "HtmlElementId": "OverwriteIpAddress",
           "Label": "Overwrite IP Address",
           "DefaultValue": "193.134.178.243",
