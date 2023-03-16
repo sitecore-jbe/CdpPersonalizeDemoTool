@@ -171,7 +171,7 @@
           "HtmlElementId": "Language",
           "Label": "Language",
           "DefaultValue": "EN",
-          "DataType": "String"
+          "DataType": "Language"
         },
         {
           "Seperator": true
