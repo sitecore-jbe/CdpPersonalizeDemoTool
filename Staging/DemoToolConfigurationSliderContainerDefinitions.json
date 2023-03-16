@@ -161,7 +161,7 @@
           "HtmlElementId": "Currency",
           "Label": "Currency code",
           "DefaultValue": "USD",
-          "DataType": "String"
+          "DataType": "Currency"
         },
         {
           "Seperator": true
@@ -170,7 +170,7 @@
           "Property": "SITECORECDP_LANGUAGE",
           "HtmlElementId": "Language",
           "Label": "Language",
-          "DefaultValue": "StandardDemo",
+          "DefaultValue": "EN",
           "DataType": "String"
         },
         {
