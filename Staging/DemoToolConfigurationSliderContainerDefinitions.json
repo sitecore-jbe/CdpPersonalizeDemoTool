@@ -157,6 +157,26 @@
           "Seperator": true
         },
         {
+          "Property": "SITECORECDP_CURRENCY",
+          "HtmlElementId": "Currency",
+          "Label": "Currency code",
+          "DefaultValue": "USD",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_LANGUAGE",
+          "HtmlElementId": "Language",
+          "Label": "Language",
+          "DefaultValue": "StandardDemo",
+          "DataType": "String"
+        },
+        {
+          "Seperator": true
+        },
+        {
           "Property": "SITECORECDP_IDENTITY_PROVIDER",
           "HtmlElementId": "Identity Provider",
           "Label": "Identity Provider",
