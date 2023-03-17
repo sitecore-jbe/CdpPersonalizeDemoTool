@@ -151,3 +151,7 @@
 #DemoToolConfigurationSlider .exportconfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolConfigurationSlider .importconfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 
+.CodeMirror-hints {
+    z-index: 11000;
+
+}
