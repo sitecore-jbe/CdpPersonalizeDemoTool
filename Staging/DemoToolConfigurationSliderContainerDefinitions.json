@@ -237,13 +237,9 @@
       "HtmlElementId": "Scripts",
       "Properties": [
         {
-          "KeyboardKeys": {
-            "altKey": false,
-            "shiftKey": false,
-            "metaKey": false,
-            "ctrlKey": false,
-            "keyCode": "73"
-          },
+          "Property": "Send_View_Event_Script",
+          "HtmlElementId": "SendViewEventScript",
+          "Label": "Send View Event Script",
           "DefaultScript": "",
           "DataType": "Script"
         }
