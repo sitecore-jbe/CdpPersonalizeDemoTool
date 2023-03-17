@@ -231,6 +231,23 @@
           "DefaultEnableDisableValue": false
         }
       ]
+    },
+    {
+      "Name": "Scripts",
+      "HtmlElementId": "Scripts",
+      "Properties": [
+        {
+          "KeyboardKeys": {
+            "altKey": false,
+            "shiftKey": false,
+            "metaKey": false,
+            "ctrlKey": false,
+            "keyCode": "73"
+          },
+          "DefaultScript": "",
+          "DataType": "Script"
+        }
+      ]
     }
   ]
 }
