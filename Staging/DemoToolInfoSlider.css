@@ -1,6 +1,6 @@
 
-#DemoToolInfoSlider { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 99998; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
-#DemoToolInfoSlider.open { right: 0; z-index: 99999; max-width: 100vw; }
+#DemoToolInfoSlider { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 1000000; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
+#DemoToolInfoSlider.open { right: 0; z-index: 1000001; max-width: 100vw; }
 
 #DemoToolInfoSlider .demoToolInfoSliderToggle { position: absolute; left: 39px; top: 160px; width: 50px; height: 50px; transform: translateX(-100%); background-color: #006EF9; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
 #DemoToolInfoSlider.open .demoToolInfoSliderToggle { left: 0; }
@@ -88,15 +88,15 @@
 #DemoToolInfoSlider .tooltipheader { display: inline-block;  font-weight: bold; font-size: 15px;}
 #DemoToolInfoSlider .tootltipheader hr.seperator { margin-top: 3px; margin-bottom: 3px;}
 #DemoToolInfoSlider .tooltipcontent { margin: 10px; }
-#DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 10000; opacity: 1; background-color: white; min-width:450px; }
+#DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 1000002; opacity: 1; background-color: white; min-width:450px; }
 #DemoToolInfoSlider .tooltip[data-show] { padding:1rem; display: block;}
 
 #DemoToolInfoSlider .geoipflag { max-height: 10px; width:auto;}
 
 
 
-#DemoToolConfigurationSlider { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 99998; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
-#DemoToolConfigurationSlider.open { right: 0; z-index: 99999; max-width: 100vw; }
+#DemoToolConfigurationSlider { position: fixed; top: 0; right: -450px; height: 100%; width: 450px; z-index: 1000000; transition: right 0.6s ease-in-out; box-shadow: 0 0.2rem 0.4rem 0.2rem rgba(0, 0, 0, 0.1); }
+#DemoToolConfigurationSlider.open { right: 0; z-index: 1000001; max-width: 100vw; }
 #DemoToolConfigurationSlider .demoToolConfigurationSliderToggle { position: absolute; left: 39px; top: 220px; width: 50px; height: 50px; transform: translateX(-100%); background-color: red; box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); text-align: center; font-size: 26px; color: #ffffff; cursor: pointer; padding-top: 5px; }
 #DemoToolConfigurationSlider.open .demoToolConfigurationSliderToggle { left: 0; }
 #DemoToolConfigurationSlider .demoToolConfigurationSliderToggle:hover { left: 0; transition: 0.3s; }
@@ -152,5 +152,5 @@
 #DemoToolConfigurationSlider .importconfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 
 .CodeMirror-hints {
-    z-index: 120000;
+    z-index: 1000003;
 }
