@@ -88,7 +88,7 @@
 #DemoToolInfoSlider .tooltipheader { display: inline-block;  font-weight: bold; font-size: 15px;}
 #DemoToolInfoSlider .tootltipheader hr.seperator { margin-top: 3px; margin-bottom: 3px;}
 #DemoToolInfoSlider .tooltipcontent { margin: 10px; }
-#DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 1000002; opacity: 1; background-color: white; min-width:450px; }
+#DemoToolInfoSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 1000002; opacity: 1; background-color: white; min-width:450px; max-width:550px; }
 #DemoToolInfoSlider .tooltip[data-show] { padding:1rem; display: block;}
 
 #DemoToolInfoSlider .geoipflag { max-height: 10px; width:auto;}
