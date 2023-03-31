@@ -2505,7 +2505,7 @@ function ComposeConfigurationObject(parentHtmlElement) {
                                 lineNumbers: true
                             });
 
-                            cm.value = GetLocalStorageOrDefaultScript(propertyDefinition.Property);  //ConfigurationSetting.DefaultScript
+                            cm.value = GetLocalStorageOrDefaultScript(propertyDefinition.Property);   //d ConfigurationSetting.DefaultScript
 
                             cm.addEventListener("change", function () { SaveConfigurationSetting(this); });
 
