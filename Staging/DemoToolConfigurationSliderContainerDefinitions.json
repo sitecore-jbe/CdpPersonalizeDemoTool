@@ -240,7 +240,7 @@
           "Property": "Send_View_Event_Script",
           "HtmlElementId": "SendViewEventScript",
           "Label": "Send View Event Script",
-          "DefaultScript": "",
+          "DefaultScript": "GetIPGeolocation().then(function (response) {\r\n        console.debug(CONSOLE_LOG_PREFIX + \"Starting SendViewEventToSitecoreCdp...\");\r\n\r\n        var viewEvent = baseEvent(SITECORECDP_VIEW_TYPE);\r\n        viewEvent.sessionData = {\r\n            \"uri\": window.location.pathname,\r\n            \"ipInfo\": {\r\n                \"ipAddress\": response.ip,\r\n                \"latitude\": response.latitude,\r\n                \"longitude\": response.longitude,\r\n                \"city\": response.city,\r\n                \"country\": response.country_name\r\n            }\r\n        };\r\n        SendTrackingDataToSitecoreCdp(viewEvent);\r\n\r\n        console.debug(CONSOLE_LOG_PREFIX + \"Ended SendViewEventToSitecoreCdp.\");\r\n    });\r\n}",
           "DataType": "Script"
         }
       ]
