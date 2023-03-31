@@ -2,25 +2,11 @@
 
 //Script settings
 //Using var instead of const - to allow override in tampermonkey
-var ENABLE_KEYBOARD_SHORTCUTS = true;
-var SEND_VIEW_EVENT = true;
-
-//Demo specific Sitecore CDP settings
-//Using var instead of const - to allow override in tampermonkey
-var SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
-var SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
-var SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
-var SITECORECDP_CHANNEL = "WEB";
 var SITECORECDP_VIEW_TYPE = "VIEW";
 var SITECORECDP_IDENTITY_TYPE = "IDENTITY";
 var SITECORECDP_FEEDBACK_TYPE = "FEEDBACK";
 var SITECORECDP_FORCE_CLOSE_TYPE = "FORCE_CLOSE";
 var SITECORECDP_ORDER_CHECKOUT_TYPE = "ORDER_CHECKOUT";
-var SITECORECDP_CURRENCY = "USD";
-var SITECORECDP_LANGUAGE = "EN";
-var SITECORECDP_POINT_OF_SALE = "StandardDemo";
-var SITECORECDP_IDENTITY_PROVIDER = "SITECORE_ID";
-
 
 //Demo specific default values
 //Using var instead of const - to allow override in tampermonkey
@@ -30,11 +16,6 @@ var SITECORECDP_DEFAULT_LASTNAME_VALUE = "Becue";
 var SITECORECDP_DEFAULT_GENDER_VALUE = "Male";
 var SITECORECDP_DEFAULT_DATEOFBIRTH_VALUE = "1977-06-06T00:00Z";
 var SITECORECDP_DEFAULT_TITLE_VALUE = "Unknown";
-var DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION = true;
-var DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE = "Sitecore";
-var DEMOTOOL_OVERWRITE_IPADDRESS = false;
-var DEMOTOOL_OVERWRITE_IPADDRESS_VALUE = "193.134.178.243";
-
 
 //Demo specific default data extension values
 //Using var instead of const - to allow override in tampermonkey
@@ -52,15 +33,9 @@ var SITECORECDP_DEFAULT_HOSPITAL_VALUE = "DefaultHospital";
 var SITECORECDP_DEFAULT_MESSAGE_VALUE = "I have a neutral sentiment.";
 
 
-//Fixed Sitecore CDP settings
-const SITECORECDP_STREAM_API_TARGET = "https://api.boxever.com/v1.2"; //  do not change
-const SITECORECDP_INTERACTIVE_API_TARGET = "https://api.boxever.com/v2"; //  do not change
-const SITECORECDP_WEB_FLOW_TARGET = "https://d35vb5cccm4xzp.cloudfront.net"; //  do not change
-const SITECORECDP_CLIENTVERSION = "1.4.9";
-const SITECORECDP_PAGE = window.location.pathname + window.location.search;
-
 //Fixed Demo Tool settings
 const DEMOTOOL_VERSION = "v4.03.00";
+const SITECORECDP_CLIENTVERSION = "1.4.9"; // TODO: Try to not need it - use from demotool interface
 const ENVIRONMENT = "Staging"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
@@ -69,8 +44,17 @@ const FONT_MONTSERRAT_CSS = { id: "FONT_MONTSERRAT_CSS", url: "//fonts.googleapi
 const DEMOTOOL_GITHUB_REPOSITORY_URL = "https://github.com/sitecore-jbe/CdpPersonalizeDemoTool/";
 const DEMOTOOL_GITHUB_DEPLOYMENT_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/";
 const DEMOTOOL_CSS = { id: "DEMOTOOL_CSS", url: DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolInfoSlider.css" };
+const CODEMIRROR_JS = { id: "CODEMIRROR_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.js" };
+const CODEMIRROR_CSS = { id: "CODEMIRROR_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" };
+const CODEMIRROR_JAVASCRIPT_MODE_JS = { id: "CODEMIRROR_JAVASCRIPT_MODE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js" };
+const CODEMIRROR_JAVASCRIPT_HINT_JS = { id: "CODEMIRROR_JAVASCRIPT_HINT_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js" };
+const CODEMIRROR_SHOW_HINT_JS = { id: "CODEMIRROR_SHOW_HINT_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.js" };
+const CODEMIRROR_SHOW_HINT_CSS = { id: "CODEMIRROR_SHOW_HINT_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.css" };
+const CODEMIRROR_MARKDOWN_JS = { id: "CODEMIRROR_MARKDOWN_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/markdown/markdown.min.js" };
 const CONTAINERDEFINITIONS_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolInfoSliderContainerDefinitions.json";
 const CONFIGURATIONCONTAINERDEFINITIONS_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/DemoToolConfigurationSliderContainerDefinitions.json";
+const CURRENCIES_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Currencies.json";
+const LANGUAGES_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Languages.json";
 const LOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-logo.png";
 const CDPANDPERSONALIZELOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-logo-cdp-personalize.svg";
 const SITECORELOGO_URL = DEMOTOOL_GITHUB_DEPLOYMENT_URL + ENVIRONMENT + "/Images/demotool-sitecore-logo.svg";
@@ -97,13 +81,14 @@ const DEMOTOOL_FONTAWESOME_BARS = "fa-bars";
 const DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK = "fa-filter-circle-xmark";
 const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
 const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
+const DEMOTOOL_FONTAWESOME_FILE_EXPORT = "fa-file-export";
+const DEMOTOOL_FONTAWESOME_FILE_IMPORT = "fa-file-import";
 const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
 const DEMOTOOL_GITHUB_TARGET_NAME = "Github"
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
 const DEMOTOOL_INFOSLIDER_TITLE = "Profiling Assistant";
 const DEMOTOOL_CONFIGURATIONSLIDER_ELEMENTNAME = "DemoToolConfigurationSlider";
 const DEMOTOOL_CONFIGURATIONSLIDER_TITLE = "Configuration Assistant";
-const DEMOTOOL_GUEST_INFORMATION_SENTIMENT_ELEMENTNAME = DEMOTOOL_INFOSLIDER_ELEMENTNAME + "_Sentiment_Value";
 
 //Demotool button tooltips/questions/texts
 const ABOUT_TEXT = "About";
@@ -114,6 +99,9 @@ const EXTENDEDPROPERTIESDISABLED_TEXT = "Hide extended properties.";
 const NOTCONFIGUREDPROPERTIESENABLED_TEXT = "Show not configured properties.";
 const NOTCONFIGUREDPROPERTIESDISABLED_TEXT = "Hide not configured properties.";
 const OPENQATOOLQUESTION_TEXT = "Are you sure you want to open the QA Tool. The page will reload."
+const IMPORTCONFIGURATION_TEXT = "Import Configuration";
+const EXPORTCONFIGURATION_TEXT = "Export Configuration";
+
 
 //Logging settings
 const CONSOLE_LOG_PREFIX = "Sitecore: ";
@@ -232,16 +220,6 @@ function CurrentTimeInTimezone(timeZone) {
     return new Date().toLocaleString("en-US", { timeZone: timeZone, hour12: false, hour: 'numeric' });
 }
 
-// Define the Boxever settings
-unsafeWindow._boxever_settings = {
-    client_key: SITECORECDP_CLIENT_KEY, // Replace with your client key
-    target: SITECORECDP_STREAM_API_TARGET, // Replace with your API target endpoint specific to your data center region
-    cookie_domain: SITECORECDP_COOKIE_DOMAIN, // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
-    javascriptLibraryVersion: SITECORECDP_CLIENTVERSION, // Replace with the latest Boxever JavaScript Library version"
-    pointOfSale: SITECORECDP_POINT_OF_SALE, // Replace with the same point of sale configured in system settings"
-    web_flow_target: SITECORECDP_WEB_FLOW_TARGET, // Replace with path for the Amazon CloudFront CDN for Sitecore Personalize"
-    web_flow_config: { async: true, defer: true } // Customize the async and defer script loading attributes
-};
 
 //START ADDING JSS & CSS LIBRARIES
 class ResourceType {
@@ -574,8 +552,8 @@ function Ajax(request) {
 function GetIPGeolocation() {
     return new Promise(function (resolve) {
 
-        var sessionStorageItemName = DEMOTOOL_OVERWRITE_IPADDRESS
-            ? "IpGeoLocation_IP_" + DEMOTOOL_OVERWRITE_IPADDRESS_VALUE
+        var sessionStorageItemName = GetLocalStorageOrDefaultEnableDisableValue("DEMOTOOL_OVERWRITE_IPADDRESS")
+            ? "IpGeoLocation_IP_" + GetLocalStorageOrDefaultValue("DEMOTOOL_OVERWRITE_IPADDRESS")
             : "IpGeoLocation";
         var ipGeoLocationFromSessionStorage = sessionStorage.getItem(sessionStorageItemName);
         if (ipGeoLocationFromSessionStorage) {
@@ -586,8 +564,8 @@ function GetIPGeolocation() {
         else {
             // Call IP geolocation web service
             console.debug(CONSOLE_LOG_PREFIX + "Calling ip geo location webservice...");
-            var request = DEMOTOOL_OVERWRITE_IPADDRESS
-                ? new Request(IP_API_TARGET + "?apiKey=" + IP_API_KEY + "&lang=en&ip=" + DEMOTOOL_OVERWRITE_IPADDRESS_VALUE, GetDefaultJsonGetRequestOptions())
+            var request = GetLocalStorageOrDefaultEnableDisableValue("DEMOTOOL_OVERWRITE_IPADDRESS")
+                ? new Request(IP_API_TARGET + "?apiKey=" + IP_API_KEY + "&lang=en&ip=" + GetLocalStorageOrDefaultValue("DEMOTOOL_OVERWRITE_IPADDRESS"), GetDefaultJsonGetRequestOptions())
                 : new Request(IP_API_TARGET + "?apiKey=" + IP_API_KEY + "&lang=en", GetDefaultJsonGetRequestOptions());
 
             Ajax(request).then(function (response) {
@@ -597,6 +575,7 @@ function GetIPGeolocation() {
         }
     });
 }
+
 
 
 function GetCurrentWeather(latitude, longitude) {
@@ -643,14 +622,19 @@ function GetAzureCognitiveServicesSentiment(language, text) {
 }
 //END GENERIC REST API
 
+
+function GetBasicAuthString() {
+    return "Basic " + btoa(GetLocalStorageOrDefaultValue("SITECORECDP_CLIENT_KEY") + ":" + GetLocalStorageOrDefaultValue("SITECORECDP_API_TOKEN"));
+}
+
 //START BOXEVER REST API
 function GetGuestContext(customerRef) {
     console.debug(CONSOLE_LOG_PREFIX + "Starting GetGuestContext for customer reference: '" + customerRef + "'...");
 
     var requestOptions = GetDefaultJsonGetRequestOptions();
-    requestOptions.headers.Authorization = SITECORECDP_REST_API_BASIC_AUTH;
+    requestOptions.headers.Authorization = GetBasicAuthString();
 
-    var request = new Request(SITECORECDP_INTERACTIVE_API_TARGET + "/guestContexts/" + customerRef + "?expand=items.sessions(offset:0,limit:100)&source=all&timeout=30000", requestOptions);
+    var request = new Request(GetLocalStorageOrDefaultValue("SITECORECDP_INTERACTIVE_API_TARGET") + "/guestContexts/" + customerRef + "?expand=items.sessions(offset:0,limit:100)&source=all&timeout=30000", requestOptions);
     return Ajax(request);
 }
 
@@ -658,9 +642,9 @@ function GetGuestDataExtension(customerRef, extensionName) {
     console.debug(CONSOLE_LOG_PREFIX + "Starting GetGuestDataExtension for customer reference: '" + customerRef + "' and extension name: '" + extensionName + "' ...");
 
     var requestOptions = GetDefaultJsonGetRequestOptions();
-    requestOptions.headers.Authorization = SITECORECDP_REST_API_BASIC_AUTH;
+    requestOptions.headers.Authorization = GetBasicAuthString();
 
-    var request = new Request(SITECORECDP_INTERACTIVE_API_TARGET + "/guests/" + customerRef + "?expand=ext" + extensionName, requestOptions);
+    var request = new Request(GetLocalStorageOrDefaultValue("SITECORECDP_INTERACTIVE_API_TARGET") + "/guests/" + customerRef + "?expand=ext" + extensionName, requestOptions);
     return Ajax(request);
 }
 
@@ -670,18 +654,18 @@ function GetFullStackExperience(friendlyId) {
     console.debug(CONSOLE_LOG_PREFIX + "Starting GetFullStackExperience for friendly Id: " + friendlyId + "...");
 
     var data = {
-        "clientKey": SITECORECDP_CLIENT_KEY,
-        "channel": SITECORECDP_CHANNEL,
-        "language": SITECORECDP_LANGUAGE,
-        "currencyCode": SITECORECDP_CURRENCY,
-        "pointOfSale": SITECORECDP_POINT_OF_SALE,
+        "clientKey": GetLocalStorageOrDefaultValue("SITECORECDP_CLIENT_KEY"),
+        "channel": GetLocalStorageOrDefaultValue("SITECORECDP_CHANNEL"),
+        "language": GetLocalStorageOrDefaultValue("SITECORECDP_LANGUAGE"),
+        "languageCode": GetLocalStorageOrDefaultValue("SITECORECDP_CURRENCY"),
+        "pointOfSale": GetLocalStorageOrDefaultValue("SITECORECDP_POINT_OF_SALE"),
         "browserId": Boxever.getID(),
         "friendlyId": friendlyId
     };
 
-    var requestOptions = GetDefaultJsonPostRequestOptions(data, SITECORECDP_REST_API_BASIC_AUTH);
+    var requestOptions = GetDefaultJsonPostRequestOptions(data, GetBasicAuthString());
 
-    var request = new Request(SITECORECDP_INTERACTIVE_API_TARGET + "/callFlows", requestOptions);
+    var request = new Request(GetLocalStorageOrDefaultValue("SITECORECDP_INTERACTIVE_API_TARGET") + "/callFlows", requestOptions);
     return Ajax(request);
 }
 //END BOXEVER REST API
@@ -842,7 +826,7 @@ function InitReplacers(data) {
             demoToolData.Replacers = {};
         }
         demoToolData.Replacers.BrowserId = Boxever.getID();
-        demoToolData.Replacers.BaseAppUrl = BASE_WEB_INTERFACE_URL;
+        demoToolData.Replacers.BaseAppUrl = GetLocalStorageOrDefaultValue("BASE_WEB_INTERFACE_URL");
 
         //Initialize UTM replacers.
         demoToolData.Replacers.UtmId = "";
@@ -893,16 +877,12 @@ function InitReplacers(data) {
             demoToolData.Replacers.location.isEU = response.isEU;
 
 
-            demoToolData.Replacers.location.currency = response.currency;
+            demoToolData.Replacers.location.language = response.language;
             demoToolData.Replacers.location.languages = response.languages ? response.languages.split(",") : [];
             demoToolData.Replacers.location.callingCode = response.calling_code;
-
-            if (!DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION) {
-                demoToolData.Replacers.location.organization = response.organization;
-            }
-            else {
-                demoToolData.Replacers.location.organization = DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION_VALUE;
-            }
+            demoToolData.Replacers.location.organization = (GetLocalStorageOrDefaultEnableDisableValue("DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION"))
+                ? GetLocalStorageOrDefaultValue("DEMOTOOL_OVERWRITE_LOCATION_ORGANIZATION")
+                : response.organization;
             demoToolData.Replacers.location.isp = response.isp;
 
             // Call weather service to get weather Configuration.
@@ -1901,19 +1881,21 @@ function InitializeInfoSlider() {
 function baseEvent(type) {
     var sitecoreEvent = {
         "browser_id": Boxever.getID(),
-        "channel": SITECORECDP_CHANNEL,
+        "channel": GetLocalStorageOrDefaultValue("SITECORECDP_CHANNEL"),
         "type": type,
-        "pos": SITECORECDP_POINT_OF_SALE
+        "pos": GetLocalStorageOrDefaultValue("SITECORECDP_POINT_OF_SALE")
     };
 
     if (type == SITECORECDP_VIEW_TYPE || type == SITECORECDP_IDENTITY_TYPE) {
-        sitecoreEvent.language = SITECORECDP_LANGUAGE;
-        sitecoreEvent.page = SITECORECDP_PAGE;
-        sitecoreEvent.currency = SITECORECDP_CURRENCY;
+        sitecoreEvent.language = GetLocalStorageOrDefaultValue("SITECORECDP_LANGUAGE");
+        sitecoreEvent.page = window.location.pathname + window.location.search;
+        sitecoreEvent.language = GetLocalStorageOrDefaultValue("SITECORECDP_CURRENCY");
     }
 
     return sitecoreEvent;
 }
+
+
 
 
 //If progressive parameter is true or not specified then event properties with empty values are not removed before submitting the event.
@@ -1994,9 +1976,9 @@ function SendGuestDataExtensions(extensionName, data, progressive = true) {
                 console.debug(JSON.stringify(storedExtensionData));
             }
 
-            var requestOptions = GetDefaultJsonPostRequestOptions(data, SITECORECDP_REST_API_BASIC_AUTH);
+            var requestOptions = GetDefaultJsonPostRequestOptions(data, GetBasicAuthString());
 
-            var request = new Request(SITECORECDP_INTERACTIVE_API_TARGET + "/guests/" + result.customer.ref + "/ext" + extensionName, requestOptions);
+            var request = new Request(GetLocalStorageOrDefaultValue("SITECORECDP_INTERACTIVE_API_TARGET") + "/guests/" + result.customer.ref + "/ext" + extensionName, requestOptions);
 
             Ajax(request).then(function (response) {
                 console.debug(CONSOLE_LOG_PREFIX + "SendGuestDataExtensions response:");
@@ -2236,8 +2218,8 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
                                 tempCollapsedProperties.push({ "Value": "{{createdAt::DateTime}} - {{type}}", "ShowLabel": false, "ShowIcon": false });
                             } else if (dataDefinition[propertiesType].some(e => { var p = Object.getOwnPropertyNames(e); if (p.includes('key') && p.includes('name')) { return true; } })) {
                                 tempCollapsedProperties.push({ "Value": "{{key}} ({{name}})", "ShowLabel": false, "ShowIcon": false });
-                            } else if (dataDefinition[propertiesType].some(e => { var p = Object.getOwnPropertyNames(e); if (p.includes('createdAt') && p.includes('channel') && p.includes('price') && p.includes('currencyCode')) { return true; } })) {
-                                tempCollapsedProperties.push({ "Value": "{{createdAt::DateTime}} // {{channel}} // @{{price}} {{currencyCode}}", "ShowLabel": false, "ShowIcon": false });
+                            } else if (dataDefinition[propertiesType].some(e => { var p = Object.getOwnPropertyNames(e); if (p.includes('createdAt') && p.includes('channel') && p.includes('price') && p.includes('languageCode')) { return true; } })) {
+                                tempCollapsedProperties.push({ "Value": "{{createdAt::DateTime}} // {{channel}} // @{{price}} {{languageCode}}", "ShowLabel": false, "ShowIcon": false });
                             }
 
                             if (tempCollapsedProperties.length > 0) {
@@ -2324,6 +2306,46 @@ function ComposeObject(parentHtmlElement, insideTooltip) {
 ////////////////START CONFIGURATION SLIDER//////////////
 
 
+function GetCurrenciesJson() {
+    return new Promise(function (resolve) {
+        var sessionStorageItemName = "DemoToolCurrencies";
+        var CurrenciesFromSessionStorage = sessionStorage.getItem(sessionStorageItemName);
+        if (CurrenciesFromSessionStorage) {
+            // Use currencies from sessionStorage
+            console.debug(CONSOLE_LOG_PREFIX + "Using currencies from session storage...");
+            resolve(JSON.parse(CurrenciesFromSessionStorage));
+        }
+        else {
+            // Call currencies json
+            console.debug(CONSOLE_LOG_PREFIX + "Calling currencies webservice...");
+            fetch(CURRENCIES_URL + "?" + new Date().toISOString()).then((response) => response.json()).then(function (response) {
+                sessionStorage.setItem(sessionStorageItemName, JSON.stringify(response));
+                resolve(response);
+            });
+        }
+    });
+}
+
+function GetLanguagesJson() {
+    return new Promise(function (resolve) {
+        var sessionStorageItemName = "DemoToolLanguages";
+        var LanguagesFromSessionStorage = sessionStorage.getItem(sessionStorageItemName);
+        if (LanguagesFromSessionStorage) {
+            // Use languages from sessionStorage
+            console.debug(CONSOLE_LOG_PREFIX + "Using languages from session storage...");
+            resolve(JSON.parse(LanguagesFromSessionStorage));
+        }
+        else {
+            // Call languages json
+            console.debug(CONSOLE_LOG_PREFIX + "Calling languages webservice...");
+            fetch(LANGUAGES_URL + "?" + new Date().toISOString()).then((response) => response.json()).then(function (response) {
+                sessionStorage.setItem(sessionStorageItemName, JSON.stringify(response));
+                resolve(response);
+            });
+        }
+    });
+}
+
 
 function GetConfigurationContainerDefinitionsJson() {
     return fetch(CONFIGURATIONCONTAINERDEFINITIONS_URL + "?" + new Date().toISOString())
@@ -2387,6 +2409,16 @@ function ComposeConfigurationAccordion(configurationAccordionDefinitionPath, par
 }
 
 
+function TestScript(codeMirrorElement) {
+    var code = "(function() {  " + codeMirrorElement.value + "; })()";
+    try {
+        eval(code); // func will be the function the user typed in the textarea
+    } catch (e) {
+        if (e instanceof SyntaxError) {
+            alert(e.message);
+        }
+    }
+}
 
 function ComposeConfigurationObject(parentHtmlElement) {
     let showObject = false;
@@ -2420,11 +2452,65 @@ function ComposeConfigurationObject(parentHtmlElement) {
                     ComposeDemoToolSeparator(propertyDefinition, i, parentHtmlElement);
                 }
                 else {
+                    var ConfigurationSetting = AppendElementAsChild(parentHtmlElement, 'div', { id: parentHtmlElement.id + propertyId, classList: "ConfigurationSetting", dataDefinitionPath: dataDefinitionPath + ".Properties." + i });
+
                     switch (propertyDefinition.DataType) {
                         case "Boolean":
-                            var BooleanConfigurationSetting = AppendElementAsChild(parentHtmlElement, 'div', { id: parentHtmlElement.id + propertyId, classList: "ConfigurationSetting", dataDefinitionPath: dataDefinitionPath + "." + i });
-                            var BooleanConfigurationSettingLabel = AppendElementAsChild(BooleanConfigurationSetting, 'label', { id: BooleanConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
-                            var BooleanConfigurationSettingValue = AppendElementAsChild(BooleanConfigurationSetting, 'input', { id: BooleanConfigurationSetting.id + "Value", type: "checkbox", classList: "ConfigurationSettingValue", checked: propertyDefinition.DefaultValue });
+                            var BooleanConfigurationSettingLabel = AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+                            var BooleanConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "checkbox", classList: "ConfigurationSettingValue", checked: GetLocalStorageOrDefaultValue(propertyDefinition.Property) });
+                            BooleanConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                            break;
+                        case "Currency":
+                            GetCurrenciesJson().then(function (currencies) {
+                                AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                                //Show DropDown
+                                var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
+                                for (var i = 0; i < currencies.length; i++) {
+                                    ConfigurationSettingValue.add(new Option(currencies[i].code));
+                                }
+
+                                ConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
+
+                                ConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                            });
+                            break;
+                        case "Language":
+                            GetLanguagesJson().then(function (languages) {
+                                AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                                //Show DropDown
+                                var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
+                                for (var i = 0; i < languages.length; i++) {
+                                    ConfigurationSettingValue.add(new Option(languages[i].name, languages[i].code.toUpperCase()));
+                                }
+
+                                ConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
+
+                                ConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                            });
+                            break;
+                        case "Script":
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+                            var ConfigurationSettingValueClassList = "ConfigurationSettingValue";
+
+                            //Show Textbox
+                            var ConfigurationSettingScript = AppendElementAsChild(ConfigurationSetting, 'textarea', { id: ConfigurationSetting.id + "Value", rows: "10", classList: ConfigurationSettingValueClassList });
+                            ConfigurationSettingScript.addEventListener("change", function () { SaveConfigurationSetting(this); });
+
+                            /** eslint-next-line */
+                            var cm = CodeMirror.fromTextArea(ConfigurationSettingScript, {
+                                mode: { name: "javascript", globalVars: true },
+                                extraKeys: { "Ctrl-Space": "autocomplete" },
+                                lineNumbers: true
+                            });
+
+                            cm.value = GetLocalStorageOrDefaultScript(propertyDefinition.Property);  //ConfigurationSetting.DefaultScript
+
+                            cm.addEventListener("change", function () { SaveConfigurationSetting(this); });
+
+                            var ConfigurationSettingScriptTestButton = AppendElementAsChild(ConfigurationSetting, 'button', { id: ConfigurationSetting.id + "TestButton", classList: "testscriptButton", innerText: "Test Script" });
+                            ConfigurationSettingScriptTestButton.addEventListener("click", function () { TestScript(cm);});
                             break;
                         case "Array":
                         case "Object":
@@ -2434,12 +2520,19 @@ function ComposeConfigurationObject(parentHtmlElement) {
                         case "Timestamp":
                         case "Property":
                         default:
-                            var ConfigurationSetting = AppendElementAsChild(parentHtmlElement, 'div', { id: parentHtmlElement.id + propertyId, classList: "ConfigurationSetting", dataDefinitionPath: dataDefinitionPath + "." + i });
-                            var ConfigurationSettingLabel = AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                            var ConfigurationSettingValueClassList = "ConfigurationSettingValue";
                             if (propertyDefinition.EnableDisable) {
-                                var ConfigurationSettingEnabled = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "checkbox", classList: "ConfigurationSettingValue", checked: propertyDefinition.DefaultValue });
+                                //Show Checkbox
+                                var ConfigurationSettingEnabledValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "EnabledValue", type: "checkbox", classList: "EnableDisableConfigurationSettingValue", checked: GetLocalStorageOrDefaultEnableDisableValue(propertyDefinition.Property) });
+                                ConfigurationSettingEnabledValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                                ConfigurationSettingValueClassList = "EnableDisableConfigurationSettingValue";
                             }
-                            var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "text", classList: "ConfigurationSettingValue", value: propertyDefinition.DefaultValue });
+
+                            //Show Textbox
+                            var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "text", classList: ConfigurationSettingValueClassList, value: GetLocalStorageOrDefaultValue(propertyDefinition.Property) });
+                            ConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
                     }
                 }
                 showObject = true;
@@ -2452,21 +2545,117 @@ function ComposeConfigurationObject(parentHtmlElement) {
 }
 
 
+function SearchPropertyRecursively(properties, propertyValue) {
+    if (properties) {
+        for (var i = 0; i < properties.length; i++) {
+            if (properties[i].Property == propertyValue) {
+                return properties[i];
+            }
+            else {
+                if (properties[i].Properties) {
+                    return SearchPropertyRecursively(properties[i].Properties, propertyValue);
+                }
+            }
+        }
+    }
+
+    return null;
+}
+
+
+function GetPropertyDefinition(property) {
+    var propertyDefinition;
+
+    for (var i = 0; i < demoToolData.ConfigurationAccordionDefinitions.Accordions.length; i++) {
+        var accordion = demoToolData.ConfigurationAccordionDefinitions.Accordions[i];
+        propertyDefinition = SearchPropertyRecursively(accordion.Properties, property);
+
+        if (propertyDefinition) {
+            break;
+        }
+    }
+    return propertyDefinition;
+}
+
+function GetLocalStorageOrDefaultValue(property) {
+    var propertyDefinition = GetPropertyDefinition(property);
+
+    var localStorageValue = GetLocalStorageDemoToolConfiguration()[property];
+    var defaultValue = (propertyDefinition) ? propertyDefinition.DefaultValue : "";
+
+    return (localStorageValue) ? localStorageValue : defaultValue;
+}
+
+function GetLocalStorageOrDefaultScript(property) {
+    var propertyDefinition = GetPropertyDefinition(property);
+
+    var localStorageScript = GetLocalStorageDemoToolConfiguration()[property];
+    var defaultScript = (propertyDefinition) ? propertyDefinition.DefaultScript : "";
+
+    return (localStorageScript) ? localStorageScript : defaultScript;
+}
+
+
+function GetLocalStorageOrDefaultEnableDisableValue(property) {
+    var propertyDefinition = GetPropertyDefinition(property);
+
+    var localStorageValue = GetLocalStorageDemoToolConfiguration()[property + "_ENABLED"];
+    var defaultValue = (propertyDefinition) ? propertyDefinition.DefaultEnableDisableValue : false;
+
+    return (localStorageValue) ? localStorageValue : defaultValue;
+}
+
+
+function GetLocalStorageDemoToolConfiguration() {
+    var localStorageDemoToolConfiguration = localStorage.getItem("DemoToolConfiguration")
+    if (!localStorageDemoToolConfiguration) {
+        localStorageDemoToolConfiguration = {};
+    } else {
+        localStorageDemoToolConfiguration = JSON.parse(localStorageDemoToolConfiguration);
+    }
+    return localStorageDemoToolConfiguration;
+}
+
+
+function SaveConfigurationSetting(htmlElement) {
+    var dataDefinitionPath = GetDataDefinitionPathByHtmlElement(htmlElement);
+    var dataDefinition = GetConfigurationDataDefinitionByPath(dataDefinitionPath);
+
+    var localStorageDemoToolConfiguration = GetLocalStorageDemoToolConfiguration();
+    //If enable/disable checkbox add _enabled suffix
+    var property = (htmlElement.id.endsWith("EnabledValue")) ? dataDefinition.Property + "_ENABLED" : dataDefinition.Property;
+
+    var value = htmlElement.value;
+    var defaultValue = dataDefinition.DefaultValue;
+
+    // Overwrite value with checked value if element is a checkbox.
+    if (htmlElement.type == "checkbox") {
+        value = htmlElement.checked;
+    }
+
+    //If enable/disable checkbox.
+    if (htmlElement.id.endsWith("EnabledValue")) {
+        defaultValue = dataDefinition.DefaultEnableDisableValue;
+    }
+
+    if (defaultValue == value) {
+        //Value is the same as defaultValue in configuration definition
+        delete localStorageDemoToolConfiguration[property];
+    } else {
+        //Value is not the same as defaultValue in configuration definition
+        localStorageDemoToolConfiguration[property] = value;
+    }
+
+    localStorage.setItem('DemoToolConfiguration', JSON.stringify(localStorageDemoToolConfiguration));
+}
+
 
 function ComposeConfigurationAccordions(parentHtmlElement) {
     console.debug(CONSOLE_LOG_PREFIX + "Starting ComposeConfigurationAccordions...");
 
-    GetConfigurationContainerDefinitionsJson().then(function (json) {
-        console.debug(CONSOLE_LOG_PREFIX + "GetCConfigurationContainerDefinitionsJson() returns:");
-        console.debug(json);
-
-        demoToolData.ConfigurationAccordionDefinitions = json;
-
-        for (var i = 0; i < json.Accordions.length; i++) {
-            ComposeConfigurationAccordion("Accordions." + i, parentHtmlElement);
-        }
-
-    });
+    for (var i = 0; i < demoToolData.ConfigurationAccordionDefinitions.Accordions.length; i++) {
+        ComposeConfigurationAccordion("Accordions." + i, parentHtmlElement);
+    }
 
     console.debug(CONSOLE_LOG_PREFIX + "Ended ComposeConfigurationAccordions.");
 }
@@ -2497,6 +2686,44 @@ function AddConfigurationSliderClickEventHandlers(ConfigurationSlider, Configura
         ConfigurationSliderToggleIcon.classList.toggle(DEMOTOOL_FONTAWESOME_CIRCLEINFO);
         ConfigurationSliderToggleIcon.classList.toggle(DEMOTOOL_FONTAWESOME_CIRCLEXMARK);
     };
+}
+
+
+
+function AddConfigurationSliderExportConfigurationButtonClickEventHandlers(button) {
+    button.addEventListener("click", function (e) {
+        e.preventDefault();
+        var a = document.createElement('a');
+        var blob = new Blob([JSON.stringify(GetLocalStorageDemoToolConfiguration())], { type: "text/plain" });
+        var url = URL.createObjectURL(blob);
+        a.setAttribute('href', url);
+        a.setAttribute('download', "DemoToolExport.txt");
+        a.click();
+    });
+}
+
+
+function AddConfigurationSliderImportConfigurationButtonClickEventHandlers(button) {
+    var inputFile = button.nextSibling;
+
+    button.addEventListener("click", function (inputFile) {
+        inputFile.click();
+    });
+
+    inputFile.addEventListener("change", function (e) {
+        var openFile = function (event) {
+            var input = e.target;
+
+            var reader = new FileReader();
+            reader.onload = function () {
+                var text = reader.result;
+                //                var node = document.getElementById('output');
+                //               node.innerText = text;
+                console.log(reader.result.substring(0, 200));
+            };
+            reader.readAsText(input.files[0]);
+        };
+    });
 }
 
 function InitializeConfigurationSlider() {
@@ -2536,6 +2763,19 @@ function InitializeConfigurationSlider() {
 
     //Configuration Slider Header Top Right Bottom
     var ConfigurationSliderBodyHeaderTopRightBottom = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRight, "div", { id: ConfigurationSliderBodyHeaderTopRight.id + "Bottom", classList: "demoToolConfigurationSliderBodyHeaderTopRightBottom" });
+
+
+    //Import configuration button
+    var ImportconfigurationButtonDataId = "ImportConfigurationButton";
+    var ConfigurationSliderBodyHeaderTopRightBottomImportConfigurationButton = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRightBottom, 'i', { id: ConfigurationSliderBodyHeaderTopRightBottom.id + ImportconfigurationButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILE_IMPORT + " " + "importconfigurationbutton", title: IMPORTCONFIGURATION_TEXT });
+    var ConfigurationSliderBodyHeaderTopRightBottomImportConfigurationButtonInputFile = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRightBottom, 'input', { id: ConfigurationSliderBodyHeaderTopRightBottom.id + ImportconfigurationButtonDataId + "InputFile", type: 'file', classList: "importconfigurationfile", style: "display:none" });
+    AddConfigurationSliderImportConfigurationButtonClickEventHandlers(ConfigurationSliderBodyHeaderTopRightBottomImportConfigurationButton);
+
+    //Export configuration button
+    var ExportconfigurationButtonDataId = "ExportConfigurationButton";
+    var ConfigurationSliderBodyHeaderTopRightBottomExportConfigurationButton = AppendElementAsChild(ConfigurationSliderBodyHeaderTopRightBottom, 'i', { id: ConfigurationSliderBodyHeaderTopRightBottom.id + ExportconfigurationButtonDataId, classList: DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_FILE_EXPORT + " " + "exportconfigurationbutton", title: EXPORTCONFIGURATION_TEXT });
+    AddConfigurationSliderExportConfigurationButtonClickEventHandlers(ConfigurationSliderBodyHeaderTopRightBottomExportConfigurationButton);
+
 
     var ConfigurationSliderBodyAccordions = AppendElementAsChild(ConfigurationSliderBody, 'div', { id: ConfigurationSliderBody.id + "Accordions", classList: "demoToolConfigurationSliderBodyAccordions" });
 
@@ -2624,18 +2864,48 @@ function ToggleKeyboardKeyCapture() {
 
 // Load necessary CSS & JavaScript Libraries asynchronously
 (function () {
-    LoadJavascriptAsync(SITECORECDP_JS_LIB_SRC).then(() => {
-        if (SEND_VIEW_EVENT) {
-            // If send view event on every page load
-            SendViewEventToSitecoreCdp();
-        }
+    GetConfigurationContainerDefinitionsJson().then(function (json) {
+        demoToolData.ConfigurationAccordionDefinitions = json;
 
-        LoadJavascriptAsync(PLURALIZE_JS);
-        LoadStyleSheetAsync(FONT_MONTSERRAT_CSS);
-        LoadStyleSheetAsync(FONT_AWESOME_CSS);
-        LoadStyleSheetAsync(DEMOTOOL_CSS, true);
+        // Define the Boxever settings
+        unsafeWindow._boxever_settings = {
+            client_key: GetLocalStorageOrDefaultValue("SITECORECDP_CLIENT_KEY"), // Replace with your client key
+            target: GetLocalStorageOrDefaultValue("SITECORECDP_STREAM_API_TARGET"), // Replace with your API target endpoint specific to your data center region
+            cookie_domain: GetLocalStorageOrDefaultValue("SITECORECDP_COOKIE_DOMAIN"), // Replace with the top level cookie domain of the website that is being integrated e.g ".example.com" and not "www.example.com"
+            javascriptLibraryVersion: GetLocalStorageOrDefaultValue("SITECORECDP_CLIENTVERSION"), // Replace with the latest Boxever JavaScript Library version"
+            pointOfSale: GetLocalStorageOrDefaultValue("SITECORECDP_POINT_OF_SALE"), // Replace with the same point of sale configured in system settings"
+            web_flow_target: GetLocalStorageOrDefaultValue("SITECORECDP_WEB_FLOW_TARGET"), // Replace with path for the Amazon CloudFront CDN for Sitecore Personalize"
+            web_flow_config: { async: true, defer: true } // Customize the async and defer script loading attributes
+        };
 
-        InitializeInfoSlider();
-        InitializeConfigurationSlider();
+        LoadJavascriptAsync(SITECORECDP_JS_LIB_SRC).then(() => {
+            LoadStyleSheetAsync(FONT_MONTSERRAT_CSS).then(() => {
+                LoadStyleSheetAsync(FONT_AWESOME_CSS).then(() => {
+                    LoadStyleSheetAsync(CODEMIRROR_CSS).then(() => {
+                        LoadStyleSheetAsync(CODEMIRROR_SHOW_HINT_CSS).then(() => {
+                            LoadStyleSheetAsync(DEMOTOOL_CSS, true).then(() => {
+                            });
+                        });
+                    });
+                });
+            });
+
+            LoadJavascriptAsync(PLURALIZE_JS);
+            LoadJavascriptAsync(CODEMIRROR_JS).then(() => {
+                LoadJavascriptAsync(CODEMIRROR_SHOW_HINT_JS).then(() => {
+                    LoadJavascriptAsync(CODEMIRROR_JAVASCRIPT_HINT_JS).then(() => {
+                        LoadJavascriptAsync(CODEMIRROR_JAVASCRIPT_MODE_JS).then(() => {
+                            InitializeConfigurationSlider();
+                            InitializeInfoSlider();
+                        });
+                    });
+                });
+            });
+
+            if (GetLocalStorageOrDefaultValue("SEND_VIEW_EVENT")) {
+                // If send view event on every page load
+                SendViewEventToSitecoreCdp();
+            }
+        });
     });
 })();
