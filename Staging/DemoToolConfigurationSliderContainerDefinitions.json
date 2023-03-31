@@ -240,7 +240,7 @@
           "Property": "Send_View_Event_Script",
           "HtmlElementId": "SendViewEventScript",
           "Label": "Send View Event Script",
-          "DefaultScript": "GetIPGeolocation().then(function (response) {\r\n        console.debug(CONSOLE_LOG_PREFIX + \"Starting SendViewEventToSitecoreCdp...\");\r\n\r\n        var viewEvent = baseEvent(SITECORECDP_VIEW_TYPE);\r\n        viewEvent.sessionData = {\r\n            \"uri\": window.location.pathname,\r\n            \"ipInfo\": {\r\n                \"ipAddress\": response.ip,\r\n                \"latitude\": response.latitude,\r\n                \"longitude\": response.longitude,\r\n                \"city\": response.city,\r\n                \"country\": response.country_name\r\n            }\r\n        };\r\n        SendTrackingDataToSitecoreCdp(viewEvent);\r\n\r\n        console.debug(CONSOLE_LOG_PREFIX + \"Ended SendViewEventToSitecoreCdp.\");\r\n    });\r\n}",
+          "DefaultScript": "GetIPGeolocation().then(function (response) {\n        console.debug(CONSOLE_LOG_PREFIX + \"Starting SendViewEventToSitecoreCdp...\");\n\n        var viewEvent = baseEvent(SITECORECDP_VIEW_TYPE);\n        viewEvent.sessionData = {\n            \"uri\": window.location.pathname,\n            \"ipInfo\": {\n                \"ipAddress\": response.ip,\n                \"latitude\": response.latitude,\n                \"longitude\": response.longitude,\n                \"city\": response.city,\n                \"country\": response.country_name\n            }\n        };\n        SendTrackingDataToSitecoreCdp(viewEvent);\n\n        console.debug(CONSOLE_LOG_PREFIX + \"Ended SendViewEventToSitecoreCdp.\");\n    });\n}",
           "DataType": "Script"
         }
       ]
