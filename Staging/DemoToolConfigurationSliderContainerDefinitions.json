@@ -254,7 +254,7 @@
           "HtmlElementId": "EmbeddedStyleSheet",
           "Label": "Embedded Style Sheet",
           "DefaultValue": "",
-          "DataType": "Stylesheet"
+          "DataType": "StyleSheet"
         }
       ]
     }
