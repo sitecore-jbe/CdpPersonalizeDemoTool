@@ -244,6 +244,19 @@
           "DataType": "Script"
         }
       ]
+    },
+    {
+      "Name": "Styles",
+      "HtmlElementId": "Styles",
+      "Properties": [
+        {
+          "Property": "EmbeddedStyleSheet",
+          "HtmlElementId": "EmbeddedStyleSheet",
+          "Label": "Embedded Style Sheet",
+          "DefaultValue": "",
+          "DataType": "Stylesheet"
+        }
+      ]
     }
   ]
 }
