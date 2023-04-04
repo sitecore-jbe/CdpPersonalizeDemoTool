@@ -123,8 +123,8 @@
       ]
     },
     {
-      "Name": "Required Parameters",
-      "HtmlElementId": "RequiredParameters",
+      "Name": "Engage Javascript Settings",
+      "HtmlElementId": "EngageJavascriptSettings",
       "Properties": [
         {
           "Property": "SITECORECDP_COOKIE_DOMAIN",
