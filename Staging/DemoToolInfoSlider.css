@@ -154,6 +154,9 @@
 #DemoToolConfigurationSlider .ResetButton {float: right;height: 21px; width: 21px; }
 #DemoToolConfigurationSlider .ResetButtonIcon {font-size: 13px; display: flex; margin-left: -3px; margin-top: 2px;}
 
+#DemoToolConfigurationSlider .TestScriptButton {float: right;height: 21px; width: 21px; }
+#DemoToolConfigurationSlider .TestScriptButtonIcon {font-size: 13px; display: flex; margin-left: -3px; margin-top: 2px;}
+
 
 .CodeMirror-hints {
     z-index: 1000003;
