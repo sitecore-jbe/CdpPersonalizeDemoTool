@@ -82,7 +82,7 @@ const DEMOTOOL_FONTAWESOME_BARSSTAGGERED = "fa-bars-staggered";
 const DEMOTOOL_FONTAWESOME_BARS = "fa-bars";
 const DEMOTOOL_FONTAWESOME_FILTERCIRCLEXMARK = "fa-filter-circle-xmark";
 const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
-const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
+const DEMOTOOL_FONTAWESOME_VIAL = "fa-vial";
 const DEMOTOOL_FONTAWESOME_FILE_EXPORT = "fa-file-export";
 const DEMOTOOL_FONTAWESOME_FILE_IMPORT = "fa-file-import";
 const DEMOTOOL_FONTAWESOME_ROTATE_LEFT = "fa-rotate-left"
@@ -2421,7 +2421,7 @@ function ComposeConfigurationAccordion(configurationAccordionDefinitionPath, par
 
 
 function TestScript(codeMirrorElement) {
-    var code = "(function() {  " + codeMirrorElement.value + "; })()";
+    var code = "(function() {  " + codeMirrorElement.getDoc().getValue() + "; })()";
     try {
         eval(code); // func will be the function the user typed in the textarea
     } catch (e) {
@@ -2447,7 +2447,8 @@ function AppendCodeMirrorEditorAsChild(parentHtmlElement, property, mode) {
     cm.on('change', () => {
         cm.save();
         SaveConfigurationSetting(cm.getTextArea());
-    })
+    });
+    return cm;
 }
 
 function ComposeConfigurationObject(parentHtmlElement) {
@@ -2498,6 +2499,27 @@ function ComposeConfigurationObject(parentHtmlElement) {
                                 SaveConfigurationSetting(this.previousSibling);
                             });
                             break;
+                        case "StreamAPITargetEndpoint":
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                            //Show DropDown
+                            var streamAPITargetEndpointConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
+                            streamAPITargetEndpointConfigurationSettingValue.add(new Option("AP Region", "https://api-engage-ap.sitecorecloud.io​"));
+                            streamAPITargetEndpointConfigurationSettingValue.add(new Option("EU Region", "https://api-engage-eu.sitecorecloud.io"));
+                            streamAPITargetEndpointConfigurationSettingValue.add(new Option("US Region", "https://api-engage-us.sitecorecloud.io"));
+                            streamAPITargetEndpointConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
+                            streamAPITargetEndpointConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+
+
+                            //Reset Button
+                            var streamAPITargetEndpointConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
+                            streamAPITargetEndpointConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                this.previousSibling.value = configurationDataDefinition.DefaultValue;
+                                SaveConfigurationSetting(this.previousSibling);
+                            });
+
+                            break;
                         case "Currency":
                             AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
 
@@ -2510,7 +2532,7 @@ function ComposeConfigurationObject(parentHtmlElement) {
                                 currencyConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
                                 currencyConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
                             });
-                            
+
                             //Reset Button
                             var currencyConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
                             currencyConfigurationSettingResetButton.addEventListener("click", function () {
@@ -2532,7 +2554,7 @@ function ComposeConfigurationObject(parentHtmlElement) {
                                 languageConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
                                 languageConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
                             });
-                            
+
                             //Reset Button
                             var languageConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
                             languageConfigurationSettingResetButton.addEventListener("click", function () {
@@ -2546,29 +2568,35 @@ function ComposeConfigurationObject(parentHtmlElement) {
                             AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
 
                             //Code Mirror Editor
-                            AppendCodeMirrorEditorAsChild(ConfigurationSetting, propertyDefinition.Property, "javascript");
+                            var scriptCodeMirrorEditor = AppendCodeMirrorEditorAsChild(ConfigurationSetting, propertyDefinition.Property, "javascript");
 
                             //Reset Button
                             var scriptConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default embedded styles");
                             scriptConfigurationSettingResetButton.addEventListener("click", function () {
                                 var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
-                                cm.getDoc().setValue(configurationDataDefinition.DefaultValue);
+                                //var cm = CodeMirror(this.previousSibling.previousSibling);
+
+                                scriptCodeMirrorEditor.getDoc().setValue(configurationDataDefinition.DefaultValue);
                             });
 
-                            var ConfigurationSettingScriptTestButton = AppendElementAsChild(ConfigurationSetting, 'button', { id: ConfigurationSetting.id + "TestButton", classList: "testscriptButton", innerText: "Test Script" });
-                            ConfigurationSettingScriptTestButton.addEventListener("click", function () { TestScript(cm); });
+                            var ConfigurationSettingScriptTestButton = AppendElementAsChild(ConfigurationSetting, 'button', { id: ConfigurationSetting.id + "TestButton", classList: "TestScriptButton", title: "Test Script" });
+                            var buttonIcon = AppendElementAsChild(ConfigurationSettingScriptTestButton, 'i', { id: ConfigurationSettingScriptTestButton.id + "Icon", classList: "TestScriptButtonIcon " + DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_VIAL });
+                            ConfigurationSettingScriptTestButton.addEventListener("click", function () {
+                                TestScript(scriptCodeMirrorEditor);
+                            });
                             break;
                         case "StyleSheet":
                             AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
 
                             //Code Mirror Editor
-                            AppendCodeMirrorEditorAsChild(ConfigurationSetting, propertyDefinition.Property, "css");
+                            var styleSheetCodeMirrorEditor = AppendCodeMirrorEditorAsChild(ConfigurationSetting, propertyDefinition.Property, "css");
 
                             //Reset Button
                             var stylesheetConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default embedded styles");
                             stylesheetConfigurationSettingResetButton.addEventListener("click", function () {
                                 var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
-                                cm.getDoc().setValue(configurationDataDefinition.DefaultValue);
+                                //var cm = CodeMirror(this.previousSibling.previousSibling);
+                                scriptCodeMirrorEditor.getDoc().setValue(configurationDataDefinition.DefaultValue);
                             });
 
                             break;
@@ -2579,6 +2607,7 @@ function ComposeConfigurationObject(parentHtmlElement) {
                         case "DateTime":
                         case "Timestamp":
                         case "Property":
+                        case "NaturalNumber":
                         default:
                             AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
 
