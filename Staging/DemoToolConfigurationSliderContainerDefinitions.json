@@ -77,6 +77,24 @@
       "HtmlElementId": "ApiSettings",
       "Properties": [
         {
+          "Property": "SITECORECDP_STREAM_API_TARGET_ENDPOINT",
+          "HtmlElementId": "StreamApiTargetEndpoint",
+          "Help": {
+            "Text": "When you integrate, you send data using the Stream API. Your Stream API target endpoint depends on the environment of your Sitecore CDP instance. To find the environment, in Sitecore CDP, on the navigation pane, click the gear icon, Company information, Environment.",
+            "Links": [
+              {
+                "Link": "https://doc.sitecore.com/cdp/en/developers/api/index-en.html#UUID-d5fdb6b2-5ee6-a577-600b-c4250c69e3e8"
+              }
+            ]
+          },
+          "Label": "Stream API Target Endpoint",
+          "DefaultValue": "https://api-engage-eu.sitecorecloud.io",
+          "DataType": "StreamAPITargetEndpoint"
+        },
+        {
+          "Seperator": true
+        },
+        {
           "Property": "SITECORECDP_STREAM_API_TARGET",
           "HtmlElementId": "StreamApiTarget",
           "Label": "Stream API Target",
