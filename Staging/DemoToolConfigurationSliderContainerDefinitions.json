@@ -159,14 +159,26 @@
           "DataType": "NaturalNumber"
         },
         {
-          "Seperator": true
-        },
-        {
           "Property": "SITECORECDP_FORCE_SERVER_COOKIE_MODE",
           "HtmlElementId": "ForceServerCookieMode",
           "Label": "Force Server Cookie Mode",
           "DefaultValue": false,
           "DataType": "Boolean"
+        },
+        {
+          "Property": "SITECORECDP_COOKIE_PATH",
+          "HtmlElementId": "CookiePath",
+          "Help": {
+            "Text": "A URL path that must exist in the requested URL in order to send the cookie.",
+            "Links": [
+              {
+                "Link": "https://doc.sitecore.com/cdp/en/developers/api/index-en.html#UUID-c6f7f508-1347-41f1-36f6-57563b24cac6"
+              }
+            ]
+          },
+          "Label": "Cookie Path",
+          "DefaultValue": "",
+          "DataType": "String"
         },
         {
           "Seperator": true
@@ -175,6 +187,24 @@
           "Property": "SITECORECDP_INCLUDE_UTM_PARAMETERS",
           "HtmlElementId": "IncludeUTMParameters",
           "Label": "Include UTM Parameters",
+          "DefaultValue": true,
+          "DataType": "Boolean"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_WEB_PERSONALIZATION",
+          "HtmlElementId": "WebPersonalization",
+          "Help": {
+            "Text": "On the client side, specify whether you want to run personalization with Sitecore Personalize. This attribute is not available on the server side. If you don't specify this attribute on the client side, or if you specify it and set the value to false, personalization will not be available. If you set the value to true or to an object, you must also specify the pointOfSale. If you set the value to true, a web personalization script will load in your app with async but without defer. To customize the loading of the script, set the value to an object. In the object, customize async and defer using asyncScriptLoading and deferScriptLoading, respectively. For these attributes, set the values to boolean values. The default is false.",
+            "Links": [
+              {
+                "Link": "https://doc.sitecore.com/cdp/en/developers/api/index-en.html#UUID-c6f7f508-1347-41f1-36f6-57563b24cac6"
+              }
+            ]
+          },
+          "Label": "Web Personalization",
           "DefaultValue": true,
           "DataType": "Boolean"
         },
