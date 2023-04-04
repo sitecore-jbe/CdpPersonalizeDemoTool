@@ -123,8 +123,8 @@
       ]
     },
     {
-      "Name": "Engage Javascript Settings",
-      "HtmlElementId": "EngageJavascriptSettings",
+      "Name": "Engage JavaScript Library Settings",
+      "HtmlElementId": "EngageJavascriptLibrarySettings",
       "Properties": [
         {
           "Property": "SITECORECDP_COOKIE_DOMAIN",
@@ -132,6 +132,33 @@
           "Label": "Cookie Domain",
           "DefaultValue": ".sportingkampenhout.be",
           "DataType": "String"
+        },
+        {
+          "Property": "SITECORECDP_COOKIE_EXPIRY_DAYS",
+          "HtmlElementId": "CookieExpiryDays",
+          "Label": "Cookie Expiry Days",
+          "DefaultValue": "365",
+          "DataType": "NaturalNumber"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_FORCE_SERVER_COOKIE_MODE",
+          "HtmlElementId": "ForceServerCookieMode",
+          "Label": "Force Server Cookie Mode",
+          "DefaultValue": false,
+          "DataType": "Boolean"
+        },
+        {
+          "Seperator": true
+        },
+        {
+          "Property": "SITECORECDP_INCLUDE_UTM_PARAMETERS",
+          "HtmlElementId": "IncludeUTMParameters",
+          "Label": "Include UTM Parameters",
+          "DefaultValue": true,
+          "DataType": "Boolean"
         },
         {
           "Seperator": true
