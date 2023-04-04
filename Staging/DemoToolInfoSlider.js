@@ -39,7 +39,7 @@ const SITECORECDP_CLIENTVERSION = "1.4.9"; // TODO: Try to not need it - use fro
 const ENVIRONMENT = "Staging"; //"Production" or "Staging"
 const SITECORECDP_JS_LIB_SRC = { id: "SITECORECDP_JS_LIB_SRC", url: "//d1mj578wat5n4o.cloudfront.net/boxever-" + SITECORECDP_CLIENTVERSION + ".js" };
 const PLURALIZE_JS = { id: "PLURALIZE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/pluralize/8.0.0/pluralize.min.js" };
-const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" };
+const FONT_AWESOME_CSS = { id: "FONT_AWESOME_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" };
 const FONT_MONTSERRAT_CSS = { id: "FONT_MONTSERRAT_CSS", url: "//fonts.googleapis.com/css?family=Montserrat" };
 const DEMOTOOL_GITHUB_REPOSITORY_URL = "https://github.com/sitecore-jbe/CdpPersonalizeDemoTool/";
 const DEMOTOOL_GITHUB_DEPLOYMENT_URL = "https://sitecore-jbe.github.io/CdpPersonalizeDemoTool/";
@@ -48,6 +48,8 @@ const CODEMIRROR_JS = { id: "CODEMIRROR_JS", url: "//cdnjs.cloudflare.com/ajax/l
 const CODEMIRROR_CSS = { id: "CODEMIRROR_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/codemirror.min.css" };
 const CODEMIRROR_JAVASCRIPT_MODE_JS = { id: "CODEMIRROR_JAVASCRIPT_MODE_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/javascript/javascript.min.js" };
 const CODEMIRROR_JAVASCRIPT_HINT_JS = { id: "CODEMIRROR_JAVASCRIPT_HINT_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/javascript-hint.min.js" };
+const CODEMIRROR_CSS_MODE_JS = { id: "CODEMIRROR_JAVASCRIPT_MODE_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/css/css.min.js" };
+const CODEMIRROR_CSS_HINT_JS = { id: "CODEMIRROR_JAVASCRIPT_HINT_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/css-hint.min.js" };
 const CODEMIRROR_SHOW_HINT_JS = { id: "CODEMIRROR_SHOW_HINT_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.js" };
 const CODEMIRROR_SHOW_HINT_CSS = { id: "CODEMIRROR_SHOW_HINT_CSS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/addon/hint/show-hint.min.css" };
 const CODEMIRROR_MARKDOWN_JS = { id: "CODEMIRROR_MARKDOWN_JS", url: "//cdnjs.cloudflare.com/ajax/libs/codemirror/6.65.7/mode/markdown/markdown.min.js" };
@@ -83,6 +85,7 @@ const DEMOTOOL_FONTAWESOME_FILTER = "fa-filter";
 const DEMOTOOL_FONTAWESOME_VIALCIRCLECHECK = "fa-vial-circle-check";
 const DEMOTOOL_FONTAWESOME_FILE_EXPORT = "fa-file-export";
 const DEMOTOOL_FONTAWESOME_FILE_IMPORT = "fa-file-import";
+const DEMOTOOL_FONTAWESOME_ROTATE_LEFT = "fa-rotate-left"
 const DEMOTOOL_SITECORECDP_TARGET_NAME = "SitecoreCDP";
 const DEMOTOOL_GITHUB_TARGET_NAME = "Github"
 const DEMOTOOL_INFOSLIDER_ELEMENTNAME = "DemoToolInfoSlider";
@@ -698,21 +701,29 @@ function GetDataSetPropertyFromHtmlElementOrParents(property, htmlElement) {
     }
 }
 
-//Configuration Slider specific
-function GetConfigurationDataDefinitionByPath(path) {
-    return GetPropertyFromObjectByPath(demoToolData.ConfigurationAccordionDefinitions, path);
-}
-
-
-function GetDataDefinitionByPath(path) {
-    return GetPropertyFromObjectByPath(demoToolData.AccordionDefinitions, path);
-}
-
 
 function GetDataDefinitionPathByHtmlElement(htmlElement) {
     return GetDataSetPropertyFromHtmlElementOrParents("definitionPath", htmlElement);
 }
 
+
+//Configuration Slider specific
+function GetConfigurationDataDefinitionByPath(path) {
+    return GetPropertyFromObjectByPath(demoToolData.ConfigurationAccordionDefinitions, path);
+}
+
+function GetConfigurationDataDefinitionByHtmlElement(htmlElement) {
+    var path = GetDataDefinitionPathByHtmlElement(htmlElement);
+
+    if (path) {
+        return GetConfigurationDataDefinitionByPath(path);
+    }
+}
+
+//Info Slider specific
+function GetDataDefinitionByPath(path) {
+    return GetPropertyFromObjectByPath(demoToolData.AccordionDefinitions, path);
+}
 
 function GetDataDefinitionByHtmlElement(htmlElement) {
     var path = GetDataDefinitionPathByHtmlElement(htmlElement);
@@ -2420,6 +2431,25 @@ function TestScript(codeMirrorElement) {
     }
 }
 
+function AppendConfigurationSettingResetButtonAsChild(parentHtmlElement, title) {
+    var button = AppendElementAsChild(parentHtmlElement, 'button', { id: parentHtmlElement.id + "ResetButton", classList: "ResetButton", title: title });
+    var buttonIcon = AppendElementAsChild(button, 'i', { id: button.id + "Icon", classList: "ResetButtonIcon " + DEMOTOOL_FONTAWESOME_STYLE_SOLID + " " + DEMOTOOL_FONTAWESOME_ROTATE_LEFT });
+    return button;
+}
+
+function AppendCodeMirrorEditorAsChild(parentHtmlElement, property, mode) {
+    var ConfigurationSettingScript = AppendElementAsChild(parentHtmlElement, 'textarea', { id: parentHtmlElement.id + "Value", rows: "10", classList: "ConfigurationSettingValue", value: GetLocalStorageOrDefaultValue(property) });
+    var cm = CodeMirror.fromTextArea(ConfigurationSettingScript, {
+        mode: { name: mode, globalVars: true },
+        extraKeys: { "Ctrl-Space": "autocomplete" },
+        lineNumbers: true
+    });
+    cm.on('change', () => {
+        cm.save();
+        SaveConfigurationSetting(cm.getTextArea());
+    })
+}
+
 function ComposeConfigurationObject(parentHtmlElement) {
     let showObject = false;
 
@@ -2456,61 +2486,91 @@ function ComposeConfigurationObject(parentHtmlElement) {
 
                     switch (propertyDefinition.DataType) {
                         case "Boolean":
-                            var BooleanConfigurationSettingLabel = AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
-                            var BooleanConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "checkbox", classList: "ConfigurationSettingValue", checked: GetLocalStorageOrDefaultValue(propertyDefinition.Property) });
-                            BooleanConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+                            var booleanConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "checkbox", classList: "ConfigurationSettingValue", checked: GetLocalStorageOrDefaultValue(propertyDefinition.Property) });
+                            booleanConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+
+                            //Reset Button
+                            var booleanConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
+                            booleanConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                this.previousSibling.checked = configurationDataDefinition.DefaultValue;
+                                SaveConfigurationSetting(this.previousSibling);
+                            });
                             break;
                         case "Currency":
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                            //Show DropDown
+                            var currencyConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
                             GetCurrenciesJson().then(function (currencies) {
-                                AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
-
-                                //Show DropDown
-                                var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
-                                for (var i = 0; i < currencies.length; i++) {
-                                    ConfigurationSettingValue.add(new Option(currencies[i].code));
+                                for (let j = 0; j < currencies.length; j++) {
+                                    currencyConfigurationSettingValue.add(new Option(currencies[j].code));
                                 }
-
-                                ConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
-
-                                ConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                                currencyConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
+                                currencyConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
                             });
+                            
+                            //Reset Button
+                            var currencyConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
+                            currencyConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                this.previousSibling.value = configurationDataDefinition.DefaultValue;
+                                SaveConfigurationSetting(this.previousSibling);
+                            });
+
                             break;
                         case "Language":
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                            //Show DropDown
+                            var languageConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
                             GetLanguagesJson().then(function (languages) {
-                                AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
-
-                                //Show DropDown
-                                var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'select', { id: ConfigurationSetting.id + "Value", classList: "ConfigurationSettingValue" });
-                                for (var i = 0; i < languages.length; i++) {
-                                    ConfigurationSettingValue.add(new Option(languages[i].name, languages[i].code.toUpperCase()));
+                                for (let j = 0; j < languages.length; j++) {
+                                    languageConfigurationSettingValue.add(new Option(languages[j].name, languages[j].code.toUpperCase()));
                                 }
-
-                                ConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
-
-                                ConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                                languageConfigurationSettingValue.value = GetLocalStorageOrDefaultValue(propertyDefinition.Property);
+                                languageConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
                             });
+                            
+                            //Reset Button
+                            var languageConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
+                            languageConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                this.previousSibling.value = configurationDataDefinition.DefaultValue;
+                                SaveConfigurationSetting(this.previousSibling);
+                            });
+
                             break;
                         case "Script":
                             AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
-                            var ConfigurationSettingValueClassList = "ConfigurationSettingValue";
 
-                            //Show Textbox
-                            var ConfigurationSettingScript = AppendElementAsChild(ConfigurationSetting, 'textarea', { id: ConfigurationSetting.id + "Value", rows: "10", classList: ConfigurationSettingValueClassList });
-                            ConfigurationSettingScript.addEventListener("change", function () { SaveConfigurationSetting(this); });
+                            //Code Mirror Editor
+                            AppendCodeMirrorEditorAsChild(ConfigurationSetting, propertyDefinition.Property, "javascript");
 
-                            /** eslint-next-line */
-                            var cm = CodeMirror.fromTextArea(ConfigurationSettingScript, {
-                                mode: { name: "javascript", globalVars: true },
-                                extraKeys: { "Ctrl-Space": "autocomplete" },
-                                lineNumbers: true
+                            //Reset Button
+                            var scriptConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default embedded styles");
+                            scriptConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                cm.getDoc().setValue(configurationDataDefinition.DefaultValue);
                             });
 
-                            cm.value = GetLocalStorageOrDefaultScript(propertyDefinition.Property);   //d ConfigurationSetting.DefaultScript
-
-                            cm.addEventListener("change", function () { SaveConfigurationSetting(this); });
-
                             var ConfigurationSettingScriptTestButton = AppendElementAsChild(ConfigurationSetting, 'button', { id: ConfigurationSetting.id + "TestButton", classList: "testscriptButton", innerText: "Test Script" });
-                            ConfigurationSettingScriptTestButton.addEventListener("click", function () { TestScript(cm);});
+                            ConfigurationSettingScriptTestButton.addEventListener("click", function () { TestScript(cm); });
+                            break;
+                        case "StyleSheet":
+                            AppendElementAsChild(ConfigurationSetting, 'label', { id: ConfigurationSetting.id + "Label", classList: "ConfigurationSettingLabel", innerHTML: propertyDefinition.Label + ":" });
+
+                            //Code Mirror Editor
+                            AppendCodeMirrorEditorAsChild(ConfigurationSetting, propertyDefinition.Property, "css");
+
+                            //Reset Button
+                            var stylesheetConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default embedded styles");
+                            stylesheetConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                cm.getDoc().setValue(configurationDataDefinition.DefaultValue);
+                            });
+
                             break;
                         case "Array":
                         case "Object":
@@ -2533,6 +2593,19 @@ function ComposeConfigurationObject(parentHtmlElement) {
                             //Show Textbox
                             var ConfigurationSettingValue = AppendElementAsChild(ConfigurationSetting, 'input', { id: ConfigurationSetting.id + "Value", type: "text", classList: ConfigurationSettingValueClassList, value: GetLocalStorageOrDefaultValue(propertyDefinition.Property) });
                             ConfigurationSettingValue.addEventListener("change", function () { SaveConfigurationSetting(this); });
+
+                            //Reset Button
+                            var defaultConfigurationSettingResetButton = AppendConfigurationSettingResetButtonAsChild(ConfigurationSetting, "Reset to default value");
+                            defaultConfigurationSettingResetButton.addEventListener("click", function () {
+                                var configurationDataDefinition = GetConfigurationDataDefinitionByHtmlElement(this);
+                                this.previousSibling.value = configurationDataDefinition.DefaultValue;
+                                SaveConfigurationSetting(this.previousSibling);
+                                if (configurationDataDefinition.EnableDisable) {
+                                    //Show Checkbox
+                                    this.previousSibling.previousSibling.checked = configurationDataDefinition.DefaultEnableDisableValue;
+                                    SaveConfigurationSetting(this.previousSibling.previousSibling);
+                                }
+                            });
                     }
                 }
                 showObject = true;
@@ -2583,16 +2656,7 @@ function GetLocalStorageOrDefaultValue(property) {
     var localStorageValue = GetLocalStorageDemoToolConfiguration()[property];
     var defaultValue = (propertyDefinition) ? propertyDefinition.DefaultValue : "";
 
-    return (localStorageValue) ? localStorageValue : defaultValue;
-}
-
-function GetLocalStorageOrDefaultScript(property) {
-    var propertyDefinition = GetPropertyDefinition(property);
-
-    var localStorageScript = GetLocalStorageDemoToolConfiguration()[property];
-    var defaultScript = (propertyDefinition) ? propertyDefinition.DefaultScript : "";
-
-    return (localStorageScript) ? localStorageScript : defaultScript;
+    return (localStorageValue != null) ? localStorageValue : defaultValue;
 }
 
 
@@ -2602,7 +2666,7 @@ function GetLocalStorageOrDefaultEnableDisableValue(property) {
     var localStorageValue = GetLocalStorageDemoToolConfiguration()[property + "_ENABLED"];
     var defaultValue = (propertyDefinition) ? propertyDefinition.DefaultEnableDisableValue : false;
 
-    return (localStorageValue) ? localStorageValue : defaultValue;
+    return (localStorageValue != null) ? localStorageValue : defaultValue;
 }
 
 
@@ -2895,8 +2959,12 @@ function ToggleKeyboardKeyCapture() {
                 LoadJavascriptAsync(CODEMIRROR_SHOW_HINT_JS).then(() => {
                     LoadJavascriptAsync(CODEMIRROR_JAVASCRIPT_HINT_JS).then(() => {
                         LoadJavascriptAsync(CODEMIRROR_JAVASCRIPT_MODE_JS).then(() => {
-                            InitializeConfigurationSlider();
-                            InitializeInfoSlider();
+                            LoadJavascriptAsync(CODEMIRROR_CSS_HINT_JS).then(() => {
+                                LoadJavascriptAsync(CODEMIRROR_CSS_MODE_JS).then(() => {
+                                    InitializeConfigurationSlider();
+                                    InitializeInfoSlider();
+                                });
+                            });
                         });
                     });
                 });
