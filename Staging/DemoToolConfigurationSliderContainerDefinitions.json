@@ -159,13 +159,6 @@
           "DataType": "NaturalNumber"
         },
         {
-          "Property": "SITECORECDP_FORCE_SERVER_COOKIE_MODE",
-          "HtmlElementId": "ForceServerCookieMode",
-          "Label": "Force Server Cookie Mode",
-          "DefaultValue": false,
-          "DataType": "Boolean"
-        },
-        {
           "Property": "SITECORECDP_COOKIE_PATH",
           "HtmlElementId": "CookiePath",
           "Help": {
@@ -179,6 +172,13 @@
           "Label": "Cookie Path",
           "DefaultValue": "",
           "DataType": "String"
+        },
+        {
+          "Property": "SITECORECDP_FORCE_SERVER_COOKIE_MODE",
+          "HtmlElementId": "ForceServerCookieMode",
+          "Label": "Force Server Cookie Mode",
+          "DefaultValue": false,
+          "DataType": "Boolean"
         },
         {
           "Seperator": true
