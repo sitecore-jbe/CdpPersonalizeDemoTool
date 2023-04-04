@@ -178,7 +178,7 @@
         },
         {
           "Property": "SITECORECDP_IDENTITY_PROVIDER",
-          "HtmlElementId": "Identity Provider",
+          "HtmlElementId": "IdentityProvider",
           "Label": "Identity Provider",
           "DefaultValue": "SITECORE_ID",
           "DataType": "String"
