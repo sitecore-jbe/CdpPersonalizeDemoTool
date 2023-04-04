@@ -144,7 +144,7 @@
 /* Enableable settings checkbox*/
 #DemoToolConfigurationSlider input[type=checkbox].EnableDisableConfigurationSettingValue { accent-color: red; width: auto; float: left; margin-right: 10px; }
 #DemoToolConfigurationSlider input[type=checkbox].EnableDisableConfigurationSettingValue:checked { accent-color: green; width: auto; float: left; margin-right: 10px; }
-#DemoToolConfigurationSlider .EnableDisableConfigurationSettingValue { font-size: 12px; width: 385px; }
+#DemoToolConfigurationSlider .EnableDisableConfigurationSettingValue { font-size: 12px; width: 362px; }
 
 #DemoToolConfigurationSlider select.ConfigurationSettingValue { -webkit-appearance: auto; height: 21px; appearance: auto; padding-left: 2px; }
 
