@@ -134,7 +134,7 @@
 
 #DemoToolConfigurationSlider .ConfigurationSetting { width: -webkit-fill-available; margin: 2px 10px 2px 10px;}
 #DemoToolConfigurationSlider .ConfigurationSettingLabel { font-size: 12px; }
-#DemoToolConfigurationSlider .ConfigurationSettingValue { font-size: 12px; width: 390px; }
+#DemoToolConfigurationSlider .ConfigurationSettingValue { font-size: 12px; width: 385px; }
 #DemoToolConfigurationSlider hr.seperator { margin-top: 3px; margin-bottom: 3px; border-style: solid; border-color: rgb(221, 221, 221); border-width: 1px 0 0; clear: both; height:0;}
 
 /* Configuration Slider Accordion Content Scollbar */
@@ -151,8 +151,8 @@
 #DemoToolConfigurationSlider .exportconfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 #DemoToolConfigurationSlider .importconfigurationbutton { width: 17px; height: 17px; font-size: 13px; margin-top: 2px; margin-right: 2px; float: right; color: black; border-radius: 3px; background-color: LightGray; padding: 2px 0 0 3px; }
 
-#DemoToolConfigurationSlider .resetbutton {float: right;height: 20px; width: 20px; }
-#DemoToolConfigurationSlider .resetbuttonIcon {font-size: 13px; display: flex; margin-left: -4px; }
+#DemoToolConfigurationSlider .ResetButton {float: right;height: 20px; width: 20px; }
+#DemoToolConfigurationSlider .ResetButtonIcon {font-size: 13px; display: flex; margin-left: -4px; }
 
 
 .CodeMirror-hints {
