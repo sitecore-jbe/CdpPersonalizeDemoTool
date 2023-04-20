@@ -317,6 +317,13 @@
           "Label": "Send View Event Script",
           "DefaultValue": "GetIPGeolocation().then(function (response) {\n        console.debug(CONSOLE_LOG_PREFIX + 'Starting SendViewEventToSitecoreCdp...');\n\n        var viewEvent = baseEvent(SITECORECDP_VIEW_TYPE);\n        viewEvent.sessionData = {\n            'uri': window.location.pathname,\n            'ipInfo': {\n                'ipAddress': response.ip,\n                'latitude': response.latitude,\n                'longitude': response.longitude,\n                'city': response.city,\n                'country': response.country_name\n            }\n        };\n        SendTrackingDataToSitecoreCdp(viewEvent);\n\n        console.debug(CONSOLE_LOG_PREFIX + 'Ended SendViewEventToSitecoreCdp.'););",
           "DataType": "Script"
+        },
+        {
+          "Property": "Keyboard_Scripts",
+          "HtmlElementId": "KeyboardScripts",
+          "Label": "Keyboard Scripts",
+          "DefaultValue": null,
+          "DataType": "KeyboardScripts"
         }
       ]
     },
