@@ -315,7 +315,7 @@
           "Property": "Send_View_Event_Script",
           "HtmlElementId": "SendViewEventScript",
           "Label": "Send View Event Script",
-          "DefaultValue": "GetIPGeolocation().then(function (response) {\n        console.debug(CONSOLE_LOG_PREFIX + 'Starting SendViewEventToSitecoreCdp...');\n\n        var viewEvent = baseEvent(SITECORECDP_VIEW_TYPE);\n        viewEvent.sessionData = {\n            'uri': window.location.pathname,\n            'ipInfo': {\n                'ipAddress': response.ip,\n                'latitude': response.latitude,\n                'longitude': response.longitude,\n                'city': response.city,\n                'country': response.country_name\n            }\n        };\n        SendTrackingDataToSitecoreCdp(viewEvent);\n\n        console.debug(CONSOLE_LOG_PREFIX + 'Ended SendViewEventToSitecoreCdp.'););",
+          "DefaultValue": "const sendPageViewEvent = async () => {\n  const eventData = {\n    channel: GetLocalStorageOrDefaultValue(\"SITECORECDP_CHANNEL\"),\n    currency: GetLocalStorageOrDefaultValue(\"SITECORECDP_CURRENCY\"),\n    pointOfSale: GetLocalStorageOrDefaultValue(\"SITECORECDP_POINT_OF_SALE\"),\n    language: GetLocalStorageOrDefaultValue(\"SITECORECDP_LANGUAGE\"),\n    page: window.location.pathname\n  };\n\n  const extensionData = {\n    customKey: \"customValue\"\n  };\n\n  await unsafeWindow.engage.pageView(eventData, extensionData);\n};\n\n\nconsole.debug(CONSOLE_LOG_PREFIX + 'Starting SendViewEventToSitecoreCdp...');\nsendPageViewEvent();\nconsole.debug(CONSOLE_LOG_PREFIX + 'Ended SendViewEventToSitecoreCdp.');",
           "DataType": "Script"
         },
         {
