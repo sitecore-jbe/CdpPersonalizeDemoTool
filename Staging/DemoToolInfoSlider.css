@@ -154,9 +154,14 @@
 #DemoToolConfigurationSlider .ResetButton {float: right;height: 21px; width: 21px; }
 #DemoToolConfigurationSlider .ResetButtonIcon {font-size: 13px; display: flex; margin-left: -3px; margin-top: 2px;}
 
+#DemoToolConfigurationSlider .AddButton {float: right;height: 21px; width: 21px; }
+#DemoToolConfigurationSlider .AddButtonIcon {font-size: 13px; display: flex; margin-left: -3px; margin-top: 2px; color: green}
+
 #DemoToolConfigurationSlider .TestScriptButton {float: right;height: 21px; width: 21px; }
 #DemoToolConfigurationSlider .TestScriptButtonIcon {font-size: 13px; display: flex; margin-left: -3px; margin-top: 2px;}
 
+#DemoToolConfigurationSlider .tooltip { font-size: 12px; border-radius: 10px; display: none; border: 1px solid lightgray; z-index: 1000002; opacity: 1; background-color: white; min-width:450px; max-width:550px; }
+#DemoToolConfigurationSlider .tooltip[data-show] { padding:1rem; display: block;}
 
 .CodeMirror-hints {
     z-index: 1000003;
