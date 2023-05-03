@@ -167,7 +167,7 @@
 #DemoToolConfigurationSlider .tootltipheader hr.seperator { margin-top: 3px; margin-bottom: 3px;}
 #DemoToolConfigurationSlider .tooltipcontent { margin: 10px; }
 
-#DemoToolConfigurationSlider kbd { border: 1px solid darkgrey; border-radius: 3px; box-shadow: 1px 1px grey; font-size: .825rem; background-color: white; margin: 5px; color: black;}
+#DemoToolConfigurationSlider kbd { border: 1px solid darkgrey; border-radius: 3px; box-shadow: 1px 1px grey; font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; font-size: 12px; background-color: white; color: black;}
 
 .CodeMirror-hints {
     z-index: 1000003;
