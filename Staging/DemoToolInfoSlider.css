@@ -167,7 +167,7 @@
 #DemoToolConfigurationSlider .tootltipheader hr.seperator { margin-top: 3px; margin-bottom: 3px;}
 #DemoToolConfigurationSlider .tooltipcontent { margin: 10px; }
 
-
+#DemoToolConfigurationSlider kbd { border: 2px solid var(--border-secondary); border-radius: var(--elem-radius); box-shadow: var(--border-secondary); box-shadow: inset 0 -1px 0 0 var(--border-secondary); font-size: .825rem; padding: 0.25rem;}
 
 .CodeMirror-hints {
     z-index: 1000003;
