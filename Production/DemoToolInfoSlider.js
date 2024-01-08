@@ -9,7 +9,7 @@ var SEND_VIEW_EVENT = true;
 //Using var instead of const - to allow override in tampermonkey
 var SITECORECDP_CLIENT_KEY = "sise3eux6k2504uchriujeee6q87pzzn"; // Sitecore Sales Engineering 3 EU tenant - do not change
 var SITECORECDP_REST_API_BASIC_AUTH = "Basic c2lzZTNldXg2azI1MDR1Y2hyaXVqZWVlNnE4N3B6em46akpGa2o2ZlRGOGQwcTRrUW1STTZsQlc2Y1VmclNMd2s="; //Sitecore Sales Engineering 3 EU tenant - do not change
-var SITECORECDP_COOKIE_DOMAIN = ".sportingkampenhout.be"; //replace TLD with your client/prospect
+var SITECORECDP_COOKIE_DOMAIN = ""; //replace TLD with your client/prospect
 var SITECORECDP_CHANNEL = "WEB";
 var SITECORECDP_VIEW_TYPE = "VIEW";
 var SITECORECDP_IDENTITY_TYPE = "IDENTITY";
