@@ -40,7 +40,7 @@
 #DemoToolInfoSlider .AccordionContent { line-height:normal; font-size: 12px; font-weight: normal; background-color: white; height: 500px; width: 400px; max-height: 0; overflow: hidden; transition: max-height 0.2s ease-in-out; }
 
 /* Info Slider Accordion Button */
-#DemoToolInfoSlider button.AccordionButton { -moz-appearance: button; width: 100%; background-color: lightgrey; border: none; text-align: left; padding: 15px 10px 15px 5px; font-size: 16px; color: #212621; text-transform: capitalize; cursor: pointer; transition: background-color 0.2s linear; font-weight: 600;}
+#DemoToolInfoSlider button.AccordionButton { align-items: center; border-radius: inherit; max-width: inherit; min-width: inherit; justify-content:inherit; display:inherit; -moz-appearance: button; width: 100%; background-color: lightgrey; border: none; text-align: left; padding: 15px 10px 15px 5px; font-size: 16px; color: #212621; text-transform: capitalize; cursor: pointer; transition: background-color 0.2s linear; font-weight: 600;}
 #DemoToolInfoSlider button.AccordionButton:after { content: "+"; font-size: 18px; float: right; }
 #DemoToolInfoSlider button.AccordionButton.open:after { content: "-"; }
 #DemoToolInfoSlider button.AccordionButton:hover, #scDemoTool-slider button.accordion.is-open { background-color: grey; }
