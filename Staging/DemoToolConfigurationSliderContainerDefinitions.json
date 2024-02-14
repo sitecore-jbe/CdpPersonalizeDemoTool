@@ -148,7 +148,7 @@
           "Property": "SITECORECDP_COOKIE_DOMAIN",
           "HtmlElementId": "CookieDomain",
           "Label": "Cookie Domain",
-          "DefaultValue": ".sportingkampenhout.be",
+          "DefaultValue": "",
           "DataType": "String"
         },
         {
